@@ -1,0 +1,67 @@
+{
+  "event": {
+    "name": "AFJ CARDIFF",
+    "subtitle": "Movement as Memory — 5th Anniversary Premiere",
+    "date": "2026-12-05",
+    "doors": "16:45",
+    "venue": "Dance House | Tŷ Dawns, Wales Millennium Centre"
+  },
+  "tickets": [
+    {
+      "id": "early-bird",
+      "name": "Early Bird",
+      "price": 15,
+      "allocation": 80,
+      "sold": 64,
+      "left": 16,
+      "includes": "Early release ticket · Documentary premiere, panel talk, live performances, fashion show & food reception",
+      "color": "#F7F40F"
+    },
+    {
+      "id": "general",
+      "name": "General Admission",
+      "price": 20,
+      "allocation": 140,
+      "sold": 98,
+      "left": 42,
+      "includes": "Standard entry · Doors 16:45, full programme 17:30–20:30 at Dance House | Tŷ Dawns",
+      "color": "#BE110E"
+    }
+  ],
+  "scanner": {
+    "verifyEndpoint": "",
+    "eventbriteOrg": "AFJ Cardiff",
+    "acceptedPrefixes": [
+      "AFJ-",
+      "EB-",
+      "EVT-",
+      "WMC-"
+    ],
+    "passes": [
+      {
+        "code": "AFJ-EB-2026-001",
+        "holder": "Amara Okafor",
+        "tier": "Early Bird",
+        "status": "valid"
+      },
+      {
+        "code": "AFJ-GA-2026-002",
+        "holder": "Tunde Adeyemi",
+        "tier": "General Admission",
+        "status": "valid"
+      },
+      {
+        "code": "AFJ-VIP-2026-003",
+        "holder": "Nadia Mensah",
+        "tier": "Collective Guest",
+        "status": "valid"
+      },
+      {
+        "code": "AFJ-USED-2026-004",
+        "holder": "Kwame Boateng",
+        "tier": "Early Bird",
+        "status": "checked_in"
+      }
+    ]
+  }
+}

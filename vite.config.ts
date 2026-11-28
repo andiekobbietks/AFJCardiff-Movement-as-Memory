@@ -176,11 +176,12 @@ export default defineConfig({
   plugins: [aisSyncStaticAndImportmapPlugin(importmapTable)],
   optimizeDeps: {
     noDiscovery: true,
-    include: [],
+    include: ['jsqr'],
   },
   server: {
     port: 3000,
     host: '0.0.0.0',
+    allowedHosts: true,
   },
   build: {
     assetsInlineLimit: 0,

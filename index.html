@@ -7,20 +7,68 @@
 <meta name="description" content="In celebration of its 5th Anniversary, AFJ Cardiff presents the exclusive premiere of 'Movement as Memory' — an original documentary on Afro dance beyond the trends, plus panel talk, food & drinks, live performances, and fashion show at Dance House | Tŷ Dawns, Wales Millennium Centre.">
 <meta property="og:title" content="AFJ Cardiff — 'Movement as Memory' · 5th Anniversary Premiere">
 <meta property="og:description" content="Saturday 5 December, 17:30–20:30 (Doors 16:45) at Dance House | Tŷ Dawns, Wales Millennium Centre, Cardiff. Early Bird £15, General Admission £20.">
+<meta name="theme-color" content="#080808">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --sodium: #FF7F5C;
-  --ink: #0A0A0A;
-  --paper: #FFFFFF;
-  --blue: #C8201B;
-  --pink: #F6E01E;
-  --green: #2BA676;
-  --lavender: #E8A63A;
-  --coral: #FF5A5A;
-  --mint: #22C98A;
+  /* Tier 1: Pixel-sampled event banner color ramp (image_5dce2ae2.png) + AFJ logo accents */
+  --ramp-ink-950: #080808;
+  --ramp-ink-900: #171717;
+  --ramp-ink-800: #272727;
+  --ramp-ink-600: #525252;
+  --ramp-paper-100: #F8F8F8;
+  --ramp-paper-050: #FFFFFF;
+  --ramp-crimson-700: #8F0D0A;
+  --ramp-crimson-500: #BE110E;
+  --ramp-crimson-400: #D82B22;
+  --ramp-coral-500: #FF8560;
+  --ramp-coral-300: #FFA88C;
+  --ramp-yellow-500: #F7F40F;
+  --ramp-yellow-300: #FBF96B;
+  --ramp-gold-500: #CC9A39;
+  --ramp-ochre-500: #CF7946;
+  --ramp-rose-500: #C13952;
+
+  /* Tier 2: Semantic design tokens */
+  --surface-obsidian: var(--ramp-ink-950);
+  --surface-charcoal: var(--ramp-ink-900);
+  --surface-coral: var(--ramp-coral-500);
+  --surface-paper: var(--ramp-paper-050);
+  --surface-paper-soft: var(--ramp-paper-100);
+  --text-strong: var(--ramp-paper-050);
+  --text-on-ink: var(--ramp-coral-500);
+  --text-on-light: var(--ramp-ink-950);
+  --text-muted-on-paper: var(--ramp-ink-800);
+  --border-subtle-dark: var(--ramp-ink-800);
+  --accent-cta: var(--ramp-crimson-500);
+  --accent-cta-deep: var(--ramp-crimson-700);
+  --accent-highlight: var(--ramp-yellow-500);
+  --accent-gold: var(--ramp-gold-500);
+  --accent-ochre: var(--ramp-ochre-500);
+  --accent-rose: var(--ramp-rose-500);
+
+  /* Semantic QR & status tokens (100% poster ramp, WCAG AA+) */
+  --status-valid-bg: var(--ramp-ink-950);
+  --status-valid-fg: var(--ramp-paper-050);
+  --status-valid-accent: var(--ramp-yellow-500);
+  --status-warn-bg: var(--ramp-yellow-500);
+  --status-warn-fg: var(--ramp-ink-950);
+  --status-error-bg: var(--ramp-crimson-500);
+  --status-error-fg: var(--ramp-paper-050);
+  --status-checking-bg: var(--ramp-gold-500);
+  --status-checking-fg: var(--ramp-ink-950);
+
+  /* Backward-compatible layout & surface aliases */
+  --sodium: var(--surface-coral);
+  --ink: var(--surface-obsidian);
+  --paper: var(--surface-paper);
+  --blue: var(--accent-cta);
+  --pink: var(--accent-highlight);
+  --green: var(--accent-rose);
+  --lavender: var(--accent-gold);
+  --coral: var(--accent-ochre);
 
   --s1: 4px;
   --s2: 8px;
@@ -39,10 +87,10 @@
   --sec-pad: 64px;
   --header-h: 56px;
 
-  --bg: var(--sodium);
-  --fg: var(--ink);
-  --focus: var(--ink);
-  --rule-color: var(--ink);
+  --bg: var(--surface-obsidian);
+  --fg: var(--text-on-ink);
+  --focus: var(--surface-coral);
+  --rule-color: var(--surface-coral);
   --rule: 1px solid var(--rule-color);
   --rule-strong: 2px solid var(--rule-color);
   --poster-u: 10px;
@@ -88,8 +136,8 @@
 html {
   font-family: "Inter Tight", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
   font-size: 16px;
-  background-color: var(--sodium);
-  color: var(--ink);
+  background-color: var(--surface-obsidian);
+  color: var(--text-strong);
   scroll-padding-top: 80px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -163,36 +211,75 @@ button {
 
 /* Surfaces */
 [data-surface="sodium"] {
-  --bg: var(--sodium);
-  --fg: var(--ink);
-  --focus: var(--ink);
-  --rule-color: var(--ink);
-  --rule: 1px solid var(--ink);
-  --rule-strong: 2px solid var(--ink);
-  background-color: var(--sodium);
-  color: var(--ink);
+  --bg: var(--surface-coral);
+  --fg: var(--text-on-light);
+  --focus: var(--text-on-light);
+  --rule-color: var(--text-on-light);
+  --rule: 1px solid var(--text-on-light);
+  --rule-strong: 2px solid var(--text-on-light);
+  --nav-active-bg: var(--surface-obsidian);
+  --nav-active-fg: var(--surface-coral);
+  --btn-bg: var(--surface-obsidian);
+  --btn-fg: var(--surface-coral);
+  --btn-disabled-fg: var(--text-on-light);
+  --btn-disabled-border: var(--text-on-light);
+  --chip-border: var(--text-on-light);
+  --chip-fg: var(--text-on-light);
+  --chip-active-bg: var(--surface-obsidian);
+  --chip-active-fg: var(--surface-coral);
+  --input-bg: var(--surface-paper);
+  --input-fg: var(--text-on-light);
+  --input-border: var(--text-on-light);
+  background-color: var(--surface-coral);
+  color: var(--text-on-light);
 }
 
 [data-surface="paper"] {
-  --bg: var(--paper);
-  --fg: var(--ink);
-  --focus: var(--ink);
-  --rule-color: var(--ink);
-  --rule: 1px solid var(--ink);
-  --rule-strong: 2px solid var(--ink);
-  background-color: var(--paper);
-  color: var(--ink);
+  --bg: var(--surface-paper);
+  --fg: var(--text-on-light);
+  --focus: var(--text-on-light);
+  --rule-color: var(--text-on-light);
+  --rule: 1px solid var(--text-on-light);
+  --rule-strong: 2px solid var(--text-on-light);
+  --nav-active-bg: var(--surface-obsidian);
+  --nav-active-fg: var(--surface-paper);
+  --btn-bg: var(--surface-obsidian);
+  --btn-fg: var(--surface-paper);
+  --btn-disabled-fg: var(--text-on-light);
+  --btn-disabled-border: var(--text-on-light);
+  --chip-border: var(--text-on-light);
+  --chip-fg: var(--text-on-light);
+  --chip-active-bg: var(--surface-obsidian);
+  --chip-active-fg: var(--surface-paper);
+  --input-bg: var(--surface-paper);
+  --input-fg: var(--text-on-light);
+  --input-border: var(--text-on-light);
+  background-color: var(--surface-paper);
+  color: var(--text-on-light);
 }
 
 [data-surface="ink"] {
-  --bg: var(--ink);
-  --fg: var(--sodium);
-  --focus: var(--sodium);
-  --rule-color: var(--sodium);
-  --rule: 1px solid var(--sodium);
-  --rule-strong: 2px solid var(--sodium);
-  background-color: var(--ink);
-  color: var(--sodium);
+  --bg: var(--surface-obsidian);
+  --fg: var(--text-on-ink);
+  --focus: var(--text-on-ink);
+  --rule-color: var(--border-subtle-dark);
+  --rule: 1px solid var(--border-subtle-dark);
+  --rule-strong: 2px solid var(--text-on-ink);
+  --nav-active-bg: var(--surface-coral);
+  --nav-active-fg: var(--surface-obsidian);
+  --btn-bg: var(--surface-coral);
+  --btn-fg: var(--surface-obsidian);
+  --btn-disabled-fg: var(--text-on-ink);
+  --btn-disabled-border: var(--text-on-ink);
+  --chip-border: var(--text-on-ink);
+  --chip-fg: var(--text-on-ink);
+  --chip-active-bg: var(--surface-coral);
+  --chip-active-fg: var(--surface-obsidian);
+  --input-bg: var(--surface-obsidian);
+  --input-fg: var(--text-on-ink);
+  --input-border: var(--text-on-ink);
+  background-color: var(--surface-obsidian);
+  color: var(--text-on-ink);
 }
 
 /* Typography scale */
@@ -370,6 +457,10 @@ button {
   align-items: center;
 }
 
+.site-header[data-surface="ink"] {
+  border-bottom: 1px solid var(--border-subtle-dark);
+}
+
 .header-grid {
   align-items: center;
 }
@@ -451,14 +542,9 @@ button {
 }
 
 .nav-link[aria-current="page"] {
-  background-color: var(--ink);
-  color: var(--sodium);
+  background-color: var(--nav-active-bg, var(--ink));
+  color: var(--nav-active-fg, var(--sodium));
   padding: 2px 4px;
-}
-
-[data-surface="ink"] .nav-link[aria-current="page"] {
-  background-color: var(--sodium);
-  color: var(--ink);
 }
 
 /* Text buttons and animated underline */
@@ -507,8 +593,8 @@ html:not(.motion-on) .u-anim:focus-visible::after {
   justify-content: center;
   height: 48px;
   padding: 0 20px;
-  background-color: var(--ink);
-  color: var(--sodium);
+  background-color: var(--btn-bg, var(--ink));
+  color: var(--btn-fg, var(--sodium));
   font-weight: 600;
   overflow: hidden;
   border: 0;
@@ -518,11 +604,6 @@ html:not(.motion-on) .u-anim:focus-visible::after {
 .btn-primary.btn-sm {
   height: 40px;
   padding: 0 16px;
-}
-
-[data-surface="ink"] .btn-primary {
-  background-color: var(--sodium);
-  color: var(--ink);
 }
 
 .btn-primary::before {
@@ -560,14 +641,9 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
 .btn-primary[aria-disabled="true"],
 .btn-stepper[aria-disabled="true"] {
   background-color: transparent;
-  color: var(--ink);
-  border: 1px solid var(--ink);
+  color: var(--btn-disabled-fg, var(--ink));
+  border: 1px solid var(--btn-disabled-border, var(--ink));
   cursor: not-allowed;
-}
-
-[data-surface="ink"] .btn-primary[aria-disabled="true"] {
-  color: var(--sodium);
-  border-color: var(--sodium);
 }
 
 .btn-strike {
@@ -586,16 +662,11 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
   gap: 6px;
   height: 32px;
   padding: 0 12px;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--chip-border, var(--ink));
   background-color: transparent;
-  color: var(--ink);
+  color: var(--chip-fg, var(--ink));
   font-weight: 500;
   white-space: nowrap;
-}
-
-[data-surface="ink"] .chip-toggle {
-  border-color: var(--sodium);
-  color: var(--sodium);
 }
 
 @media (pointer: coarse) {
@@ -609,17 +680,8 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
 }
 
 .chip-toggle[aria-pressed="true"] {
-  background-color: var(--ink);
-  color: var(--paper);
-}
-
-[data-surface="sodium"] .chip-toggle[aria-pressed="true"] {
-  color: var(--sodium);
-}
-
-[data-surface="ink"] .chip-toggle[aria-pressed="true"] {
-  background-color: var(--sodium);
-  color: var(--ink);
+  background-color: var(--chip-active-bg, var(--ink));
+  color: var(--chip-active-fg, var(--paper));
 }
 
 .chip-toggle[data-track="film"][aria-pressed="true"] {
@@ -636,7 +698,7 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
 
 .chip-toggle[data-track="live"][aria-pressed="true"] {
   background-color: var(--green);
-  color: var(--ink);
+  color: var(--paper);
   border-color: var(--ink);
 }
 
@@ -664,7 +726,7 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
 
 .track-chip-film { background-color: var(--blue); color: var(--paper); }
 .track-chip-panel { background-color: var(--pink); color: var(--ink); }
-.track-chip-live { background-color: var(--green); color: var(--ink); }
+.track-chip-live { background-color: var(--green); color: var(--paper); }
 .track-chip-fashion { background-color: var(--lavender); color: var(--ink); }
 
 .clash-chip {
@@ -887,6 +949,23 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
   padding-inline: var(--margin);
   padding-top: var(--s4);
   padding-bottom: var(--s6);
+}
+
+.hero-sec[data-surface="ink"] .hero-top-address,
+.hero-sec[data-surface="ink"] .hero-split-wrap {
+  color: var(--text-strong);
+}
+
+.hero-sec[data-surface="ink"] .hero-final-wrap {
+  color: var(--accent-highlight);
+}
+
+.hero-sec[data-surface="ink"] .hero-canvas {
+  border: 1px solid var(--border-subtle-dark);
+}
+
+#tracks[data-surface="ink"] {
+  border-top: 1px solid var(--border-subtle-dark);
 }
 
 @media (min-width: 1024px) {
@@ -1203,7 +1282,7 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
   border: 0;
   text-align: left;
   background-color: var(--track-band, var(--sodium));
-  color: var(--ink);
+  color: var(--track-fg, var(--ink));
 }
 
 #tracks-grid .track-panel-btn:hover,
@@ -1243,13 +1322,12 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
   font-weight: 500;
   line-height: 1.08;
   letter-spacing: -0.025em;
-  color: var(--ink);
+  color: inherit;
 }
 
 #tracks-grid .track-card-desc {
   margin-top: var(--s2);
-  color: var(--ink);
-  opacity: 0.88;
+  color: inherit;
 }
 
 #tracks-grid .track-card-foot {
@@ -1257,7 +1335,7 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
   align-items: flex-end;
   justify-content: space-between;
   gap: var(--s2);
-  color: var(--ink);
+  color: inherit;
 }
 
 #tracks-grid .track-card-arrow {
@@ -1314,7 +1392,7 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
 
 .day-session-row[data-track="film"]:hover { --hover-bg: var(--blue); --hover-fg: var(--paper); }
 .day-session-row[data-track="panel"]:hover { --hover-bg: var(--pink); --hover-fg: var(--ink); }
-.day-session-row[data-track="live"]:hover { --hover-bg: var(--green); --hover-fg: var(--ink); }
+.day-session-row[data-track="live"]:hover { --hover-bg: var(--green); --hover-fg: var(--paper); }
 .day-session-row[data-track="fashion"]:hover { --hover-bg: var(--lavender); --hover-fg: var(--ink); }
 
 .day-session-title {
@@ -1713,16 +1791,17 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
 
 .tl-session[data-track="film"] { background-color: var(--blue); color: var(--paper); --focus: var(--pink); }
 .tl-session[data-track="panel"] { background-color: var(--pink); color: var(--ink); }
-.tl-session[data-track="live"] { background-color: var(--green); color: var(--ink); }
+.tl-session[data-track="live"] { background-color: var(--green); color: var(--paper); --focus: var(--pink); }
 .tl-session[data-track="fashion"] { background-color: var(--lavender); color: var(--ink); }
 
 .tl-session.is-added {
-  border-left: 6px solid var(--mint);
+  outline: 2px solid var(--ramp-ink-950);
+  outline-offset: -2px;
 }
 
 .tl-session.is-clash {
-  box-shadow: none;
-  outline: 3px solid var(--coral);
+  box-shadow: inset 0 0 0 3px var(--ramp-paper-050);
+  outline: 3px solid var(--ramp-ink-950);
   outline-offset: -3px;
 }
 
@@ -1747,8 +1826,9 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
 }
 
 .tl-agenda-btn[aria-pressed="true"] {
-  background-color: var(--mint);
-  color: var(--ink);
+  background-color: var(--accent-highlight);
+  color: var(--ramp-ink-950);
+  border-color: var(--ramp-ink-950);
 }
 
 .tl-break {
@@ -1816,7 +1896,7 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
 
 .talk-row[data-track="film"]:hover td { --hover-bg: var(--blue); --hover-fg: var(--paper); }
 .talk-row[data-track="panel"]:hover td { --hover-bg: var(--pink); --hover-fg: var(--ink); }
-.talk-row[data-track="live"]:hover td { --hover-bg: var(--green); --hover-fg: var(--ink); }
+.talk-row[data-track="live"]:hover td { --hover-bg: var(--green); --hover-fg: var(--paper); }
 .talk-row[data-track="fashion"]:hover td { --hover-bg: var(--lavender); --hover-fg: var(--ink); }
 
 .talk-expand-row td {
@@ -1897,16 +1977,10 @@ html:not(.motion-on) .btn-primary:not([aria-disabled="true"]):hover::before {
 .text-input, .select-input {
   height: 44px;
   padding: 0 12px;
-  border: 1px solid var(--ink);
-  background-color: var(--paper);
-  color: var(--ink);
+  border: 1px solid var(--input-border, var(--ink));
+  background-color: var(--input-bg, var(--paper));
+  color: var(--input-fg, var(--ink));
   font-size: 1rem;
-}
-
-[data-surface="ink"] .text-input {
-  border-color: var(--sodium);
-  background-color: var(--ink);
-  color: var(--sodium);
 }
 
 mark {
@@ -2314,12 +2388,667 @@ dialog.raster-dialog::backdrop {
   height: auto;
   margin-bottom: var(--s5);
 }
+
+/* Agenda reminder settings panel & global alert banner */
+.reminders-panel {
+  background-color: var(--paper);
+  color: var(--ink);
+  border-bottom: var(--rule-strong);
+  padding-block: var(--s4);
+  display: none;
+}
+
+.reminders-panel.is-open {
+  display: block;
+}
+
+.reminders-panel-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s4);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .reminders-panel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .reminders-panel-grid {
+    grid-template-columns: 1.1fr 1.1fr 1.4fr;
+  }
+}
+
+.reminders-field-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
+  margin-top: var(--s2);
+}
+
+.reminders-min-input {
+  width: 88px;
+}
+
+.reminders-note-input {
+  width: 100%;
+  margin-top: var(--s2);
+}
+
+.reminders-status-meta {
+  margin-top: var(--s2);
+  color: var(--ink);
+}
+
+.reminders-armed-list {
+  margin-top: var(--s2);
+  border-top: var(--rule);
+}
+
+.reminders-armed-item {
+  padding: var(--s2) 0;
+  border-bottom: var(--rule);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+
+.reminder-banner {
+  position: fixed;
+  right: var(--margin);
+  bottom: calc(var(--s6) + var(--s2));
+  z-index: 110;
+  width: min(440px, calc(100vw - (var(--margin) * 2)));
+  background-color: var(--ink);
+  color: var(--paper);
+  border: 2px solid var(--lavender);
+  padding: var(--s3) var(--s4);
+  display: none;
+}
+
+.reminder-banner.is-visible {
+  display: block;
+}
+
+.reminder-banner-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+  color: var(--lavender);
+}
+
+.reminder-banner-actions {
+  margin-top: var(--s3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+
+/* Ticket QR scanner overlay */
+.tickets-action-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  height: 48px;
+  padding: 0 20px;
+  border: 2px solid var(--ink);
+  background-color: var(--paper);
+  color: var(--ink);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background-color: var(--ink);
+  color: var(--sodium);
+}
+
+dialog.raster-dialog.qr-dialog {
+  max-width: 680px;
+  max-height: calc(100svh - 32px);
+  overflow-y: auto;
+  padding: var(--s4);
+}
+
+@media (min-width: 768px) {
+  dialog.raster-dialog.qr-dialog {
+    padding: var(--s5);
+  }
+}
+
+.qr-dialog-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s3);
+  padding-bottom: var(--s3);
+  border-bottom: var(--rule);
+}
+
+.qr-tabs {
+  margin-top: var(--s4);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.qr-panel {
+  margin-top: var(--s4);
+}
+
+.qr-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 300px;
+  background-color: var(--ink);
+  color: var(--paper);
+  border: 2px solid var(--ink);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.qr-reticle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.qr-camera-msg {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  padding: var(--s4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--s3);
+  background-color: var(--ink);
+  color: var(--sodium);
+}
+
+.qr-camera-msg[hidden] {
+  display: none;
+}
+
+.qr-orient-tip {
+  position: relative;
+  margin-top: 10px;
+  background-color: var(--ink);
+  color: var(--paper);
+  border: 2px solid var(--accent-highlight);
+  padding: 10px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+}
+
+.qr-orient-tip[hidden] {
+  display: none;
+}
+
+.qr-orient-tip-body {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.qr-orient-tip-kicker {
+  color: var(--accent-highlight);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.qr-orient-dismiss {
+  --chip-border: var(--paper);
+  --chip-fg: var(--ink);
+  --chip-active-bg: var(--accent-highlight);
+  --chip-active-fg: var(--ink);
+  background-color: var(--paper);
+  color: var(--ink);
+  flex-shrink: 0;
+}
+
+.qr-upload-zone {
+  border: 2px dashed var(--ink);
+  padding: var(--s4);
+  background-color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s3);
+}
+
+.qr-upload-zone.is-dragover {
+  background-color: var(--sodium);
+}
+
+.qr-upload-preview {
+  max-width: 160px;
+  max-height: 160px;
+  border: 1px solid var(--ink);
+  display: none;
+}
+
+.qr-upload-preview.is-visible {
+  display: block;
+}
+
+.qr-manual-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  align-items: stretch;
+}
+
+.qr-manual-row .text-input {
+  flex: 1 1 240px;
+  min-width: 0;
+}
+
+.qr-samples-row {
+  margin-top: var(--s3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.qr-api-details {
+  margin-top: var(--s4);
+  border-top: var(--rule);
+  padding-top: var(--s3);
+}
+
+.qr-api-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.qr-result-box {
+  margin-top: var(--s4);
+  border: 2px solid var(--ink);
+  padding: var(--s4);
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.qr-result-box[data-status="valid"] {
+  background-color: var(--status-valid-bg);
+  color: var(--status-valid-fg);
+  border-color: var(--status-valid-accent);
+  --rule-color: var(--border-subtle-dark);
+  --rule: 1px solid var(--border-subtle-dark);
+  --focus: var(--status-valid-accent);
+}
+
+.qr-result-box[data-status="valid"] #qr-res-kicker {
+  color: var(--status-valid-accent);
+  font-weight: 600;
+}
+
+.qr-result-box[data-status="valid"] .btn-primary {
+  background-color: var(--status-valid-accent);
+  color: var(--ramp-ink-950);
+}
+
+.qr-result-box[data-status="valid"] .btn-primary:not([aria-disabled="true"]):hover {
+  color: var(--paper);
+}
+
+.qr-result-box[data-status="checked_in"] {
+  background-color: var(--status-warn-bg);
+  color: var(--status-warn-fg);
+}
+
+.qr-result-box[data-status="invalid"] {
+  background-color: var(--status-error-bg);
+  color: var(--status-error-fg);
+  --rule-color: var(--paper);
+  --rule: 1px solid var(--paper);
+  --focus: var(--paper);
+}
+
+.qr-result-box[data-status="checking"] {
+  background-color: var(--status-checking-bg);
+  color: var(--status-checking-fg);
+}
+
+.qr-result-meta {
+  margin-top: var(--s2);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--s2) var(--s4);
+  padding-top: var(--s2);
+  border-top: var(--rule);
+}
+
+.qr-result-actions {
+  margin-top: var(--s3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  align-items: center;
+}
+
+.qr-history-wrap {
+  margin-top: var(--s4);
+  padding-top: var(--s3);
+  border-top: var(--rule);
+}
+
+.qr-history-list {
+  margin-top: var(--s2);
+  border-top: var(--rule);
+}
+
+.qr-history-item {
+  padding: 8px 0;
+  border-bottom: var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+}
+
+.qr-history-meta {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+
+.qr-history-duration {
+  padding: 1px 6px;
+  border: 1px solid var(--ink);
+  background-color: var(--accent-highlight);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.qr-dialog-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--s2) var(--s3);
+}
+
+.qr-volume-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid var(--ink);
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.qr-volume-slider {
+  width: 84px;
+  accent-color: var(--ink);
+  cursor: pointer;
+  margin: 0;
+}
+
+.qr-haptic-note {
+  margin-top: var(--s2);
+  color: var(--text-muted-on-paper);
+}
+
+.adinkra-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 14px var(--margin);
+  background-color: var(--surface-obsidian);
+  border-top: 2px solid var(--accent-highlight);
+  border-bottom: 2px solid var(--accent-highlight);
+  color: var(--accent-highlight);
+  overflow: hidden;
+}
+
+.adinkra-divider-pattern {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.adinkra-stamp-row {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.adinkra-gallery-dialog {
+  width: min(680px, calc(100vw - 32px));
+  max-height: 85vh;
+  padding: var(--s5);
+  background-color: var(--paper);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+}
+
+.adinkra-gallery-grid {
+  margin-top: var(--s4);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--s3);
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.adinkra-card {
+  position: relative;
+  border: 2px solid var(--ink);
+  padding: var(--s3);
+  background-color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  text-align: left;
+}
+
+.adinkra-card:hover {
+  background-color: var(--sodium);
+  transform: translateY(-1px);
+}
+
+.adinkra-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.adinkra-name-wrap {
+  position: relative;
+  cursor: help;
+}
+
+.adinkra-card-preview {
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--ink);
+  background-color: var(--ink);
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  flex-shrink: 0;
+  position: relative;
+  cursor: help;
+}
+
+.adinkra-tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background-color: var(--surface-obsidian);
+  color: var(--paper);
+  border: 2px solid var(--accent-highlight);
+  padding: 6px 10px;
+  font-size: 11px;
+  line-height: 1.35;
+  width: max-content;
+  max-width: 240px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+  z-index: 50;
+  white-space: normal;
+  text-align: left;
+}
+
+.adinkra-tooltip-preview {
+  left: auto;
+  right: 0;
+}
+
+.adinkra-tooltip-kicker {
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 10px;
+  color: var(--accent-highlight);
+  margin-bottom: 2px;
+}
+
+.adinkra-tooltip-text {
+  display: block;
+  color: var(--paper);
+}
+
+.adinkra-tooltip::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 16px;
+  border: 5px solid transparent;
+  border-bottom-color: var(--accent-highlight);
+}
+
+.adinkra-tooltip-preview::before {
+  left: auto;
+  right: 18px;
+}
+
+.adinkra-name-wrap:hover .adinkra-tooltip,
+.adinkra-name-wrap:focus-within .adinkra-tooltip,
+.adinkra-card-preview:hover .adinkra-tooltip,
+.adinkra-card-preview:focus-within .adinkra-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.adinkra-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: var(--s3);
+}
+
+.qr-summary-card {
+  margin-top: var(--s4);
+  border: 2px solid var(--ink);
+  padding: var(--s3) var(--s4);
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.qr-summary-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s2) var(--s3);
+}
+
+.qr-summary-total-row {
+  margin-top: var(--s2);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s2);
+  padding-bottom: var(--s2);
+  border-bottom: var(--rule-strong);
+}
+
+.qr-summary-tiers {
+  margin-top: var(--s2);
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: var(--s4);
+}
+
+@media (min-width: 540px) {
+  .qr-summary-tiers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.qr-summary-tier-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+  padding: 6px 0;
+  border-bottom: var(--rule);
+}
 </style>
 </head>
-<body data-surface="sodium">
+<body data-surface="ink">
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" role="banner" data-surface="sodium" id="site-header">
+<header class="site-header" role="banner" data-surface="ink" id="site-header">
   <div class="grid header-grid">
     <a class="logo-link" href="#/" aria-label="AFJ Cardiff, front page" id="header-logo-link"></a>
     <nav class="main-nav" aria-label="Main" id="header-nav"></nav>
@@ -2353,25 +3082,52 @@ dialog.raster-dialog::backdrop {
 
 <footer class="site-footer" role="contentinfo" data-surface="ink" id="site-footer"></footer>
 
-<button type="button" class="top-btn t-micro u-anim" id="top-btn" data-surface="sodium">(Top)</button>
+<button type="button" class="top-btn t-micro u-anim" id="top-btn" data-surface="ink">(Top)</button>
+
+<div id="reminder-banner" class="reminder-banner" role="status" aria-live="polite" data-surface="ink">
+  <div class="reminder-banner-head t-micro">
+    <span id="reminder-banner-kicker">(Session reminder)</span>
+    <span id="reminder-banner-time" class="tnum"></span>
+  </div>
+  <p class="t-lead" id="reminder-banner-title" style="margin-top:6px;"></p>
+  <p class="t-small" id="reminder-banner-meta" style="margin-top:6px;"></p>
+  <p class="t-small" id="reminder-banner-note" style="margin-top:8px;color:var(--pink);"></p>
+  <div class="reminder-banner-actions">
+    <a class="btn-text t-micro u-anim" href="#/schedule" id="reminder-banner-link">(Open schedule)</a>
+    <button type="button" class="btn-text t-micro u-anim" id="reminder-banner-dismiss">(Dismiss)</button>
+  </div>
+</div>
 
 <div id="tip" role="tooltip" class="t-micro"></div>
 <canvas id="trail-canvas" aria-hidden="true"></canvas>
 <canvas id="wipe-canvas" aria-hidden="true"></canvas>
+<script type="module">
+  import jsQR from "jsqr";
+  window.AFJ_JSQR = jsQR;
+</script>
 <script>
 "use strict";
 
 const DATA = {
   tokens: {
-    sodium: "#FF7F5C",
-    ink: "#0A0A0A",
+    obsidian: "#080808",
+    charcoal: "#171717",
+    soot: "#272727",
     paper: "#FFFFFF",
-    blue: "#C8201B",
-    pink: "#F6E01E",
-    green: "#2BA676",
-    lavender: "#E8A63A",
-    coral: "#FF5A5A",
-    mint: "#22C98A"
+    paperSoft: "#F8F8F8",
+    crimson: "#BE110E",
+    crimsonDeep: "#8F0D0A",
+    coral: "#CF7946",
+    coralTile: "#FF8560",
+    yellow: "#F7F40F",
+    gold: "#CC9A39",
+    rose: "#C13952",
+    sodium: "#FF8560",
+    ink: "#080808",
+    blue: "#BE110E",
+    pink: "#F7F40F",
+    green: "#C13952",
+    lavender: "#CC9A39"
   },
   meta: {
     name: "AFJ CARDIFF",
@@ -2493,9 +3249,9 @@ const DATA = {
     {
       id: "film",
       label: "Documentary",
-      bg: "#C8201B",
-      fg: "#FF7F5C",
-      chipBg: "#C8201B",
+      bg: "#BE110E",
+      fg: "#FFFFFF",
+      chipBg: "#BE110E",
       chipFg: "#FFFFFF",
       motif: "film frame",
       desc: "Exclusive premiere of 'Movement as Memory': Afro dance roots, history & cultural transmission.",
@@ -2522,10 +3278,10 @@ const DATA = {
     {
       id: "panel",
       label: "Panel Talk",
-      bg: "#F6E01E",
-      fg: "#0A0A0A",
-      chipBg: "#F6E01E",
-      chipFg: "#0A0A0A",
+      bg: "#F7F40F",
+      fg: "#080808",
+      chipBg: "#F7F40F",
+      chipFg: "#080808",
       motif: "dialogue",
       desc: "Afro dance beyond the trends — conversation on heritage, community memory & transmission.",
       bitmap: [
@@ -2551,10 +3307,10 @@ const DATA = {
     {
       id: "live",
       label: "Live Performances",
-      bg: "#2BA676",
-      fg: "#F6E01E",
-      chipBg: "#2BA676",
-      chipFg: "#0A0A0A",
+      bg: "#C13952",
+      fg: "#FFFFFF",
+      chipBg: "#C13952",
+      chipFg: "#FFFFFF",
       motif: "movement",
       desc: "Five years of impact through dance and culture — live choreography and rhythm on stage.",
       bitmap: [
@@ -2580,10 +3336,10 @@ const DATA = {
     {
       id: "fashion",
       label: "Fashion & Food",
-      bg: "#E8A63A",
-      fg: "#C8201B",
-      chipBg: "#E8A63A",
-      chipFg: "#0A0A0A",
+      bg: "#CC9A39",
+      fg: "#080808",
+      chipBg: "#CC9A39",
+      chipFg: "#080808",
       motif: "textile",
       desc: "Runway fashion show paired with food, drinks, and community gathering in the foyer.",
       bitmap: [
@@ -2628,7 +3384,7 @@ const DATA = {
       city: "Cardiff",
       track: "live",
       bio: "Celebrating five years in Cardiff, AFJ Cardiff builds community through Afro dance workshops, storytelling, cultural exchange, and youth empowerment across Wales. 'Movement as Memory' marks a milestone archive of the movement and the people carrying it forward.",
-      portrait: { pal: ["#C8201B", "#FF7F5C", "#0A0A0A", "#FFFFFF"], rows: ["00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000022000000000000000", "00000000000022222222000000000000", "00000000002222222222220000000000", "00000000022222222222222000000000", "00000000222222222222222200000000", "00000000222222222222222200000000", "00000002222122111122122220000000", "00000002221222211222212220000000", "00000002222222222222222220000000", "00000002222112122111122220000000", "00000002222211211211222220000000", "00000022222122211222112222000000", "00000022222111122111122222000000", "00000022222111111111122222000000", "00000022222211111111222222000000", "00000002222221111112222220000000", "00000000000011111111000000000000", "00000000000011111111000000000000", "00000000001133111133110000000000", "00000001111111111111111110000000", "00000111111111111111111111100000", "00011111111111111111111111111000", "00111111111111111111111111111100", "00111111111111111111111111111100", "00111111111111111111111111111100", "00111111111111111111111111111100", "00111111111111111111111111111100", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"] }
+      portrait: { pal: ["#BE110E", "#FF8560", "#080808", "#FFFFFF"], rows: ["00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000022000000000000000", "00000000000022222222000000000000", "00000000002222222222220000000000", "00000000022222222222222000000000", "00000000222222222222222200000000", "00000000222222222222222200000000", "00000002222122111122122220000000", "00000002221222211222212220000000", "00000002222222222222222220000000", "00000002222112122111122220000000", "00000002222211211211222220000000", "00000022222122211222112222000000", "00000022222111122111122222000000", "00000022222111111111122222000000", "00000022222211111111222222000000", "00000002222221111112222220000000", "00000000000011111111000000000000", "00000000000011111111000000000000", "00000000001133111133110000000000", "00000001111111111111111110000000", "00000111111111111111111111100000", "00011111111111111111111111111000", "00111111111111111111111111111100", "00111111111111111111111111111100", "00111111111111111111111111111100", "00111111111111111111111111111100", "00111111111111111111111111111100", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"] }
     },
     {
       id: "movement-film",
@@ -2638,7 +3394,7 @@ const DATA = {
       city: "Dance House",
       track: "film",
       bio: "An original documentary on Afro dance beyond the trends: examining roots, history, and cultural transmission across generations, studios, and diaspora communities. Premiering exclusively for AFJ Cardiff's 5th Anniversary.",
-      portrait: { pal: ["#FF7F5C", "#C8201B", "#0A0A0A", "#FFFFFF"], rows: ["00000000000000000000000000000000", "00000000000000000000000000000000", "00001111111111111111111111110000", "00001222112222222222221122210000", "00001222112222222222221122210000", "00001111111111111111111111110000", "00001222112222333322221122210000", "00001222112233333333221122210000", "00001111112333222233321111110000", "00001222112332211223321122210000", "00001222112332111123321122210000", "00001111112332111123321111110000", "00001222112332211223321122210000", "00001222112333222233321122210000", "00001111112233333333221111110000", "00001222112222333322221122210000", "00001222111111111111111122210000", "00001111112222222222221111110000", "00001222112221111112221122210000", "00001222112211111111221122210000", "00001111112211222211221111110000", "00001222112211222211221122210000", "00001222112221111112221122210000", "00001111112222222222221111110000", "00001222112222222222221122210000", "00001222112222222222221122210000", "00001111111111111111111111110000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"] }
+      portrait: { pal: ["#FF8560", "#BE110E", "#080808", "#FFFFFF"], rows: ["00000000000000000000000000000000", "00000000000000000000000000000000", "00001111111111111111111111110000", "00001222112222222222221122210000", "00001222112222222222221122210000", "00001111111111111111111111110000", "00001222112222333322221122210000", "00001222112233333333221122210000", "00001111112333222233321111110000", "00001222112332211223321122210000", "00001222112332111123321122210000", "00001111112332111123321111110000", "00001222112332211223321122210000", "00001222112333222233321122210000", "00001111112233333333221111110000", "00001222112222333322221122210000", "00001222111111111111111122210000", "00001111112222222222221111110000", "00001222112221111112221122210000", "00001222112211111111221122210000", "00001111112211222211221111110000", "00001222112211222211221122210000", "00001222112221111112221122210000", "00001111112222222222221111110000", "00001222112222222222221122210000", "00001222112222222222221122210000", "00001111111111111111111111110000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"] }
     },
     {
       id: "panel-voices",
@@ -2648,7 +3404,7 @@ const DATA = {
       city: "Wales Millennium Centre",
       track: "panel",
       bio: "Following the screening, a live panel talk unpacks the origins behind trending choreography, the responsibility of credit and lineage, and how Afro dance preserves living memory in Cardiff and beyond.",
-      portrait: { pal: ["#F6E01E", "#0A0A0A", "#C8201B", "#FFFFFF"], rows: ["00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000002222220000000000000", "00000000000222222222200000000000", "00000000022222222222222000000000", "00000000222222222222222200000000", "00000002222222222222222220000000", "00000022222221111112222222000000", "00000022222211111111222222000000", "00000022222211111111222222000000", "00000002222112111121122222000000", "00000002222111211211122220000000", "00000002222122111122122220000000", "00000000221111111111112200000000", "00000000221111111111112200000000", "00000000022111111111122000000000", "00000000020111222211102000000000", "00000000020011222211002000000000", "00000000020011111111002000000000", "00000000000001111110000000000000", "00000000000001111110000000000000", "00000000000011111111000000000000", "00000000011111111111111000000000", "00000001111111111111111110000000", "00000111111111111111111111100000", "00000111111111111111111111100000", "00001111111111111111111111110000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"] }
+      portrait: { pal: ["#F7F40F", "#080808", "#BE110E", "#FFFFFF"], rows: ["00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000002222220000000000000", "00000000000222222222200000000000", "00000000022222222222222000000000", "00000000222222222222222200000000", "00000002222222222222222220000000", "00000022222221111112222222000000", "00000022222211111111222222000000", "00000022222211111111222222000000", "00000002222112111121122222000000", "00000002222111211211122220000000", "00000002222122111122122220000000", "00000000221111111111112200000000", "00000000221111111111112200000000", "00000000022111111111122000000000", "00000000020111222211102000000000", "00000000020011222211002000000000", "00000000020011111111002000000000", "00000000000001111110000000000000", "00000000000001111110000000000000", "00000000000011111111000000000000", "00000000011111111111111000000000", "00000001111111111111111110000000", "00000111111111111111111111100000", "00000111111111111111111111100000", "00001111111111111111111111110000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"] }
     },
     {
       id: "live-showcase",
@@ -2658,7 +3414,7 @@ const DATA = {
       city: "Cardiff",
       track: "live",
       bio: "High-energy live performances celebrating the breadth of Afro dance styles—connecting traditional rhythms, contemporary choreography, and the Cardiff dance community on the Dance House stage.",
-      portrait: { pal: ["#2BA676", "#F6E01E", "#0A0A0A", "#FFFFFF"], rows: ["00000000000000000000000000000000", "00000000000002222000000000000000", "00000000000022222200000000000000", "00000000000021111200000000000000", "00000000000021313200000000000000", "00000000000001111000000000000000", "00000000000000110000000000000000", "00000011000011111100001100000000", "00000111100111111110011110000000", "00001110111111221111110111000000", "00001100011112222111100011000000", "00000000000011221100000000000000", "00000000000011111100000000000000", "00000000000011111100000000000000", "00000000000111111110000000000000", "00000000001111001111000000000000", "00000000011110000111100000000000", "00000000111100000011110000000000", "00000001110000000001111000000000", "00000011100000000000111000000000", "00000111000000000000011100000000", "00001110000000000000001110000000", "00011100000000000000000111000000", "00011000000000000000000011000000", "00000000000000000000000000000000", "00111111111111111111111111110000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"] }
+      portrait: { pal: ["#C13952", "#CC9A39", "#080808", "#FFFFFF"], rows: ["00000000000000000000000000000000", "00000000000002222000000000000000", "00000000000022222200000000000000", "00000000000021111200000000000000", "00000000000021313200000000000000", "00000000000001111000000000000000", "00000000000000110000000000000000", "00000011000011111100001100000000", "00000111100111111110011110000000", "00001110111111221111110111000000", "00001100011112222111100011000000", "00000000000011221100000000000000", "00000000000011111100000000000000", "00000000000011111100000000000000", "00000000000111111110000000000000", "00000000001111001111000000000000", "00000000011110000111100000000000", "00000000111100000011110000000000", "00000001110000000001111000000000", "00000011100000000000111000000000", "00000111000000000000011100000000", "00001110000000000000001110000000", "00011100000000000000000111000000", "00011000000000000000000011000000", "00000000000000000000000000000000", "00111111111111111111111111110000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"] }
     },
     {
       id: "fashion-food",
@@ -2668,7 +3424,7 @@ const DATA = {
       city: "Cardiff Bay",
       track: "fashion",
       bio: "An anniversary evening bringing textile heritage, bold contemporary runway silhouettes, and warm food & drinks together—turning the Dance House foyer and stage into a shared space of celebration.",
-      portrait: { pal: ["#E8A63A", "#C8201B", "#0A0A0A", "#FFFFFF"], rows: ["00000000000000000000000000000000", "00000000000000222200000000000000", "00000000000002222220000000000000", "00000000000002222220000000000000", "00000000000022222222000000000000", "00000000000222211222200000000000", "00000000000221111112200000000000", "00000000000211111111200000000000", "00000000000212111121200000000000", "00000000001112111121110000000000", "00000000000111111111100000000000", "00000000000002111120000000000000", "00000000000001222210000000000000", "00000000000011111111000000000000", "00000000001111111111110000000000", "00000000111113333331111100000000", "00000001111331111113311110000000", "00000011113111222211131111000000", "00000111131122222222113111100000", "00000111111122333322111111100000", "00001111111112222221111111110000", "00001111111111111111111111110000", "00011111133111111111133111111000", "00011111111331111113311111111000", "00111111111113333331111111111100", "00111111111111111111111111111100", "00111111111111111111111111111100", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"] }
+      portrait: { pal: ["#CC9A39", "#CF7946", "#080808", "#FFFFFF"], rows: ["00000000000000000000000000000000", "00000000000000222200000000000000", "00000000000002222220000000000000", "00000000000002222220000000000000", "00000000000022222222000000000000", "00000000000222211222200000000000", "00000000000221111112200000000000", "00000000000211111111200000000000", "00000000000212111121200000000000", "00000000001112111121110000000000", "00000000000111111111100000000000", "00000000000002111120000000000000", "00000000000001222210000000000000", "00000000000011111111000000000000", "00000000001111111111110000000000", "00000000111113333331111100000000", "00000001111331111113311110000000", "00000011113111222211131111000000", "00000111131122222222113111100000", "00000111111122333322111111100000", "00001111111112222221111111110000", "00001111111111111111111111110000", "00011111133111111111133111111000", "00011111111331111113311111111000", "00111111111113333331111111111100", "00111111111111111111111111111100", "00111111111111111111111111111100", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"] }
     }
   ],
   sessions: [
@@ -2687,9 +3443,20 @@ const DATA = {
     { day: "d3", start: "20:20", end: "20:30", room: "hall-a", title: "Anniversary Finale & Farewell" }
   ],
   tickets: [
-    { id: "early-bird", name: "Early Bird", price: 15, allocation: 80, sold: 64, left: 16, includes: "Early release ticket · Documentary premiere, panel talk, live performances, fashion show & food reception", color: "#F6E01E" },
-    { id: "general", name: "General Admission", price: 20, allocation: 140, sold: 98, left: 42, includes: "Standard entry · Doors 16:45, full programme 17:30–20:30 at Dance House | Tŷ Dawns", color: "#C8201B" }
+    { id: "early-bird", name: "Early Bird", price: 15, allocation: 80, sold: 64, left: 16, includes: "Early release ticket · Documentary premiere, panel talk, live performances, fashion show & food reception", color: "#F7F40F" },
+    { id: "general", name: "General Admission", price: 20, allocation: 140, sold: 98, left: 42, includes: "Standard entry · Doors 16:45, full programme 17:30–20:30 at Dance House | Tŷ Dawns", color: "#BE110E" }
   ],
+  cms: {
+    verifyEndpoint: "",
+    eventbriteOrg: "AFJ Cardiff",
+    acceptedPrefixes: ["AFJ-", "EB-", "EVT-", "WMC-"],
+    passes: [
+      { code: "AFJ-EB-2026-001", holder: "Amara Okafor", tier: "Early Bird", status: "valid" },
+      { code: "AFJ-GA-2026-002", holder: "Tunde Adeyemi", tier: "General Admission", status: "valid" },
+      { code: "AFJ-VIP-2026-003", holder: "Nadia Mensah", tier: "Collective Guest", status: "valid" },
+      { code: "AFJ-USED-2026-004", holder: "Kwame Boateng", tier: "Early Bird", status: "checked_in" }
+    ]
+  },
   faq: [
     { q: "How do I book official tickets?", a: "Tickets are hosted via Eventbrite (Organiser: AFJ Cardiff). Scan the QR code in the official poster section on this site, or use the interactive planner on this page to preview ticket tiers and reach the Eventbrite organiser listing." },
     { q: "What are the door and programme times?", a: "Doors open at 16:45 on Saturday 5th December. The main programme runs from 17:30 to 20:30 at Dance House | Tŷ Dawns, Wales Millennium Centre." },
@@ -2699,11 +3466,11 @@ const DATA = {
     { q: "Who do I contact for enquiries or group bookings?", a: "Email afjcardiff@gmail.com for press, community partnerships, accessibility requests, or general enquiries." }
   ],
   venuePlan: [
-    { id: "hall-a", label: "Dance House", x: 1, y: 1, w: 22, h: 14, fill: "#C8201B", text: "#FFFFFF" },
-    { id: "studio-b", label: "Runway Prep", x: 24, y: 1, w: 15, h: 9, fill: "#F6E01E", text: "#0A0A0A" },
-    { id: "quiet", label: "Quiet", chip: "L1", x: 24, y: 11, w: 7, h: 4, fill: "#E8A63A", text: "#0A0A0A" },
-    { id: "cloak", label: "Check-In", x: 32, y: 11, w: 7, h: 4, fill: "#FF5A5A", text: "#0A0A0A" },
-    { id: "foyer", label: "WMC Foyer · Food & Drinks", x: 1, y: 16, w: 38, h: 7, fill: "#2BA676", text: "#0A0A0A" }
+    { id: "hall-a", label: "Dance House", x: 1, y: 1, w: 22, h: 14, fill: "#BE110E", text: "#FFFFFF" },
+    { id: "studio-b", label: "Runway Prep", x: 24, y: 1, w: 15, h: 9, fill: "#F7F40F", text: "#080808" },
+    { id: "quiet", label: "Quiet", chip: "L1", x: 24, y: 11, w: 7, h: 4, fill: "#CC9A39", text: "#080808" },
+    { id: "cloak", label: "Check-In", x: 32, y: 11, w: 7, h: 4, fill: "#CF7946", text: "#080808" },
+    { id: "foyer", label: "WMC Foyer · Food & Drinks", x: 1, y: 16, w: 38, h: 7, fill: "#C13952", text: "#FFFFFF" }
   ],
   posterChips: {
     tl: [
@@ -2783,21 +3550,29 @@ const DATA = {
 };
 
 const APP = (() => {
+  // Handle benign ResizeObserver loop notifications safely
+  window.addEventListener("error", e => {
+    if (e && e.message && (e.message.includes("ResizeObserver loop") || e.message.includes("ResizeObserver loop completed with undelivered notifications"))) {
+      e.stopImmediatePropagation();
+      e.preventDefault();
+    }
+  });
+
   const TRACK_COLORS = [DATA.tokens.blue, DATA.tokens.pink, DATA.tokens.lavender, DATA.tokens.green];
   const TRAIL_COLORS = [
     DATA.tokens.blue, DATA.tokens.pink, DATA.tokens.green,
-    DATA.tokens.lavender, DATA.tokens.coral, DATA.tokens.mint
+    DATA.tokens.lavender, DATA.tokens.coral, DATA.tokens.crimsonDeep
   ];
   const BADGE_PALETTE = [
-    { id: "0", name: "ink", hex: DATA.tokens.ink },
+    { id: "0", name: "obsidian", hex: DATA.tokens.ink },
     { id: "1", name: "paper", hex: DATA.tokens.paper },
-    { id: "2", name: "sodium", hex: DATA.tokens.sodium },
-    { id: "3", name: "blue", hex: DATA.tokens.blue },
-    { id: "4", name: "pink", hex: DATA.tokens.pink },
-    { id: "5", name: "green", hex: DATA.tokens.green },
-    { id: "6", name: "lavender", hex: DATA.tokens.lavender },
-    { id: "7", name: "coral", hex: DATA.tokens.coral },
-    { id: "8", name: "mint", hex: DATA.tokens.mint }
+    { id: "2", name: "coral", hex: DATA.tokens.sodium },
+    { id: "3", name: "crimson", hex: DATA.tokens.blue },
+    { id: "4", name: "yellow", hex: DATA.tokens.pink },
+    { id: "5", name: "rose", hex: DATA.tokens.green },
+    { id: "6", name: "gold", hex: DATA.tokens.lavender },
+    { id: "7", name: "ochre", hex: DATA.tokens.coral },
+    { id: "8", name: "deep crimson", hex: DATA.tokens.crimsonDeep }
   ];
 
   // Helpers
@@ -2957,8 +3732,34 @@ const APP = (() => {
       { grid: defaultBadgeGrid(), name: "AFJ Guest" },
       storageGet("afj5.badge", {})
     ),
+    reminders: Object.assign(
+      { enabled: false, minutesBefore: 15, customNote: "", fired: {} },
+      storageGet("afj5.reminders", {})
+    ),
+    remindersPanelOpen: false,
+    checkins: storageGet("afj5.checkins", []),
+    scannerApiUrl: storageGet("afj5.scannerApiUrl", ""),
+    scannerHaptics: storageGet("afj5.scannerHaptics", true),
+    scannerVolume: storageGet("afj5.scannerVolume", 70),
+    dailyScans: storageGet("afj5.dailyScans", null),
     routeCleanup: []
   };
+
+  function getTodayLocalKey() {
+    const d = new Date();
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  }
+
+  function ensureTodayDailyScans() {
+    const today = getTodayLocalKey();
+    if (!state.dailyScans || typeof state.dailyScans !== "object" || state.dailyScans.date !== today || !state.dailyScans.entries || typeof state.dailyScans.entries !== "object") {
+      state.dailyScans = { date: today, entries: {} };
+    }
+    return state.dailyScans;
+  }
 
   if (!Array.isArray(state.agenda)) state.agenda = [];
   if (!Array.isArray(state.filters.tracks)) state.filters.tracks = [];
@@ -2968,12 +3769,30 @@ const APP = (() => {
     state.badge.grid = defaultBadgeGrid();
   }
   if (typeof state.badge.name !== "string") state.badge.name = "AFJ Guest";
+  if (typeof state.reminders.enabled !== "boolean") state.reminders.enabled = false;
+  if (!Number.isFinite(Number(state.reminders.minutesBefore)) || Number(state.reminders.minutesBefore) < 1) {
+    state.reminders.minutesBefore = 15;
+  } else {
+    state.reminders.minutesBefore = Math.min(180, Math.max(1, Math.round(Number(state.reminders.minutesBefore))));
+  }
+  if (typeof state.reminders.customNote !== "string") state.reminders.customNote = "";
+  if (!state.reminders.fired || typeof state.reminders.fired !== "object") state.reminders.fired = {};
+  if (!Array.isArray(state.checkins)) state.checkins = [];
+  if (typeof state.scannerApiUrl !== "string") state.scannerApiUrl = "";
+  state.scannerHaptics = state.scannerHaptics !== false;
+  if (!Number.isFinite(Number(state.scannerVolume))) {
+    state.scannerVolume = 70;
+  } else {
+    state.scannerVolume = Math.min(100, Math.max(0, Math.round(Number(state.scannerVolume))));
+  }
+  ensureTodayDailyScans();
 
   function toggleAgenda(sessionId) {
     const idx = state.agenda.indexOf(sessionId);
     if (idx === -1) state.agenda.push(sessionId);
     else state.agenda.splice(idx, 1);
     storageSet("afj5.agenda", state.agenda);
+    window.dispatchEvent(new CustomEvent("afj:agendachange"));
   }
 
   function hasClash(session) {
@@ -3138,7 +3957,9 @@ const APP = (() => {
       check: ["....#","...#.","#.#..",".#...","....."],
       "arrow-right": ["..#..","...#.","#####","...#.","..#.."],
       "tri-up": ["..#..",".###.","#####",".....","....."],
-      "tri-down": [".....",".....","#####",".###.","..#.."]
+      "tri-down": [".....",".....","#####",".###.","..#.."],
+      bell: ["..#..",".###.",".###.","#####","..#.."],
+      qr: ["##.##","##.##","..#..","##.##","##.##"]
     };
     const g = grids[name] || grids.plus;
     let rects = "";
@@ -3502,6 +4323,161 @@ const APP = (() => {
         hideTip();
       }
     });
+  }
+
+  // CMS data hydration (Netlify CMS Git-backed JSON with DATA fallback)
+  async function loadCmsConfig() {
+    try {
+      const res = await fetch("./data/cms-config.json", { cache: "no-store" });
+      if (!res.ok) return;
+      const cms = await res.json();
+      if (cms && Array.isArray(cms.tickets) && cms.tickets.length > 0) {
+        DATA.tickets = cms.tickets;
+      }
+      if (cms && cms.scanner && typeof cms.scanner === "object") {
+        if (typeof cms.scanner.verifyEndpoint === "string") DATA.cms.verifyEndpoint = cms.scanner.verifyEndpoint;
+        if (typeof cms.scanner.eventbriteOrg === "string") DATA.cms.eventbriteOrg = cms.scanner.eventbriteOrg;
+        if (Array.isArray(cms.scanner.acceptedPrefixes)) DATA.cms.acceptedPrefixes = cms.scanner.acceptedPrefixes;
+        if (Array.isArray(cms.scanner.passes)) DATA.cms.passes = cms.scanner.passes;
+      }
+      if (currentRouteKey === "tickets" || currentRouteKey === "home") {
+        const main = document.getElementById("main");
+        if (currentRouteKey === "tickets") renderTickets(main);
+        else if (currentRouteKey === "home") renderHome(main);
+        setupObservers();
+      }
+    } catch (e) {
+      // Offline or local fallback uses built-in DATA
+    }
+  }
+
+  // Agenda Reminders Engine (15-min default, customizable lead time & note, Browser Notification + In-app Banner)
+  function saveRemindersState() {
+    storageSet("afj5.reminders", state.reminders);
+  }
+
+  function getSessionStartDate(session) {
+    const dayObj = dayById(session.day);
+    const dateStr = (dayObj && dayObj.date) || DATA.meta.dates.start;
+    return new Date(`${dateStr}T${session.start}:00Z`);
+  }
+
+  function getArmedAgendaSessions() {
+    const mins = state.reminders.minutesBefore || 15;
+    return state.agenda
+      .map(id => sessionById(id))
+      .filter(Boolean)
+      .sort((a, b) => timeToMin(a.start) - timeToMin(b.start))
+      .map(s => {
+        const startDate = getSessionStartDate(s);
+        const triggerDate = new Date(startDate.getTime() - mins * 60000);
+        return { session: s, startDate, triggerDate };
+      });
+  }
+
+  function formatReminderTimeGMT(dateObj) {
+    const hh = String(dateObj.getUTCHours()).padStart(2, "0");
+    const mm = String(dateObj.getUTCMinutes()).padStart(2, "0");
+    return `${hh}.${mm} GMT`;
+  }
+
+  function showInAppReminderBanner(opts) {
+    const banner = document.getElementById("reminder-banner");
+    if (!banner) return;
+    const kickerEl = document.getElementById("reminder-banner-kicker");
+    const timeEl = document.getElementById("reminder-banner-time");
+    const titleEl = document.getElementById("reminder-banner-title");
+    const metaEl = document.getElementById("reminder-banner-meta");
+    const noteEl = document.getElementById("reminder-banner-note");
+
+    kickerEl.textContent = opts.isTest ? "(Test session reminder)" : "(Upcoming session reminder)";
+    timeEl.textContent = `${opts.minutesBefore}m prior`;
+    titleEl.textContent = opts.title;
+    metaEl.textContent = opts.meta;
+    if (opts.customNote && opts.customNote.trim()) {
+      noteEl.textContent = `Note: ${opts.customNote.trim()}`;
+      noteEl.hidden = false;
+    } else {
+      noteEl.textContent = "";
+      noteEl.hidden = true;
+    }
+    banner.classList.add("is-visible");
+  }
+
+  function fireSessionReminder(session, opts) {
+    const o = opts || {};
+    const mins = state.reminders.minutesBefore || 15;
+    const rm = roomById(session.room);
+    const roomName = rm ? rm.name : "Dance House | Tŷ Dawns";
+    const metaText = `Starts ${fmtTime(session.start)}–${fmtTime(session.end)} · ${roomName}`;
+    const note = (state.reminders.customNote || "").trim();
+
+    showInAppReminderBanner({
+      isTest: Boolean(o.isTest),
+      minutesBefore: mins,
+      title: session.title,
+      meta: metaText,
+      customNote: note
+    });
+
+    if ("Notification" in window && Notification.permission === "granted") {
+      try {
+        const bodyParts = [`In ${mins} min (${fmtTime(session.start)} · ${roomName})`];
+        if (note) bodyParts.push(`Note: ${note}`);
+        new Notification(
+          o.isTest ? `AFJ Cardiff (Test) · ${session.title}` : `AFJ Cardiff · ${session.title}`,
+          {
+            body: bodyParts.join(" — "),
+            tag: o.isTest ? `afj-test-${Date.now()}` : `afj-rem-${session.id}-${mins}`
+          }
+        );
+      } catch (e) {
+        // Fallback already shown via in-app banner
+      }
+    }
+  }
+
+  function evaluateAgendaReminders() {
+    if (!state.reminders.enabled || state.agenda.length === 0) return;
+    const now = Date.now();
+    const mins = state.reminders.minutesBefore || 15;
+    const armed = getArmedAgendaSessions();
+    for (const item of armed) {
+      const trigMs = item.triggerDate.getTime();
+      const endWindowMs = item.startDate.getTime() + 5 * 60000;
+      const fireKey = `${mins}`;
+      if (now >= trigMs && now <= endWindowMs && state.reminders.fired[item.session.id] !== fireKey) {
+        state.reminders.fired[item.session.id] = fireKey;
+        saveRemindersState();
+        fireSessionReminder(item.session, { isTest: false });
+      }
+    }
+  }
+
+  async function requestBrowserNotificationPermission() {
+    if (!("Notification" in window)) return "unsupported";
+    if (Notification.permission === "granted") return "granted";
+    try {
+      const perm = await Notification.requestPermission();
+      return perm;
+    } catch (e) {
+      return Notification.permission || "denied";
+    }
+  }
+
+  function initReminderEngine() {
+    const dismissBtn = document.getElementById("reminder-banner-dismiss");
+    const banner = document.getElementById("reminder-banner");
+    const linkEl = document.getElementById("reminder-banner-link");
+    if (dismissBtn && banner) {
+      dismissBtn.addEventListener("click", () => banner.classList.remove("is-visible"));
+    }
+    if (linkEl && banner) {
+      linkEl.addEventListener("click", () => banner.classList.remove("is-visible"));
+    }
+    evaluateAgendaReminders();
+    window.setInterval(evaluateAgendaReminders, 15000);
+    window.addEventListener("afj:agendachange", evaluateAgendaReminders);
   }
 
   // Surface + reveal observers per route
@@ -4084,7 +5060,7 @@ const APP = (() => {
     const totalLeft = DATA.tickets.reduce((a, t) => a + t.left, 0);
 
     main.innerHTML = `
-      <section class="hero-sec" id="hero" data-surface="sodium" data-pager="Hero">
+      <section class="hero-sec" id="hero" data-surface="ink" data-pager="Hero">
         <h1 class="visually-hidden">${esc(c.heroH1)}</h1>
         <div class="grid" style="padding-inline:0;">
           <div class="hero-top-address t-lead reveal-text">
@@ -4190,6 +5166,15 @@ const APP = (() => {
           </figure>
         </div>
       </section>
+
+      <div class="adinkra-divider" aria-hidden="true">
+        <div class="adinkra-divider-pattern">
+          <span>[★ SANKOFA ★]</span>
+          <span>▪▫▪ MOVEMENT AS MEMORY ▪▫▪</span>
+          <span>[★ GYE NYAME ★]</span>
+          <span>▪▫▪ AFJ CARDIFF 5TH ANNIVERSARY ▪▫▪</span>
+        </div>
+      </div>
 
       <section class="sec" id="passes" data-surface="sodium" data-pager="Tickets">
         <div class="grid">
@@ -4316,7 +5301,7 @@ const APP = (() => {
             vx: 0,
             vy: 0,
             delay: assembleFromRandom ? rng() * 400 : 0,
-            color: DATA.tokens.ink,
+            color: DATA.tokens.paper,
             sparkle: false
           });
         }
@@ -4338,7 +5323,7 @@ const APP = (() => {
             vx: 0,
             vy: 0,
             delay: (dst.x / t.totalCols) * 300,
-            color: isSparkle ? TRACK_COLORS[Math.floor(rng() * 4)] : DATA.tokens.ink,
+            color: isSparkle ? TRACK_COLORS[Math.floor(rng() * 4)] : DATA.tokens.paper,
             sparkle: isSparkle
           });
         }
@@ -4356,9 +5341,9 @@ const APP = (() => {
       const t = getTargetLayout(0);
       const cellW = cssW / t.totalCols;
       const cellH = cellW / 1.25;
-      ctx.fillStyle = DATA.tokens.sodium;
-      ctx.fillRect(0, 0, cssW, cssH);
       ctx.fillStyle = DATA.tokens.ink;
+      ctx.fillRect(0, 0, cssW, cssH);
+      ctx.fillStyle = DATA.tokens.paper;
       for (let i = 0; i < t.cells.length; i++) {
         const c = t.cells[i];
         const x0 = Math.round(c.x * cellW * dpr) / dpr;
@@ -4388,12 +5373,12 @@ const APP = (() => {
       const repelRadius = cellW * 3;
       const maxDisp = 1.5;
 
-      ctx.fillStyle = DATA.tokens.sodium;
+      ctx.fillStyle = DATA.tokens.ink;
       ctx.fillRect(0, 0, cssW, cssH);
 
-      // Group draws by colour (ink vs sparkles)
+      // Group draws by colour (paper glyphs vs ramp sparkles on obsidian)
       const buckets = new Map();
-      buckets.set(DATA.tokens.ink, []);
+      buckets.set(DATA.tokens.paper, []);
       let allSettled = pointerX < -5000;
 
       for (let i = 0; i < particles.length; i++) {
@@ -4430,14 +5415,14 @@ const APP = (() => {
           p.y = baseY + (p.y - baseY) + p.vy;
         }
 
-        const col = (p.sparkle && elapsed < 400) ? p.color : DATA.tokens.ink;
+        const col = (p.sparkle && elapsed < 400) ? p.color : DATA.tokens.paper;
         if (!buckets.has(col)) buckets.set(col, []);
         buckets.get(col).push(p);
       }
 
       if (allSettled && elapsed >= 400) {
         // Draw merged horizontal runs per row for zero-seam rendering at any DPR
-        ctx.fillStyle = DATA.tokens.ink;
+        ctx.fillStyle = DATA.tokens.paper;
         const rowMap = new Map();
         for (let i = 0; i < particles.length; i++) {
           const p = particles[i];
@@ -4747,27 +5732,31 @@ const APP = (() => {
 
     const PANEL_STYLES = {
       film: {
-        colA: "#FF7F5C",
-        colB: "#C8201B",
-        band: "#FF7F5C",
+        colA: "#FF8560",
+        colB: "#BE110E",
+        band: "#FF8560",
+        fg: "#080808",
         weave: weavePlus
       },
       panel: {
-        colA: "#F6E01E",
-        colB: "#C8201B",
-        band: "#F6E01E",
+        colA: "#F7F40F",
+        colB: "#BE110E",
+        band: "#F7F40F",
+        fg: "#080808",
         weave: weaveCross
       },
       live: {
-        colA: "#2BA676",
-        colB: "#F6E01E",
-        band: "#2BA676",
+        colA: "#C13952",
+        colB: "#CC9A39",
+        band: "#C13952",
+        fg: "#FFFFFF",
         weave: weaveBasket
       },
       fashion: {
-        colA: "#E8A63A",
-        colB: "#C8201B",
-        band: "#E8A63A",
+        colA: "#CC9A39",
+        colB: "#CF7946",
+        band: "#CC9A39",
+        fg: "#080808",
         weave: weaveTartan
       }
     };
@@ -4778,7 +5767,7 @@ const APP = (() => {
       const style = PANEL_STYLES[t.id];
       return `
         <div class="track-fig">
-          <button type="button" class="track-panel-btn" data-track="${esc(t.id)}" style="--track-band:${style.band}" aria-label="${esc(aria)}">
+          <button type="button" class="track-panel-btn" data-track="${esc(t.id)}" style="--track-band:${style.band};--track-fg:${style.fg}" aria-label="${esc(aria)}">
             <svg class="track-panel-svg" viewBox="0 0 80 72" shape-rendering="crispEdges" aria-hidden="true"></svg>
             <div class="track-card-body">
               <div>
@@ -5028,12 +6017,12 @@ const APP = (() => {
     state.routeCleanup.push(() => window.removeEventListener("resize", syncU));
 
     const PALETTES = [
-      ["#FF7F5C", "#C8201B"],
-      ["#C8201B", "#F6E01E"],
-      ["#E8A63A", "#C8201B"],
-      ["#2BA676", "#F6E01E"],
-      ["#FF7F5C", "#2BA676"],
-      ["#F6E01E", "#0A0A0A"]
+      ["#FF8560", "#BE110E"],
+      ["#BE110E", "#F7F40F"],
+      ["#CC9A39", "#C13952"],
+      ["#CF7946", "#080808"],
+      ["#FF8560", "#CC9A39"],
+      ["#F7F40F", "#080808"]
     ];
 
     // Orthogonal pixel weave tiles (pure crisp pixels, zero black overlays)
@@ -5164,11 +6153,47 @@ const APP = (() => {
                 }).join("")}
               </div>
               <button type="button" class="chip-toggle t-small" id="sched-agenda-btn" aria-pressed="${state.filters.agendaOnly ? "true" : "false"}">(My agenda only)</button>
+              <button type="button" class="chip-toggle t-small" id="sched-reminders-toggle" aria-pressed="${state.reminders.enabled ? "true" : "false"}">${svgPixelIcon("bell", 12)}<span>${state.reminders.enabled ? `(Reminders: on · ${state.reminders.minutesBefore}m)` : "(Reminders: off)"}</span></button>
+              <button type="button" class="btn-text t-micro u-anim" id="sched-reminders-cfg-btn" aria-expanded="${state.remindersPanelOpen ? "true" : "false"}" aria-controls="sched-reminders-panel">(Reminder settings)</button>
               <div class="seg-group" role="group" aria-label="Schedule view">
                 <button type="button" class="chip-toggle t-small" id="view-timeline-btn" aria-pressed="${state.filters.view === "timeline" ? "true" : "false"}">(Timeline)</button>
                 <button type="button" class="chip-toggle t-small" id="view-table-btn" aria-pressed="${state.filters.view === "table" ? "true" : "false"}">(Table)</button>
               </div>
               <button type="button" class="btn-text t-micro u-anim" id="sched-ics-btn">(Download .ics)</button>
+            </div>
+          </div>
+        </div>
+        <div class="reminders-panel ${state.remindersPanelOpen ? "is-open" : ""}" id="sched-reminders-panel" aria-label="Agenda reminder settings">
+          <div class="grid">
+            <div class="col-full reminders-panel-grid">
+              <div>
+                <p class="t-micro">(1. Reminder toggle & delivery)</p>
+                <div class="reminders-field-row">
+                  <button type="button" class="chip-toggle t-small" id="rem-panel-toggle" aria-pressed="${state.reminders.enabled ? "true" : "false"}">${state.reminders.enabled ? "(Notifications: active)" : "(Notifications: paused)"}</button>
+                  <button type="button" class="btn-text t-micro u-anim" id="rem-perm-btn">(Check browser permission)</button>
+                </div>
+                <p class="t-micro reminders-status-meta" id="rem-perm-status" aria-live="polite"></p>
+              </div>
+              <div>
+                <p class="t-micro">(2. Timing & custom reminder note)</p>
+                <div class="reminders-field-row">
+                  <label for="rem-minutes-input" class="t-small">Minutes before:</label>
+                  <input id="rem-minutes-input" class="text-input tnum reminders-min-input" type="number" min="1" max="180" value="${state.reminders.minutesBefore}">
+                  <button type="button" class="chip-toggle t-micro" data-rem-preset="5" aria-pressed="${state.reminders.minutesBefore === 5 ? "true" : "false"}">5m</button>
+                  <button type="button" class="chip-toggle t-micro" data-rem-preset="15" aria-pressed="${state.reminders.minutesBefore === 15 ? "true" : "false"}">15m</button>
+                  <button type="button" class="chip-toggle t-micro" data-rem-preset="30" aria-pressed="${state.reminders.minutesBefore === 30 ? "true" : "false"}">30m</button>
+                </div>
+                <label for="rem-note-input" class="visually-hidden">Custom reminder note</label>
+                <input id="rem-note-input" class="text-input reminders-note-input" type="text" maxlength="120" placeholder="Custom note (e.g. Meet at Dance House foyer)" value="${esc(state.reminders.customNote)}">
+              </div>
+              <div>
+                <p class="t-micro">(3. Saved sessions armed & test)</p>
+                <p class="t-small" id="rem-armed-summary" style="margin-top:8px;"></p>
+                <div id="rem-armed-list" class="reminders-armed-list"></div>
+                <div class="reminders-field-row" style="margin-top:12px;">
+                  <button type="button" class="btn-primary btn-sm t-small" id="rem-test-btn"><span>Send test reminder</span></button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -5196,11 +6221,64 @@ const APP = (() => {
     const dayTabs = Array.from(document.querySelectorAll("#sched-day-tabs .day-tab"));
     const trackBtns = Array.from(document.querySelectorAll("#sched-track-toggles .chip-toggle"));
     const agendaBtn = document.getElementById("sched-agenda-btn");
+    const remToolbarBtn = document.getElementById("sched-reminders-toggle");
+    const remCfgBtn = document.getElementById("sched-reminders-cfg-btn");
+    const remPanel = document.getElementById("sched-reminders-panel");
+    const remPanelToggle = document.getElementById("rem-panel-toggle");
+    const remPermBtn = document.getElementById("rem-perm-btn");
+    const remPermStatus = document.getElementById("rem-perm-status");
+    const remMinInput = document.getElementById("rem-minutes-input");
+    const remPresetBtns = Array.from(document.querySelectorAll("[data-rem-preset]"));
+    const remNoteInput = document.getElementById("rem-note-input");
+    const remArmedSummary = document.getElementById("rem-armed-summary");
+    const remArmedList = document.getElementById("rem-armed-list");
+    const remTestBtn = document.getElementById("rem-test-btn");
     const tlBtn = document.getElementById("view-timeline-btn");
     const tblBtn = document.getElementById("view-table-btn");
     const icsBtn = document.getElementById("sched-ics-btn");
     const countEl = document.getElementById("sched-count");
     const bodyEl = document.getElementById("sched-body");
+
+    function refreshReminderUI() {
+      const en = Boolean(state.reminders.enabled);
+      const mins = state.reminders.minutesBefore || 15;
+      remToolbarBtn.setAttribute("aria-pressed", en ? "true" : "false");
+      remToolbarBtn.innerHTML = `${svgPixelIcon("bell", 12)}<span>${en ? `(Reminders: on · ${mins}m)` : "(Reminders: off)"}</span>`;
+      remPanelToggle.setAttribute("aria-pressed", en ? "true" : "false");
+      remPanelToggle.textContent = en ? "(Notifications: active)" : "(Notifications: paused)";
+      remCfgBtn.setAttribute("aria-expanded", state.remindersPanelOpen ? "true" : "false");
+      remPanel.classList.toggle("is-open", state.remindersPanelOpen);
+      remMinInput.value = String(mins);
+      remPresetBtns.forEach(b => b.setAttribute("aria-pressed", Number(b.dataset.remPreset) === mins ? "true" : "false"));
+
+      if (!("Notification" in window)) {
+        remPermStatus.textContent = "Browser notifications unavailable here — in-app alert banner active.";
+        remPermBtn.hidden = true;
+      } else if (Notification.permission === "granted") {
+        remPermStatus.textContent = "Browser notifications permitted + in-app alert banner active.";
+        remPermBtn.hidden = true;
+      } else if (Notification.permission === "denied") {
+        remPermStatus.textContent = "Browser notifications blocked — in-app alert banner will still fire while open.";
+        remPermBtn.hidden = false;
+      } else {
+        remPermStatus.textContent = "Browser notification permission not yet granted (in-app banner always active).";
+        remPermBtn.hidden = false;
+      }
+
+      const armed = getArmedAgendaSessions();
+      if (armed.length === 0) {
+        remArmedSummary.textContent = "No sessions saved in your agenda yet. Press + on any session below to arm reminders.";
+        remArmedList.innerHTML = "";
+      } else {
+        remArmedSummary.textContent = `${armed.length} saved ${armed.length === 1 ? "session" : "sessions"} ${en ? "armed" : "ready (toggle on to arm)"} · Alerts fire ${mins} min prior (Sat 5 Dec):`;
+        remArmedList.innerHTML = armed.slice(0, 4).map(item => `
+          <div class="reminders-armed-item t-micro">
+            <span>${esc(item.session.title)}</span>
+            <span class="tnum">Alert ${formatReminderTimeGMT(item.triggerDate)}</span>
+          </div>
+        `).join("") + (armed.length > 4 ? `<p class="t-micro" style="margin-top:6px;">+ ${armed.length - 4} more saved sessions</p>` : "");
+      }
+    }
 
     function getFilteredSessions() {
       const dayAll = sessionsByDay(state.filters.day);
@@ -5506,10 +6584,65 @@ const APP = (() => {
       window.setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
     });
 
+    const onAgendaChange = () => refreshReminderUI();
+    window.addEventListener("afj:agendachange", onAgendaChange);
+
+    async function toggleRemindersEnabled() {
+      state.reminders.enabled = !state.reminders.enabled;
+      if (state.reminders.enabled) {
+        state.remindersPanelOpen = true;
+        await requestBrowserNotificationPermission();
+      }
+      saveRemindersState();
+      refreshReminderUI();
+      evaluateAgendaReminders();
+    }
+
+    remToolbarBtn.addEventListener("click", toggleRemindersEnabled);
+    remPanelToggle.addEventListener("click", toggleRemindersEnabled);
+    remCfgBtn.addEventListener("click", () => {
+      state.remindersPanelOpen = !state.remindersPanelOpen;
+      refreshReminderUI();
+    });
+    remPermBtn.addEventListener("click", async () => {
+      await requestBrowserNotificationPermission();
+      refreshReminderUI();
+    });
+
+    const setLeadMinutes = val => {
+      const num = Math.min(180, Math.max(1, Math.round(Number(val) || 15)));
+      state.reminders.minutesBefore = num;
+      saveRemindersState();
+      refreshReminderUI();
+      evaluateAgendaReminders();
+    };
+
+    remMinInput.addEventListener("change", () => setLeadMinutes(remMinInput.value));
+    remPresetBtns.forEach(b => {
+      b.addEventListener("click", () => setLeadMinutes(b.dataset.remPreset));
+    });
+    remNoteInput.addEventListener("input", () => {
+      state.reminders.customNote = remNoteInput.value.slice(0, 120);
+      saveRemindersState();
+    });
+    remTestBtn.addEventListener("click", async () => {
+      if ("Notification" in window && Notification.permission === "default") {
+        await requestBrowserNotificationPermission();
+        refreshReminderUI();
+      }
+      const armed = getArmedAgendaSessions();
+      const targetSession = armed.length > 0 ? armed[0].session : (sessionById("s03") || DATA.sessions[0]);
+      fireSessionReminder(targetSession, { isTest: true });
+    });
+
     const onResize = () => renderScheduleBody(false);
     window.addEventListener("resize", onResize, { passive: true });
-    state.routeCleanup.push(() => window.removeEventListener("resize", onResize));
+    state.routeCleanup.push(() => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("afj:agendachange", onAgendaChange);
+    });
 
+    refreshReminderUI();
     renderScheduleBody(true);
   }
 
@@ -6116,7 +7249,7 @@ const APP = (() => {
     updatePlan(state.selectedRoom || "hall-a");
   }
 
-  // Route 7: Tickets + FAQ (#/tickets)
+  // Route 7: Tickets + QR Scanner Overlay + FAQ (#/tickets)
   function renderTickets(main) {
     document.title = "Tickets" + DATA.copy.siteTitleSuffix;
     const totalLeft = DATA.tickets.reduce((a, t) => a + t.left, 0);
@@ -6127,7 +7260,7 @@ const APP = (() => {
           <p class="col-1-3 t-micro">(Tickets)</p>
           <div class="col-5-12">
             <h1 class="t-h1" tabindex="-1">Tickets</h1>
-            <p class="t-lead tnum" style="margin-top:16px;">${totalLeft} tickets left of ${DATA.meta.capacity}. Book via Eventbrite (Organiser: AFJ Cardiff).</p>
+            <p class="t-lead tnum" style="margin-top:16px;">${totalLeft} tickets left of ${DATA.meta.capacity}. Book via Eventbrite (Organiser: ${esc(DATA.cms.eventbriteOrg)}) or scan your ticket QR for entry status.</p>
           </div>
           <div class="col-full" id="tickets-capacity-wrap"></div>
           <div class="col-full tier-list" id="tickets-tier-list">
@@ -6164,10 +7297,16 @@ const APP = (() => {
               <p class="t-micro">(Estimated total)</p>
               <p class="t-h2 tnum" id="tickets-total" aria-live="polite">£0</p>
             </div>
-            <button type="button" class="btn-primary t-small" id="reserve-btn" aria-disabled="true">
-              ${svgStrike()}
-              <span>How to book (Eventbrite)</span>
-            </button>
+            <div class="tickets-action-group">
+              <button type="button" class="btn-secondary t-small" id="open-qr-scanner-btn">
+                ${svgPixelIcon("qr", 15)}
+                <span>Scan ticket QR</span>
+              </button>
+              <button type="button" class="btn-primary t-small" id="reserve-btn" aria-disabled="true">
+                ${svgStrike()}
+                <span>How to book (Eventbrite)</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -6190,12 +7329,127 @@ const APP = (() => {
           </div>
         </div>
 
-        <dialog class="raster-dialog" id="reserve-dialog" aria-labelledby="dlg-title">
+        <dialog class="raster-dialog" id="reserve-dialog" data-surface="paper" aria-labelledby="dlg-title">
           <h2 class="t-h2" id="dlg-title">Book via Eventbrite · AFJ Cardiff</h2>
           <p class="t-body" id="dlg-body" style="margin-top:16px;"></p>
           <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
             <a class="btn-text t-small u-anim" href="mailto:afjcardiff@gmail.com">(Email afjcardiff@gmail.com)</a>
             <button type="button" class="btn-text t-small u-anim" id="dlg-close">(Close)</button>
+          </div>
+        </dialog>
+
+        <dialog class="raster-dialog qr-dialog" id="qr-scanner-dialog" data-surface="paper" aria-labelledby="qr-dlg-title">
+          <div class="qr-dialog-head">
+            <div>
+              <p class="t-micro">(Entry verification · Doors 16:45)</p>
+              <h2 class="t-h2" id="qr-dlg-title" style="margin-top:4px;">Ticket QR Scanner</h2>
+              <p class="t-micro qr-haptic-note" id="qr-haptic-note"></p>
+            </div>
+            <div class="qr-dialog-controls">
+              <div class="qr-volume-control">
+                <label for="qr-volume-slider" class="t-micro">Volume</label>
+                <input type="range" id="qr-volume-slider" class="qr-volume-slider" min="0" max="100" step="5" value="${state.scannerVolume}" aria-label="Scan sound effects volume">
+                <span id="qr-volume-value" class="t-micro tnum">${state.scannerVolume}%</span>
+              </div>
+              <button type="button" class="chip-toggle t-micro" id="qr-haptics-toggle" aria-pressed="${state.scannerHaptics ? "true" : "false"}">${state.scannerHaptics ? "(Haptics: on)" : "(Haptics: off)"}</button>
+              <button type="button" class="btn-text t-small u-anim" id="qr-dlg-close">(Close)</button>
+            </div>
+          </div>
+
+          <div class="seg-group qr-tabs" role="tablist" aria-label="QR input method">
+            <button type="button" class="chip-toggle t-small" role="tab" id="qr-tab-camera" data-qr-tab="camera" aria-selected="true" aria-pressed="true">(Camera scan)</button>
+            <button type="button" class="chip-toggle t-small" role="tab" id="qr-tab-upload" data-qr-tab="upload" aria-selected="false" aria-pressed="false">(Upload QR image)</button>
+            <button type="button" class="chip-toggle t-small" role="tab" id="qr-tab-manual" data-qr-tab="manual" aria-selected="false" aria-pressed="false">(Manual / Test codes)</button>
+          </div>
+
+          <div class="qr-panel" id="qr-panel-camera">
+            <div class="qr-viewport">
+              <video id="qr-video" class="qr-video" playsinline muted></video>
+              <svg class="qr-reticle" viewBox="0 0 100 75" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M20 22 V14 H28 M72 14 H80 V22 M20 53 V61 H28 M72 61 H80 V53" fill="none" stroke="var(--accent-highlight)" stroke-width="1.6"/>
+              </svg>
+              <div class="qr-camera-msg" id="qr-camera-msg">
+                <p class="t-small" id="qr-camera-status-text">Initializing camera stream for QR detection…</p>
+                <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+                  <button type="button" class="chip-toggle t-micro" id="qr-retry-cam-btn" style="background:var(--paper);color:var(--ink);">(Retry camera)</button>
+                  <button type="button" class="chip-toggle t-micro" id="qr-fallback-upload-btn" style="background:var(--paper);color:var(--ink);">(Use image upload)</button>
+                </div>
+              </div>
+            </div>
+            <div class="qr-orient-tip" id="qr-orient-tip" role="status" aria-live="polite" hidden>
+              <div class="qr-orient-tip-body">
+                <p class="t-micro qr-orient-tip-kicker">(Scan tip · No QR detected)</p>
+                <p class="t-micro" id="qr-orient-tip-text">Tilt phone or adjust lighting to help with QR detection. Hold ticket 15–20 cm inside the frame.</p>
+              </div>
+              <button type="button" class="chip-toggle t-micro qr-orient-dismiss" id="qr-orient-dismiss-btn">(Dismiss)</button>
+            </div>
+            <p class="t-micro" style="margin-top:8px;">Point your device camera at an Eventbrite or AFJ Cardiff QR ticket. Supports native BarcodeDetector + jsQR fallback.</p>
+          </div>
+
+          <div class="qr-panel" id="qr-panel-upload" hidden>
+            <div class="qr-upload-zone" id="qr-drop-zone">
+              <p class="t-small fw-600">Select or drop a ticket QR screenshot / photo</p>
+              <p class="t-micro">Accepts PNG, JPG, WebP, or SVG. Decoded locally in your browser.</p>
+              <input type="file" id="qr-file-input" accept="image/*" class="t-small">
+              <img id="qr-upload-preview" class="qr-upload-preview" alt="Uploaded QR code preview">
+            </div>
+          </div>
+
+          <div class="qr-panel" id="qr-panel-manual" hidden>
+            <form id="qr-manual-form" class="qr-manual-row">
+              <label for="qr-manual-input" class="visually-hidden">Enter ticket code or QR payload</label>
+              <input id="qr-manual-input" class="text-input" type="text" placeholder="Enter AFJ / Eventbrite code or URL (e.g. AFJ-EB-2026-001)">
+              <button type="submit" class="btn-primary t-small"><span>Verify entry</span></button>
+            </form>
+            <p class="t-micro" style="margin-top:12px;">(Sample / CMS pass codes for quick testing)</p>
+            <div class="qr-samples-row" id="qr-samples-row"></div>
+          </div>
+
+          <div class="qr-result-box" id="qr-result-box" data-status="idle" aria-live="polite">
+            <p class="t-micro" id="qr-res-kicker">(Ready to scan)</p>
+            <h3 class="t-lead" id="qr-res-headline" style="margin-top:4px;">Waiting for ticket QR code…</h3>
+            <p class="t-small" id="qr-res-desc" style="margin-top:6px;">Scan via camera, upload an image, or enter a ticket code to verify entry status.</p>
+            <div class="qr-result-meta" id="qr-res-meta" hidden></div>
+            <div class="qr-result-actions" id="qr-res-actions" hidden></div>
+          </div>
+
+          <details class="qr-api-details">
+            <summary class="t-micro">
+              <span>(External Eventbrite API hook & Netlify CMS /admin)</span>
+              <span>+</span>
+            </summary>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px;">
+              <p class="t-micro">Connected CMS data source: <code>/data/cms-config.json</code> · Organiser portal: <a class="u-anim fw-600" href="/admin/" target="_blank" rel="noopener">/admin/ (Netlify CMS)</a></p>
+              <label for="qr-api-url-input" class="t-micro">Optional verification API endpoint (POST { code, raw, event }):</label>
+              <div class="qr-manual-row">
+                <input id="qr-api-url-input" class="text-input t-small" type="url" placeholder="e.g. /.netlify/functions/verify-ticket" value="${esc(state.scannerApiUrl || DATA.cms.verifyEndpoint || "")}">
+                <button type="button" class="chip-toggle t-micro" id="qr-api-save-btn">(Save hook)</button>
+              </div>
+              <p class="t-micro">Accepted prefixes: <span class="tnum">${esc((DATA.cms.acceptedPrefixes || []).join(", "))}</span> or 10–24 digit Eventbrite barcodes.</p>
+            </div>
+          </details>
+
+          <div class="qr-history-wrap">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+              <p class="t-micro" id="qr-history-heading">(Recent check-ins on this device)</p>
+              <div style="display:flex;align-items:center;gap:16px;">
+                <button type="button" class="btn-text t-micro u-anim" id="qr-export-csv-btn">(Export CSV)</button>
+                <button type="button" class="btn-text t-micro u-anim" id="qr-clear-log-btn">(Clear local log)</button>
+              </div>
+            </div>
+            <div class="qr-history-list" id="qr-history-list"></div>
+          </div>
+
+          <div class="qr-summary-card" id="qr-summary-card" aria-live="polite">
+            <div class="qr-summary-head">
+              <p class="t-micro" id="qr-summary-date">(Today's scan summary)</p>
+              <button type="button" class="btn-text t-micro u-anim" id="qr-reset-daily-btn">(Reset today)</button>
+            </div>
+            <div class="qr-summary-total-row">
+              <span class="t-small fw-600">Unique tickets scanned today</span>
+              <span class="t-h2 tnum" id="qr-summary-total">0</span>
+            </div>
+            <div class="qr-summary-tiers" id="qr-summary-tiers"></div>
           </div>
         </dialog>
       </section>
@@ -6266,7 +7520,7 @@ const APP = (() => {
           parts.push(`${q} × ${t.name} (£${t.price})`);
         }
       });
-      dlgBody.textContent = `Official checkout is handled on Eventbrite (Organiser: AFJ Cardiff). Scan the QR code on the official poster section on the home page to complete your booking for ${parts.join(", ")} (£${totalCost} total), or email afjcardiff@gmail.com for group enquiries.`;
+      dlgBody.textContent = `Official checkout is handled on Eventbrite (Organiser: ${DATA.cms.eventbriteOrg}). Scan the QR code on the official poster section on the home page to complete your booking for ${parts.join(", ")} (£${totalCost} total), or email afjcardiff@gmail.com for group enquiries.`;
       if (typeof dialog.showModal === "function") dialog.showModal();
       else dialog.setAttribute("open", "");
       dlgClose.focus();
@@ -6281,11 +7535,1033 @@ const APP = (() => {
       reserveBtn.focus();
     });
 
+    // QR Code Scanner Overlay Logic
+    const qrOpenBtn = document.getElementById("open-qr-scanner-btn");
+    const qrDialog = document.getElementById("qr-scanner-dialog");
+    const qrCloseBtn = document.getElementById("qr-dlg-close");
+    const qrTabBtns = Array.from(document.querySelectorAll("[data-qr-tab]"));
+    const qrPanels = {
+      camera: document.getElementById("qr-panel-camera"),
+      upload: document.getElementById("qr-panel-upload"),
+      manual: document.getElementById("qr-panel-manual")
+    };
+    const qrVideo = document.getElementById("qr-video");
+    const qrCamMsg = document.getElementById("qr-camera-msg");
+    const qrCamStatusTxt = document.getElementById("qr-camera-status-text");
+    const qrRetryCamBtn = document.getElementById("qr-retry-cam-btn");
+    const qrFallbackUploadBtn = document.getElementById("qr-fallback-upload-btn");
+    const qrFileInput = document.getElementById("qr-file-input");
+    const qrDropZone = document.getElementById("qr-drop-zone");
+    const qrUploadPreview = document.getElementById("qr-upload-preview");
+    const qrManualForm = document.getElementById("qr-manual-form");
+    const qrManualInput = document.getElementById("qr-manual-input");
+    const qrSamplesRow = document.getElementById("qr-samples-row");
+    const qrResBox = document.getElementById("qr-result-box");
+    const qrResKicker = document.getElementById("qr-res-kicker");
+    const qrResHeadline = document.getElementById("qr-res-headline");
+    const qrResDesc = document.getElementById("qr-res-desc");
+    const qrResMeta = document.getElementById("qr-res-meta");
+    const qrResActions = document.getElementById("qr-res-actions");
+    const qrApiInput = document.getElementById("qr-api-url-input");
+    const qrApiSaveBtn = document.getElementById("qr-api-save-btn");
+    const qrHistoryHeading = document.getElementById("qr-history-heading");
+    const qrHistoryList = document.getElementById("qr-history-list");
+    const qrExportCsvBtn = document.getElementById("qr-export-csv-btn");
+    const qrClearLogBtn = document.getElementById("qr-clear-log-btn");
+    const qrHapticsToggle = document.getElementById("qr-haptics-toggle");
+    const qrVolumeSlider = document.getElementById("qr-volume-slider");
+    const qrVolumeValue = document.getElementById("qr-volume-value");
+    const qrHapticNote = document.getElementById("qr-haptic-note");
+    const qrSummaryDate = document.getElementById("qr-summary-date");
+    const qrSummaryTotal = document.getElementById("qr-summary-total");
+    const qrSummaryTiers = document.getElementById("qr-summary-tiers");
+    const qrResetDailyBtn = document.getElementById("qr-reset-daily-btn");
+    const qrOrientTip = document.getElementById("qr-orient-tip");
+    const qrOrientDismissBtn = document.getElementById("qr-orient-dismiss-btn");
+
+    let activeQrTab = "camera";
+    let camStream = null;
+    let scanTimer = 0;
+    let camTipTimer = 0;
+    let camTipDismissed = false;
+    let camScanSessionStartMs = 0;
+    let scanAudioCtx = null;
+    let isDecoding = false;
+    let lastScannedCode = "";
+    let lastScannedAt = 0;
+    const scanCanvas = document.createElement("canvas");
+    const scanCtx = scanCanvas.getContext("2d", { willReadFrequently: true });
+
+    function clearCameraOrientTimer() {
+      if (camTipTimer) {
+        window.clearTimeout(camTipTimer);
+        camTipTimer = 0;
+      }
+    }
+
+    function hideCameraOrientTip(markDismissed) {
+      clearCameraOrientTimer();
+      if (qrOrientTip) qrOrientTip.hidden = true;
+      if (markDismissed) camTipDismissed = true;
+    }
+
+    function armCameraOrientTimer() {
+      clearCameraOrientTimer();
+      const isDialogOpen = qrDialog && (qrDialog.open || qrDialog.hasAttribute("open"));
+      if (!isDialogOpen || activeQrTab !== "camera" || camTipDismissed) return;
+      camTipTimer = window.setTimeout(() => {
+        camTipTimer = 0;
+        const stillOpen = qrDialog && (qrDialog.open || qrDialog.hasAttribute("open"));
+        if (stillOpen && activeQrTab === "camera" && !camTipDismissed && qrOrientTip) {
+          qrOrientTip.hidden = false;
+        }
+      }, 5000);
+    }
+
+    function resetCameraInactivity(e) {
+      if (e && e.target && e.target.closest && e.target.closest("#qr-orient-dismiss-btn")) return;
+      if (activeQrTab !== "camera" || camTipDismissed) return;
+      if (qrOrientTip) qrOrientTip.hidden = true;
+      armCameraOrientTimer();
+    }
+
+    function stopCamera() {
+      clearCameraOrientTimer();
+      hideCameraOrientTip(false);
+      camScanSessionStartMs = 0;
+      if (scanTimer) {
+        window.clearTimeout(scanTimer);
+        scanTimer = 0;
+      }
+      if (camStream) {
+        camStream.getTracks().forEach(t => {
+          try { t.stop(); } catch (e) {}
+        });
+        camStream = null;
+      }
+      if (qrVideo) {
+        qrVideo.srcObject = null;
+      }
+    }
+
+    async function decodeQrFromCanvas(canvas) {
+      if ("BarcodeDetector" in window) {
+        try {
+          const detector = new window.BarcodeDetector({ formats: ["qr_code"] });
+          const results = await detector.detect(canvas);
+          if (results && results.length > 0 && results[0].rawValue) {
+            return results[0].rawValue;
+          }
+        } catch (e) {
+          // Fall through to jsQR
+        }
+      }
+      if (typeof window.AFJ_JSQR === "function") {
+        try {
+          const ctx = canvas.getContext("2d", { willReadFrequently: true });
+          const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const decoded = window.AFJ_JSQR(imgData.data, canvas.width, canvas.height, { inversionAttempts: "attemptBoth" });
+          if (decoded && decoded.data) return decoded.data;
+        } catch (e) {
+          // Decode failed
+        }
+      }
+      return null;
+    }
+
+    function extractTicketCode(rawPayload) {
+      const trimmed = String(rawPayload || "").trim();
+      if (!trimmed) return "";
+      if (trimmed.startsWith("{") && trimmed.endsWith("}")) {
+        try {
+          const obj = JSON.parse(trimmed);
+          const candidate = obj.code || obj.ticketId || obj.orderId || obj.barcode || obj.ticket;
+          if (candidate) return String(candidate).trim();
+        } catch (e) {}
+      }
+      if (/^https?:\/\//i.test(trimmed)) {
+        try {
+          const u = new URL(trimmed);
+          const param = u.searchParams.get("code") || u.searchParams.get("ticket") || u.searchParams.get("eid") || u.searchParams.get("order");
+          if (param) return param.trim();
+        } catch (e) {}
+      }
+      return trimmed;
+    }
+
+    function inferTierFromCode(code) {
+      const up = code.toUpperCase();
+      if (up.includes("-EB-") || up.includes("EARLY")) return "Early Bird (£15)";
+      if (up.includes("-GA-") || up.includes("GENERAL")) return "General Admission (£20)";
+      if (up.includes("-VIP-") || up.includes("GUEST")) return "Collective Guest";
+      return "Eventbrite Pass";
+    }
+
+    async function verifyTicketCode(rawPayload, inputSource, opts) {
+      const verifyStartMs = (typeof performance !== "undefined" && typeof performance.now === "function") ? performance.now() : Date.now();
+      const o = opts || {};
+      const silentFeedback = Boolean(o.silentFeedback);
+      const resolveDurationMs = () => {
+        if (typeof o.detectDurationMs === "number" && Number.isFinite(o.detectDurationMs)) {
+          return Math.max(1, Math.round(o.detectDurationMs));
+        }
+        const nowMs = (typeof performance !== "undefined" && typeof performance.now === "function") ? performance.now() : Date.now();
+        return Math.max(1, Math.round(nowMs - verifyStartMs));
+      };
+      const code = extractTicketCode(rawPayload);
+      if (!code) {
+        renderScanResult({
+          status: "invalid",
+          kicker: "(Empty payload)",
+          headline: "No QR code detected",
+          desc: "Try holding the QR code steady in frame, uploading a sharper screenshot, or entering the ticket code manually.",
+          code: "—",
+          tier: "—",
+          holder: "—",
+          source: inputSource,
+          silentFeedback
+        });
+        return;
+      }
+
+      const apiUrl = (state.scannerApiUrl || DATA.cms.verifyEndpoint || "").trim();
+      if (apiUrl) {
+        renderScanResult({
+          status: "checking",
+          kicker: "(Verifying via external API)",
+          headline: "Checking ticket status…",
+          desc: `Querying ${apiUrl} for ${code}`,
+          code,
+          tier: "Pending",
+          holder: "Pending",
+          source: "External API",
+          silentFeedback: true
+        });
+        try {
+          const res = await fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ code, raw: rawPayload, event: DATA.meta.name })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            const apiStatus = data.status || (data.valid ? "valid" : "invalid");
+            renderScanResult({
+              status: apiStatus,
+              kicker: apiStatus === "valid" ? "(API Verified · Entry permitted)" : apiStatus === "checked_in" ? "(API Verified · Duplicate scan)" : "(API Rejected)",
+              headline: apiStatus === "valid" ? "Valid Ticket — Ready for Entry" : apiStatus === "checked_in" ? "Already Checked In" : "Invalid or Unrecognized Ticket",
+              desc: data.message || "Verified against configured Eventbrite/backend endpoint.",
+              code,
+              tier: data.tier || inferTierFromCode(code),
+              holder: data.holder || "Ticket Holder",
+              source: "External Verification API",
+              allowCheckIn: apiStatus === "valid",
+              detectDurationMs: apiStatus === "valid" ? resolveDurationMs() : null,
+              silentFeedback
+            });
+            return;
+          }
+        } catch (e) {
+          // Fall back to CMS + Eventbrite format verification with clear source note
+        }
+      }
+
+      const normCode = code.toUpperCase();
+      const existingCheckin = state.checkins.find(c => c.code.toUpperCase() === normCode);
+      if (existingCheckin) {
+        renderScanResult({
+          status: "checked_in",
+          kicker: "(Duplicate scan)",
+          headline: "Already Checked In",
+          desc: `This ticket was checked in at ${existingCheckin.checkedInAt}. Verify ID if duplicate entry is unexpected.`,
+          code,
+          tier: existingCheckin.tier,
+          holder: existingCheckin.holder,
+          source: existingCheckin.source,
+          detectDurationMs: typeof existingCheckin.detectDurationMs === "number" ? existingCheckin.detectDurationMs : null,
+          allowUndo: true,
+          silentFeedback
+        });
+        return;
+      }
+
+      const cmsPass = (DATA.cms.passes || []).find(p => String(p.code).toUpperCase() === normCode);
+      if (cmsPass) {
+        if (cmsPass.status === "checked_in") {
+          renderScanResult({
+            status: "checked_in",
+            kicker: "(CMS Pass Registry · Used)",
+            headline: "Already Checked In",
+            desc: "Marked as checked in within the CMS pass registry.",
+            code: cmsPass.code,
+            tier: cmsPass.tier,
+            holder: cmsPass.holder,
+            source: "Netlify CMS Registry",
+            silentFeedback
+          });
+          return;
+        }
+        if (cmsPass.status === "revoked") {
+          renderScanResult({
+            status: "invalid",
+            kicker: "(CMS Pass Registry · Revoked)",
+            headline: "Ticket Revoked",
+            desc: "This pass has been marked revoked in the CMS pass registry.",
+            code: cmsPass.code,
+            tier: cmsPass.tier,
+            holder: cmsPass.holder,
+            source: "Netlify CMS Registry",
+            silentFeedback
+          });
+          return;
+        }
+        renderScanResult({
+          status: "valid",
+          kicker: "(CMS Pass Registry · Entry permitted)",
+          headline: "Valid Ticket — Ready for Entry",
+          desc: "Matched in AFJ Cardiff CMS pass registry. Press Confirm Check-In to admit guest.",
+          code: cmsPass.code,
+          tier: cmsPass.tier,
+          holder: cmsPass.holder,
+          source: "Netlify CMS Registry",
+          allowCheckIn: true,
+          detectDurationMs: resolveDurationMs(),
+          silentFeedback
+        });
+        return;
+      }
+
+      const prefixes = (DATA.cms.acceptedPrefixes || ["AFJ-", "EB-", "EVT-", "WMC-"]).map(p => String(p).toUpperCase());
+      const matchesPrefix = prefixes.some(p => normCode.startsWith(p) && normCode.length >= p.length + 5);
+      const matchesEventbriteUrl = /eventbrite\./i.test(rawPayload) && rawPayload.length >= 24;
+      const matchesBarcode = /^\d{10,24}$/.test(code);
+      const matchesJson = rawPayload.trim().startsWith("{") && code.length >= 5;
+
+      if (matchesPrefix || matchesEventbriteUrl || matchesBarcode || matchesJson) {
+        renderScanResult({
+          status: "valid",
+          kicker: "(AFJ / Eventbrite QR format · Entry permitted)",
+          headline: "Valid Eventbrite / AFJ Format",
+          desc: "Format verified locally. Connect an Eventbrite proxy endpoint in settings for live barcode settlement.",
+          code,
+          tier: inferTierFromCode(code),
+          holder: "Eventbrite Guest",
+          source: matchesEventbriteUrl ? "Eventbrite QR URL" : matchesBarcode ? "Eventbrite Barcode" : "AFJ Ticket Format",
+          allowCheckIn: true,
+          detectDurationMs: resolveDurationMs(),
+          silentFeedback
+        });
+        return;
+      }
+
+      renderScanResult({
+        status: "invalid",
+        kicker: "(Verification failed)",
+        headline: "Invalid or Unrecognized QR Code",
+        desc: `Payload "${code.slice(0, 48)}" did not match registered CMS passes or AFJ/Eventbrite ticket formats.`,
+        code,
+        tier: "Unrecognized",
+        holder: "—",
+        source: inputSource,
+        silentFeedback
+      });
+    }
+
+    function normalizeSummaryTier(rawTier, status) {
+      if (status === "invalid") return "Invalid / Unrecognized";
+      const t = String(rawTier || "").trim();
+      const up = t.toUpperCase();
+      if (up.includes("EARLY BIRD")) return "Early Bird";
+      if (up.includes("GENERAL ADMISSION")) return "General Admission";
+      if (up.includes("COLLECTIVE GUEST")) return "Collective Guest";
+      if (up.includes("EVENTBRITE PASS")) return "Eventbrite Pass";
+      return t || "Eventbrite Pass";
+    }
+
+    function recordDailyScan(code, tier, status) {
+      const normKey = String(code || "").trim().toUpperCase();
+      if (!normKey || normKey === "—") return;
+      const store = ensureTodayDailyScans();
+      store.entries[normKey] = {
+        code: String(code).trim(),
+        tier: normalizeSummaryTier(tier, status),
+        status,
+        lastScannedAt: new Date().toISOString()
+      };
+      storageSet("afj5.dailyScans", store);
+      renderDailySummary();
+    }
+
+    function ensureAudioCtx() {
+      if (typeof window === "undefined") return null;
+      const AudioCtor = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtor) return null;
+      if (!scanAudioCtx || scanAudioCtx.state === "closed") {
+        try {
+          scanAudioCtx = new AudioCtor();
+        } catch (e) {
+          return null;
+        }
+      }
+      if (scanAudioCtx.state === "suspended" && typeof scanAudioCtx.resume === "function") {
+        try { scanAudioCtx.resume().catch(() => {}); } catch (e) {}
+      }
+      return scanAudioCtx;
+    }
+
+    function playScanTone(status) {
+      const vol = Math.min(100, Math.max(0, Number(state.scannerVolume)));
+      const volScale = vol / 100;
+      if (!state.scannerHaptics || volScale <= 0) return;
+      const ctx = ensureAudioCtx();
+      if (!ctx) return;
+      try {
+        const now = ctx.currentTime;
+        if (status === "valid") {
+          // Subtle, crisp ascending 'ping'
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(880, now);
+          osc.frequency.exponentialRampToValueAtTime(1174.66, now + 0.055);
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.linearRampToValueAtTime(0.16 * volScale, now + 0.01);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.16);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.17);
+        } else if (status === "checked_in") {
+          // Soft double-ping warning for duplicate scans
+          [0, 0.1].forEach(offset => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            const t0 = now + offset;
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(659.25, t0);
+            gain.gain.setValueAtTime(0.0001, t0);
+            gain.gain.linearRampToValueAtTime(0.12 * volScale, t0 + 0.008);
+            gain.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.075);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(t0);
+            osc.stop(t0 + 0.085);
+          });
+        } else if (status === "invalid") {
+          // Subtle, muted low 'thud'
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = "triangle";
+          osc.frequency.setValueAtTime(155, now);
+          osc.frequency.exponentialRampToValueAtTime(58, now + 0.11);
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.linearRampToValueAtTime(0.26 * volScale, now + 0.008);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.14);
+          if (typeof ctx.createBiquadFilter === "function") {
+            const filter = ctx.createBiquadFilter();
+            filter.type = "lowpass";
+            filter.frequency.setValueAtTime(280, now);
+            osc.connect(filter);
+            filter.connect(gain);
+          } else {
+            osc.connect(gain);
+          }
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.15);
+        }
+      } catch (e) {
+        // Ignore audio synthesis restrictions
+      }
+    }
+
+    function triggerValidScanHaptic() {
+      if (!state.motionOn || !state.scannerHaptics) return;
+      if (typeof navigator !== "undefined" && typeof navigator.vibrate === "function") {
+        try {
+          navigator.vibrate([45, 30, 65]);
+        } catch (e) {}
+      }
+    }
+
+    function refreshHapticUI() {
+      const supported = typeof navigator !== "undefined" && typeof navigator.vibrate === "function";
+      const active = Boolean(state.scannerHaptics);
+      const vol = Math.min(100, Math.max(0, Math.round(Number(state.scannerVolume) || 0)));
+      if (qrVolumeSlider && Number(qrVolumeSlider.value) !== vol) {
+        qrVolumeSlider.value = String(vol);
+      }
+      if (qrVolumeValue) {
+        qrVolumeValue.textContent = `${vol}%`;
+      }
+      if (qrHapticsToggle) {
+        qrHapticsToggle.setAttribute("aria-pressed", active ? "true" : "false");
+        qrHapticsToggle.textContent = active ? "(Haptics: on)" : "(Haptics: off)";
+      }
+      if (qrHapticNote) {
+        if (!active) {
+          qrHapticNote.textContent = "Audio cues & haptics muted for this scanner.";
+        } else if (vol === 0) {
+          qrHapticNote.textContent = supported && state.motionOn
+            ? "Sound volume at 0% (muted); haptic pulse enabled."
+            : "Sound volume at 0% (muted).";
+        } else if (!supported) {
+          qrHapticNote.textContent = `Sound cues at ${vol}% (ping / double-ping / thud); haptic vibration unavailable on this browser.`;
+        } else if (!state.motionOn) {
+          qrHapticNote.textContent = `Sound cues at ${vol}% (ping / double-ping / thud); haptics paused while site Motion is off.`;
+        } else {
+          qrHapticNote.textContent = `Sound cues at ${vol}% (ping / double-ping / thud) & haptic pulse enabled.`;
+        }
+      }
+    }
+
+    function renderDailySummary() {
+      const store = ensureTodayDailyScans();
+      const items = Object.values(store.entries);
+      if (qrSummaryDate) {
+        qrSummaryDate.textContent = `(Today's scan summary · ${store.date})`;
+      }
+      if (qrSummaryTotal) {
+        qrSummaryTotal.textContent = String(items.length);
+      }
+      if (qrResetDailyBtn) {
+        qrResetDailyBtn.disabled = items.length === 0;
+        qrResetDailyBtn.style.opacity = items.length === 0 ? "0.45" : "1";
+        qrResetDailyBtn.style.cursor = items.length === 0 ? "not-allowed" : "pointer";
+      }
+      if (!qrSummaryTiers) return;
+      const baseTiers = ["Early Bird", "General Admission", "Collective Guest", "Eventbrite Pass", "Invalid / Unrecognized"];
+      const counts = new Map();
+      baseTiers.forEach(name => counts.set(name, 0));
+      items.forEach(entry => {
+        const name = entry.tier || "Eventbrite Pass";
+        counts.set(name, (counts.get(name) || 0) + 1);
+      });
+      qrSummaryTiers.innerHTML = Array.from(counts.entries()).map(([label, cnt]) => `
+        <div class="qr-summary-tier-row t-micro">
+          <span>${esc(label)}</span>
+          <span class="fw-600 tnum">${cnt}</span>
+        </div>
+      `).join("");
+    }
+
+    function renderScanResult(res) {
+      qrResBox.setAttribute("data-status", res.status);
+      qrResKicker.textContent = res.kicker;
+      qrResHeadline.textContent = res.headline;
+      qrResDesc.textContent = res.desc;
+
+      if (res.status === "idle") {
+        qrResMeta.hidden = true;
+        qrResActions.hidden = true;
+        return;
+      }
+
+      if (res.status === "valid" || res.status === "checked_in" || res.status === "invalid") {
+        recordDailyScan(res.code, res.tier, res.status);
+        if (!res.silentFeedback) {
+          playScanTone(res.status);
+        }
+      }
+      if (res.status === "valid" && !res.silentFeedback) {
+        triggerValidScanHaptic();
+      }
+
+      const hasDuration = typeof res.detectDurationMs === "number" && Number.isFinite(res.detectDurationMs);
+      qrResMeta.hidden = false;
+      qrResMeta.innerHTML = `
+        <div><p class="t-micro">Ticket code</p><p class="t-small fw-600 tnum">${esc(res.code)}</p></div>
+        <div><p class="t-micro">Tier</p><p class="t-small fw-600">${esc(res.tier)}</p></div>
+        <div><p class="t-micro">Guest</p><p class="t-small fw-600">${esc(res.holder)}</p></div>
+        <div><p class="t-micro">Verification source</p><p class="t-small">${esc(res.source)}</p></div>
+        ${hasDuration ? `<div><p class="t-micro">Detection time</p><p class="t-small fw-600 tnum">${res.detectDurationMs} ms</p></div>` : ""}
+      `;
+
+      const btns = [];
+      if (res.allowCheckIn) {
+        btns.push(`<button type="button" class="btn-primary btn-sm t-small" id="qr-confirm-checkin-btn"><span>Confirm check-in</span></button>`);
+      }
+      if (res.allowUndo) {
+        btns.push(`<button type="button" class="chip-toggle t-micro" id="qr-undo-checkin-btn" style="background:var(--paper);color:var(--ink);">(Undo local check-in)</button>`);
+      }
+      btns.push(`<button type="button" class="chip-toggle t-micro" id="qr-scan-next-btn" style="background:var(--paper);color:var(--ink);">(Scan next)</button>`);
+
+      qrResActions.hidden = false;
+      qrResActions.innerHTML = btns.join("");
+
+      const confirmBtn = document.getElementById("qr-confirm-checkin-btn");
+      if (confirmBtn) {
+        confirmBtn.addEventListener("click", () => {
+          const nowDate = new Date();
+          const nowTime = nowDate.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
+          state.checkins.unshift({
+            code: res.code,
+            tier: res.tier,
+            holder: res.holder,
+            source: res.source,
+            detectDurationMs: hasDuration ? res.detectDurationMs : null,
+            checkedInAt: nowTime,
+            checkedInISO: nowDate.toISOString()
+          });
+          storageSet("afj5.checkins", state.checkins.slice(0, 50));
+          renderHistory();
+          verifyTicketCode(res.code, res.source, { silentFeedback: true, detectDurationMs: hasDuration ? res.detectDurationMs : undefined });
+        });
+      }
+
+      const undoBtn = document.getElementById("qr-undo-checkin-btn");
+      if (undoBtn) {
+        undoBtn.addEventListener("click", () => {
+          state.checkins = state.checkins.filter(c => c.code.toUpperCase() !== res.code.toUpperCase());
+          storageSet("afj5.checkins", state.checkins);
+          renderHistory();
+          verifyTicketCode(res.code, res.source, { silentFeedback: true });
+        });
+      }
+
+      const nextBtn = document.getElementById("qr-scan-next-btn");
+      if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+          lastScannedCode = "";
+          camTipDismissed = false;
+          camScanSessionStartMs = (typeof performance !== "undefined" && typeof performance.now === "function") ? performance.now() : Date.now();
+          renderScanResult({
+            status: "idle",
+            kicker: "(Ready to scan)",
+            headline: "Waiting for ticket QR code…",
+            desc: "Scan via camera, upload an image, or enter a ticket code to verify entry status."
+          });
+          if (activeQrTab === "camera") {
+            if (!camStream) startCamera();
+            else armCameraOrientTimer();
+          }
+        });
+      }
+    }
+
+    function renderHistory() {
+      const count = Array.isArray(state.checkins) ? state.checkins.length : 0;
+      if (qrHistoryHeading) {
+        qrHistoryHeading.textContent = count > 0
+          ? `(Recent check-ins on this device · ${count})`
+          : "(Recent check-ins on this device)";
+      }
+      if (qrExportCsvBtn) {
+        qrExportCsvBtn.disabled = count === 0;
+        qrExportCsvBtn.style.opacity = count === 0 ? "0.45" : "1";
+        qrExportCsvBtn.style.cursor = count === 0 ? "not-allowed" : "pointer";
+      }
+      if (count === 0) {
+        qrHistoryList.innerHTML = `<p class="t-micro" style="padding-top:8px;">No tickets checked in on this device yet.</p>`;
+        return;
+      }
+      qrHistoryList.innerHTML = state.checkins.slice(0, 6).map(item => {
+        const hasDur = typeof item.detectDurationMs === "number" && Number.isFinite(item.detectDurationMs);
+        const durBadge = hasDur
+          ? `<span class="qr-history-duration tnum" title="QR detection time">${Math.round(item.detectDurationMs)} ms</span>`
+          : "";
+        return `
+          <div class="qr-history-item t-micro">
+            <span><strong>${esc(item.code)}</strong> · ${esc(item.tier)} (${esc(item.holder)})</span>
+            <span class="qr-history-meta tnum">${durBadge}<span>Checked in ${esc(item.checkedInAt)}</span></span>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function scheduleCameraScanLoop() {
+      if (activeQrTab !== "camera" || !camStream) return;
+      if (!camScanSessionStartMs) {
+        camScanSessionStartMs = (typeof performance !== "undefined" && typeof performance.now === "function") ? performance.now() : Date.now();
+      }
+      scanTimer = window.setTimeout(async () => {
+        if (activeQrTab !== "camera" || !camStream) return;
+        if (!isDecoding && qrVideo.readyState >= 2 && qrVideo.videoWidth > 0) {
+          isDecoding = true;
+          try {
+            const w = Math.min(640, qrVideo.videoWidth);
+            const h = Math.round((qrVideo.videoHeight / qrVideo.videoWidth) * w);
+            scanCanvas.width = w;
+            scanCanvas.height = h;
+            scanCtx.drawImage(qrVideo, 0, 0, w, h);
+            const raw = await decodeQrFromCanvas(scanCanvas);
+            if (raw) {
+              hideCameraOrientTip(true);
+              const now = Date.now();
+              if (raw !== lastScannedCode || now - lastScannedAt > 3000) {
+                const nowPerf = (typeof performance !== "undefined" && typeof performance.now === "function") ? performance.now() : Date.now();
+                const detectDurationMs = camScanSessionStartMs ? Math.max(1, Math.round(nowPerf - camScanSessionStartMs)) : null;
+                camScanSessionStartMs = 0;
+                lastScannedCode = raw;
+                lastScannedAt = now;
+                await verifyTicketCode(raw, "Camera QR Scan", { detectDurationMs });
+              }
+            }
+          } finally {
+            isDecoding = false;
+          }
+        }
+        scheduleCameraScanLoop();
+      }, 200);
+    }
+
+    async function startCamera() {
+      stopCamera();
+      camTipDismissed = false;
+      armCameraOrientTimer();
+      qrCamMsg.hidden = false;
+      qrCamStatusTxt.textContent = "Requesting camera access for QR scanning…";
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        qrCamStatusTxt.textContent = "Camera API unavailable in this browser/context. Use Upload QR image or Manual / Test codes.";
+        return;
+      }
+      try {
+        camStream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: "environment" } },
+          audio: false
+        });
+        qrVideo.srcObject = camStream;
+        await qrVideo.play();
+        camScanSessionStartMs = (typeof performance !== "undefined" && typeof performance.now === "function") ? performance.now() : Date.now();
+        qrCamMsg.hidden = true;
+        armCameraOrientTimer();
+        scheduleCameraScanLoop();
+      } catch (err) {
+        stopCamera();
+        qrCamMsg.hidden = false;
+        qrCamStatusTxt.textContent = "Camera access denied or no webcam found. Switch to Upload QR image or Manual / Test codes.";
+        armCameraOrientTimer();
+      }
+    }
+
+    function setQrTab(tab) {
+      activeQrTab = tab;
+      qrTabBtns.forEach(b => {
+        const isOn = b.dataset.qrTab === tab;
+        b.setAttribute("aria-selected", isOn ? "true" : "false");
+        b.setAttribute("aria-pressed", isOn ? "true" : "false");
+      });
+      Object.keys(qrPanels).forEach(k => {
+        qrPanels[k].hidden = k !== tab;
+      });
+      if (tab === "camera") startCamera();
+      else stopCamera();
+    }
+
+    async function handleQrImageFile(file) {
+      if (!file) return;
+      const uploadStartMs = (typeof performance !== "undefined" && typeof performance.now === "function") ? performance.now() : Date.now();
+      const url = URL.createObjectURL(file);
+      qrUploadPreview.src = url;
+      qrUploadPreview.classList.add("is-visible");
+      const img = new Image();
+      img.onload = async () => {
+        try {
+          const maxDim = 1024;
+          const scale = Math.min(1, maxDim / Math.max(img.naturalWidth || 1, img.naturalHeight || 1));
+          scanCanvas.width = Math.max(1, Math.round(img.naturalWidth * scale));
+          scanCanvas.height = Math.max(1, Math.round(img.naturalHeight * scale));
+          scanCtx.drawImage(img, 0, 0, scanCanvas.width, scanCanvas.height);
+          const raw = await decodeQrFromCanvas(scanCanvas);
+          if (raw) {
+            const nowPerf = (typeof performance !== "undefined" && typeof performance.now === "function") ? performance.now() : Date.now();
+            const detectDurationMs = Math.max(1, Math.round(nowPerf - uploadStartMs));
+            await verifyTicketCode(raw, "Uploaded QR Image", { detectDurationMs });
+          } else {
+            renderScanResult({
+              status: "invalid",
+              kicker: "(Image decode failed)",
+              headline: "No QR code found in image",
+              desc: "Ensure the QR code is crisp, well-lit, and uncropped, or enter the code manually.",
+              code: file.name,
+              tier: "—",
+              holder: "—",
+              source: "Image Upload"
+            });
+          }
+        } finally {
+          URL.revokeObjectURL(url);
+        }
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+    }
+
+    // Populate quick sample test buttons from CMS passes + invalid example
+    const sampleItems = (DATA.cms.passes || []).slice(0, 3).map(p => ({ label: `${p.code} (${p.tier})`, code: p.code }));
+    sampleItems.push({ label: "INVALID-CODE-000", code: "INVALID-CODE-000" });
+    qrSamplesRow.innerHTML = sampleItems.map(s =>
+      `<button type="button" class="chip-toggle t-micro" data-qr-sample="${esc(s.code)}">${esc(s.label)}</button>`
+    ).join("");
+    qrSamplesRow.addEventListener("click", e => {
+      const btn = e.target.closest("[data-qr-sample]");
+      if (!btn) return;
+      qrManualInput.value = btn.dataset.qrSample;
+      verifyTicketCode(btn.dataset.qrSample, "Sample Pass Code");
+    });
+
+    qrTabBtns.forEach(btn => btn.addEventListener("click", () => setQrTab(btn.dataset.qrTab)));
+    qrRetryCamBtn.addEventListener("click", startCamera);
+    qrFallbackUploadBtn.addEventListener("click", () => setQrTab("upload"));
+    qrFileInput.addEventListener("change", e => handleQrImageFile(e.target.files && e.target.files[0]));
+    qrDropZone.addEventListener("dragover", e => {
+      e.preventDefault();
+      qrDropZone.classList.add("is-dragover");
+    });
+    qrDropZone.addEventListener("dragleave", () => qrDropZone.classList.remove("is-dragover"));
+    qrDropZone.addEventListener("drop", e => {
+      e.preventDefault();
+      qrDropZone.classList.remove("is-dragover");
+      const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+      if (file) handleQrImageFile(file);
+    });
+    qrManualForm.addEventListener("submit", e => {
+      e.preventDefault();
+      verifyTicketCode(qrManualInput.value, "Manual Code Entry");
+    });
+    qrApiSaveBtn.addEventListener("click", () => {
+      state.scannerApiUrl = qrApiInput.value.trim();
+      storageSet("afj5.scannerApiUrl", state.scannerApiUrl);
+      qrApiSaveBtn.textContent = "(Saved)";
+      window.setTimeout(() => { qrApiSaveBtn.textContent = "(Save hook)"; }, 1500);
+    });
+    qrExportCsvBtn.addEventListener("click", () => {
+      if (!state.checkins || state.checkins.length === 0) return;
+      const csvCell = val => {
+        let s = String(val == null ? "" : val);
+        if (/^[=+\-@\t\r]/.test(s)) s = "'" + s;
+        return `"${s.replace(/"/g, '""')}"`;
+      };
+      const headers = ["Ticket Code", "Tier", "Attendee", "Status", "Verification Source", "Detection (ms)", "Checked In Time", "Timestamp (ISO)"];
+      const rows = state.checkins.map(item => [
+        item.code,
+        item.tier,
+        item.holder,
+        "Checked In",
+        item.source || "Scanner",
+        typeof item.detectDurationMs === "number" ? String(Math.round(item.detectDurationMs)) : "",
+        item.checkedInAt || "",
+        item.checkedInISO || ""
+      ].map(csvCell).join(","));
+      const csvContent = "\uFEFF" + [headers.map(csvCell).join(","), ...rows].join("\r\n");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const blobUrl = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = blobUrl;
+      a.download = `afj-cardiff-attendees-${DATA.meta.dates.start}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+    });
+    qrClearLogBtn.addEventListener("click", () => {
+      state.checkins = [];
+      storageSet("afj5.checkins", []);
+      renderHistory();
+    });
+    qrResetDailyBtn.addEventListener("click", () => {
+      state.dailyScans = { date: getTodayLocalKey(), entries: {} };
+      storageSet("afj5.dailyScans", state.dailyScans);
+      renderDailySummary();
+    });
+    if (qrOrientDismissBtn) {
+      qrOrientDismissBtn.addEventListener("click", () => hideCameraOrientTip(true));
+    }
+    if (qrPanels.camera) {
+      qrPanels.camera.addEventListener("pointerdown", resetCameraInactivity);
+      qrPanels.camera.addEventListener("keydown", resetCameraInactivity);
+    }
+    if (qrVolumeSlider) {
+      qrVolumeSlider.addEventListener("input", () => {
+        state.scannerVolume = Math.min(100, Math.max(0, Math.round(Number(qrVolumeSlider.value) || 0)));
+        storageSet("afj5.scannerVolume", state.scannerVolume);
+        refreshHapticUI();
+      });
+      qrVolumeSlider.addEventListener("change", () => {
+        if (state.scannerHaptics && state.scannerVolume > 0) {
+          playScanTone("valid");
+        }
+      });
+    }
+    qrHapticsToggle.addEventListener("click", () => {
+      state.scannerHaptics = !state.scannerHaptics;
+      storageSet("afj5.scannerHaptics", state.scannerHaptics);
+      refreshHapticUI();
+      if (state.scannerHaptics) {
+        playScanTone("valid");
+        if (state.motionOn && typeof navigator !== "undefined" && typeof navigator.vibrate === "function") {
+          try { navigator.vibrate(35); } catch (e) {}
+        }
+      }
+    });
+    window.addEventListener("raster:motionchange", refreshHapticUI);
+
+    const closeQrScanner = () => {
+      stopCamera();
+      if (typeof qrDialog.close === "function" && qrDialog.open) qrDialog.close();
+      else qrDialog.removeAttribute("open");
+      qrOpenBtn.focus();
+    };
+
+    qrOpenBtn.addEventListener("click", () => {
+      camTipDismissed = false;
+      renderHistory();
+      renderDailySummary();
+      refreshHapticUI();
+      if (typeof qrDialog.showModal === "function") qrDialog.showModal();
+      else qrDialog.setAttribute("open", "");
+      setQrTab("camera");
+      qrCloseBtn.focus();
+    });
+    qrCloseBtn.addEventListener("click", closeQrScanner);
+    qrDialog.addEventListener("close", () => stopCamera());
+    qrDialog.addEventListener("click", e => {
+      if (e.target === qrDialog) closeQrScanner();
+    });
+
+    state.routeCleanup.push(() => {
+      stopCamera();
+      if (qrPanels.camera) {
+        qrPanels.camera.removeEventListener("pointerdown", resetCameraInactivity);
+        qrPanels.camera.removeEventListener("keydown", resetCameraInactivity);
+      }
+      if (scanAudioCtx && typeof scanAudioCtx.close === "function") {
+        try { scanAudioCtx.close(); } catch (e) {}
+        scanAudioCtx = null;
+      }
+      window.removeEventListener("raster:motionchange", refreshHapticUI);
+    });
+
     refreshTotals();
   }
 
   // Route 8: Badge maker (#/badge)
   function renderBadge(main) {
+    const ADINKRA_MOTIFS = [
+      {
+        id: "sankofa",
+        name: "Sankofa",
+        meaning: "wisdom, learning from the past, memory and cultural transmission",
+        theme: "bird",
+        pattern: [
+          "0002222200000000",
+          "0023333320000000",
+          "0231111332000000",
+          "0231331332000000",
+          "0023333320000000",
+          "0002222200000000",
+          "0000222000000000",
+          "0002262200000000",
+          "0026666200000000",
+          "0266226620000000",
+          "2662002662000000",
+          "2620000262000000",
+          "0000000000000000",
+          "0000000000000000",
+          "0000000000000000",
+          "0000000000000000"
+        ]
+      },
+      {
+        id: "gyenyame",
+        name: "Gye Nyame",
+        meaning: "supremacy of God, endurance, omnipotence and immortality",
+        theme: "geometric",
+        pattern: [
+          "0002222222200000",
+          "0023332333200000",
+          "0231132311320000",
+          "0231312131320000",
+          "0023322233200000",
+          "0002222222200000",
+          "0000233200000000",
+          "0002311320000000",
+          "0023133132000000",
+          "0231333313200000",
+          "2313000031320000",
+          "2310000001320000",
+          "0200000000200000",
+          "0000000000000000",
+          "0000000000000000",
+          "0000000000000000"
+        ]
+      },
+      {
+        id: "mframadan",
+        name: "Mframadan",
+        meaning: "resilience, wind-resistant house, endurance through storms",
+        theme: "strength",
+        pattern: [
+          "0000022222000000",
+          "0000233332000000",
+          "0002311132000000",
+          "0023111132000000",
+          "0231111113200000",
+          "2333333333320000",
+          "2311111111320000",
+          "2312222221320000",
+          "2312000021320000",
+          "2312000021320000",
+          "2312222221320000",
+          "2333333333320000",
+          "0000000000000000",
+          "0000000000000000",
+          "0000000000000000",
+          "0000000000000000"
+        ]
+      },
+      {
+        id: "nyansapo",
+        name: "Nyansa Po",
+        meaning: "wisdom, ingenuity, patience and educational depth",
+        theme: "wisdom",
+        pattern: [
+          "0000222222200000",
+          "0002333333320000",
+          "0023111111132000",
+          "0231333333313200",
+          "0231322222313200",
+          "0231321112313200",
+          "0231321012313200",
+          "0231321112313200",
+          "0231322222313200",
+          "0231333333313200",
+          "0023111111132000",
+          "0002333333320000",
+          "0000222222200000",
+          "0000000000000000",
+          "0000000000000000",
+          "0000000000000000"
+        ]
+      },
+      {
+        id: "dwennimmen",
+        name: "Dwennimmen",
+        meaning: "humility combined with strength, ram's horns representing leadership",
+        theme: "strength",
+        pattern: [
+          "0000222222200000",
+          "0002333333320000",
+          "0023112221132000",
+          "0231200002132000",
+          "0232000000232000",
+          "0232000000232000",
+          "0231200002132000",
+          "0023112221132000",
+          "0002333333320000",
+          "0000222222200000",
+          "0000000000000000",
+          "0000000000000000",
+          "0000000000000000",
+          "0000000000000000",
+          "0000000000000000",
+          "0000000000000000"
+        ]
+      }
+    ];
+
     document.title = "Badge maker" + DATA.copy.siteTitleSuffix;
     main.innerHTML = `
       <section class="sub-sec" data-surface="ink" data-pager="Badge maker">
@@ -6314,6 +8590,9 @@ const APP = (() => {
               <button type="button" class="chip-toggle t-small" id="badge-clear">(Clear)</button>
               <button type="button" class="chip-toggle t-small" id="badge-undo">(Undo)</button>
             </div>
+            <div class="adinkra-stamp-row">
+              <button type="button" class="chip-toggle t-micro" id="badge-adinkra-gallery">(Search Adinkra motifs)</button>
+            </div>
           </div>
           <div class="col-8-12">
             <figure>
@@ -6330,6 +8609,27 @@ const APP = (() => {
           </div>
         </div>
       </section>
+
+      <dialog class="raster-dialog adinkra-gallery-dialog" id="adinkra-gallery-dialog" data-surface="paper" aria-labelledby="adinkra-dlg-title">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+          <div>
+            <p class="t-micro">(Cultural motifs & heritage)</p>
+            <h2 class="t-h2" id="adinkra-dlg-title" style="margin-top:4px;">Adinkra Motif Gallery & Search</h2>
+          </div>
+          <button type="button" class="btn-text t-small u-anim" id="adinkra-dlg-close">(Close)</button>
+        </div>
+        <div style="margin-top:16px;">
+          <input type="text" class="text-input t-small" id="adinkra-search-input" placeholder="Search by name, meaning (e.g. wisdom, memory), or theme (e.g. bird)...">
+        </div>
+        <div class="adinkra-filter-row" id="adinkra-filter-row">
+          <button type="button" class="chip-toggle t-micro" data-filter="all" aria-pressed="true">(All motifs)</button>
+          <button type="button" class="chip-toggle t-micro" data-filter="bird" aria-pressed="false">(Bird & Animal)</button>
+          <button type="button" class="chip-toggle t-micro" data-filter="geometric" aria-pressed="false">(Geometric & Spiral)</button>
+          <button type="button" class="chip-toggle t-micro" data-filter="wisdom" aria-pressed="false">(Wisdom & Memory)</button>
+          <button type="button" class="chip-toggle t-micro" data-filter="strength" aria-pressed="false">(Strength & Resilience)</button>
+        </div>
+        <div class="adinkra-gallery-grid" id="adinkra-gallery-grid"></div>
+      </dialog>
     `;
 
     const canvas = document.getElementById("badge-canvas");
@@ -6590,6 +8890,126 @@ const APP = (() => {
       });
     });
 
+    const galleryDialog = document.getElementById("adinkra-gallery-dialog");
+    const galleryOpenBtn = document.getElementById("badge-adinkra-gallery");
+    const galleryCloseBtn = document.getElementById("adinkra-dlg-close");
+    const gallerySearchInput = document.getElementById("adinkra-search-input");
+    const galleryGrid = document.getElementById("adinkra-gallery-grid");
+    const filterRow = document.getElementById("adinkra-filter-row");
+
+    let currentFilter = "all";
+    let searchTerm = "";
+
+    function renderGalleryCards() {
+      if (!galleryGrid) return;
+      const q = normText(searchTerm);
+      const filtered = ADINKRA_MOTIFS.filter(m => {
+        if (currentFilter !== "all" && m.theme !== currentFilter) return false;
+        if (!q) return true;
+        return normText(m.name).includes(q) || normText(m.meaning).includes(q) || normText(m.theme).includes(q);
+      });
+
+      if (filtered.length === 0) {
+        galleryGrid.innerHTML = `<p class="t-micro" style="grid-column: 1 / -1; padding: 24px; text-align: center;">No Adinkra motifs match your search query.</p>`;
+        return;
+      }
+
+      galleryGrid.innerHTML = filtered.map(m => {
+        // Build 16x16 HTML preview grid cells
+        const previewCells = m.pattern.map(rowStr => {
+          return rowStr.split("").map(ch => {
+            const hex = ch === "0" ? DATA.tokens.ink : (ch === "3" ? DATA.tokens.blue : (ch === "2" ? DATA.tokens.sodium : DATA.tokens.paper));
+            return `<div style="background-color:${hex};"></div>`;
+          }).join("");
+        }).join("");
+
+        return `
+          <button type="button" class="adinkra-card" data-adinkra-id="${esc(m.id)}">
+            <div class="adinkra-card-top">
+              <div class="adinkra-name-wrap" title="${esc(m.meaning)}">
+                <h3 class="t-small fw-600">${esc(m.name)}</h3>
+                <p class="t-micro" style="text-transform: uppercase; color: var(--text-muted-on-paper); margin-top: 2px;">Theme: ${esc(m.theme)}</p>
+                <div class="adinkra-tooltip" role="tooltip">
+                  <span class="adinkra-tooltip-kicker">Cultural Meaning</span>
+                  <span class="adinkra-tooltip-text">${esc(m.meaning)}</span>
+                </div>
+              </div>
+              <div class="adinkra-card-preview" title="${esc(m.meaning)}">
+                ${previewCells}
+                <div class="adinkra-tooltip adinkra-tooltip-preview" role="tooltip">
+                  <span class="adinkra-tooltip-kicker">Cultural Meaning</span>
+                  <span class="adinkra-tooltip-text">${esc(m.meaning)}</span>
+                </div>
+              </div>
+            </div>
+            <p class="t-micro" style="line-height: 1.4;">${esc(m.meaning)}</p>
+          </button>
+        `;
+      }).join("");
+    }
+
+    if (galleryOpenBtn && galleryDialog) {
+      galleryOpenBtn.addEventListener("click", () => {
+        renderGalleryCards();
+        if (typeof galleryDialog.showModal === "function") galleryDialog.showModal();
+        else galleryDialog.setAttribute("open", "");
+        if (gallerySearchInput) gallerySearchInput.focus();
+      });
+    }
+
+    if (galleryCloseBtn && galleryDialog) {
+      galleryCloseBtn.addEventListener("click", () => {
+        if (typeof galleryDialog.close === "function") galleryDialog.close();
+        else galleryDialog.removeAttribute("open");
+        galleryOpenBtn.focus();
+      });
+    }
+
+    if (gallerySearchInput) {
+      gallerySearchInput.addEventListener("input", e => {
+        searchTerm = e.target.value;
+        renderGalleryCards();
+      });
+    }
+
+    if (filterRow) {
+      filterRow.addEventListener("click", e => {
+        const btn = e.target.closest("[data-filter]");
+        if (!btn) return;
+        currentFilter = btn.dataset.filter;
+        filterRow.querySelectorAll("[data-filter]").forEach(b => b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
+        renderGalleryCards();
+      });
+    }
+
+    if (galleryGrid) {
+      galleryGrid.addEventListener("click", e => {
+        const card = e.target.closest("[data-adinkra-id]");
+        if (!card) return;
+        const motifId = card.dataset.adinkraId;
+        const motif = ADINKRA_MOTIFS.find(m => m.id === motifId);
+        if (!motif) return;
+
+        pushHistory();
+        for (let r = 0; r < 16; r++) {
+          const rowStr = motif.pattern[r] || "0000000000000000";
+          for (let c = 0; c < 16; c++) {
+            const ch = rowStr[c] || "0";
+            if (ch !== "0") {
+              grid[r * 16 + c] = ch === "3" ? "4" : (ch === "2" ? "2" : "3");
+            }
+          }
+        }
+        drawEditor();
+        drawPreview();
+        saveGrid();
+
+        if (typeof galleryDialog.close === "function") galleryDialog.close();
+        else galleryDialog.removeAttribute("open");
+        canvas.focus();
+      });
+    }
+
     document.getElementById("badge-random").addEventListener("click", () => {
       pushHistory();
       const rng = makeRng(Date.now());
@@ -6772,6 +9192,8 @@ const APP = (() => {
   function init() {
     initChrome();
     initTrail();
+    initReminderEngine();
+    loadCmsConfig();
     const initial = parseRoute(window.location.hash);
     currentRouteKey = initial.key;
     mountRoute(initial, true);

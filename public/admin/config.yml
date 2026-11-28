@@ -1,0 +1,59 @@
+backend:
+  name: git-gateway
+  branch: main
+  # If using a GitHub OAuth proxy instead of Netlify Identity + Git Gateway:
+  # name: github
+  # repo: andiekobbietks/AFJCardiff-Movement-as-Memory
+  # branch: main
+  # base_url: https://your-oauth-proxy.example.com
+
+media_folder: "public/assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "afj_config"
+    label: "AFJ Cardiff Event & Tickets"
+    files:
+      - name: "cms_config"
+        label: "Tickets, QR Scanner & Pass Registry"
+        file: "public/data/cms-config.json"
+        fields:
+          - label: "Event Details"
+            name: "event"
+            widget: "object"
+            fields:
+              - { label: "Organiser Name", name: "name", widget: "string", default: "AFJ CARDIFF" }
+              - { label: "Subtitle", name: "subtitle", widget: "string", default: "Movement as Memory — 5th Anniversary Premiere" }
+              - { label: "Event Date (YYYY-MM-DD)", name: "date", widget: "string", default: "2026-12-05" }
+              - { label: "Doors Open (HH:MM)", name: "doors", widget: "string", default: "16:45" }
+              - { label: "Venue", name: "venue", widget: "string", default: "Dance House | Tŷ Dawns, Wales Millennium Centre" }
+          - label: "Ticket Tiers"
+            name: "tickets"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Tier Name", name: "name", widget: "string" }
+              - { label: "Price (GBP)", name: "price", widget: "number", value_type: "int" }
+              - { label: "Total Allocation", name: "allocation", widget: "number", value_type: "int" }
+              - { label: "Sold Count", name: "sold", widget: "number", value_type: "int" }
+              - { label: "Remaining Count", name: "left", widget: "number", value_type: "int" }
+              - { label: "Includes Description", name: "includes", widget: "text" }
+              - { label: "Swatch Hex", name: "color", widget: "string", default: "#F6E01E" }
+          - label: "QR Scanner & Verification"
+            name: "scanner"
+            widget: "object"
+            fields:
+              - { label: "External Verification API Endpoint (Optional)", name: "verifyEndpoint", widget: "string", required: false, hint: "e.g. /.netlify/functions/verify-ticket" }
+              - { label: "Eventbrite Organiser Name", name: "eventbriteOrg", widget: "string", default: "AFJ Cardiff" }
+              - label: "Accepted Ticket Code Prefixes"
+                name: "acceptedPrefixes"
+                widget: "list"
+                field: { label: "Prefix", name: "prefix", widget: "string" }
+              - label: "Registered Passes"
+                name: "passes"
+                widget: "list"
+                fields:
+                  - { label: "QR Code / Barcode", name: "code", widget: "string" }
+                  - { label: "Guest Name", name: "holder", widget: "string" }
+                  - { label: "Ticket Tier", name: "tier", widget: "string" }
+                  - { label: "Initial Status", name: "status", widget: "select", options: ["valid", "checked_in", "revoked"], default: "valid" }
