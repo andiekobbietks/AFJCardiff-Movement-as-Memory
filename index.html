@@ -9250,30 +9250,6 @@ const APP = (() => {
     });
   }
 
-  function applyFeatureToggles() {
-    const f = (DATA.features) || {};
-    const hide = (sel) => { document.querySelectorAll(sel).forEach(el => { el.style.display = "none"; }); };
-    const show = (sel) => { document.querySelectorAll(sel).forEach(el => { el.style.display = ""; }); };
-    if (f.showQrScanner === false) hide("#open-qr-scanner-btn");
-    else show("#open-qr-scanner-btn");
-    if (f.showAgenda === false) { hide("#sched-agenda-btn"); hide("[data-ag]"); }
-    else { show("#sched-agenda-btn"); show("[data-ag]"); }
-    if (f.showReminders === false) hide("#sched-reminders-toggle");
-    else show("#sched-reminders-toggle");
-    if (f.showBadgeMaker === false) hide('a[href="#/badge"]');
-    else show('a[href="#/badge"]');
-    if (f.showCapacityGrid === false) { hide("#home-capacity-wrap"); hide("#tickets-capacity-wrap"); }
-    else { show("#home-capacity-wrap"); show("#tickets-capacity-wrap"); }
-    if (f.showPosterWall === false) {
-      const pw = document.getElementById("poster-wall");
-      if (pw && pw.closest("figure")) pw.closest("figure").style.display = "none";
-    }
-    if (f.showCountdown === false) {
-      const cw = document.getElementById("countdown-wrap");
-      if (cw && cw.closest(".countdown-block")) cw.closest(".countdown-block").style.display = "none";
-    }
-  }
-
   function mountRoute(route, skipWipe) {
     const main = document.getElementById("main");
     const doSwap = () => {
@@ -9295,7 +9271,19 @@ const APP = (() => {
 
       updateActiveNav(route);
       setupObservers();
-      applyFeatureToggles();
+      // Feature toggles (show/hide based on DATA.features)
+      (function() {
+        const f = (DATA.features) || {};
+        const hide = (sel) => { document.querySelectorAll(sel).forEach(el => { el.style.display = "none"; }); };
+        const show = (sel) => { document.querySelectorAll(sel).forEach(el => { el.style.display = ""; }); };
+        if (f.showQrScanner === false) hide("#open-qr-scanner-btn"); else show("#open-qr-scanner-btn");
+        if (f.showAgenda === false) { hide("#sched-agenda-btn"); hide("[data-ag]"); } else { show("#sched-agenda-btn"); show("[data-ag]"); }
+        if (f.showReminders === false) hide("#sched-reminders-toggle"); else show("#sched-reminders-toggle");
+        if (f.showBadgeMaker === false) hide('a[href="#/badge"]'); else show('a[href="#/badge"]');
+        if (f.showCapacityGrid === false) { hide("#home-capacity-wrap"); hide("#tickets-capacity-wrap"); } else { show("#home-capacity-wrap"); show("#tickets-capacity-wrap"); }
+        if (f.showPosterWall === false) { const pw = document.getElementById("poster-wall"); if (pw && pw.closest("figure")) pw.closest("figure").style.display = "none"; }
+        if (f.showCountdown === false) { const cw = document.getElementById("countdown-wrap"); if (cw && cw.closest(".countdown-block")) cw.closest(".countdown-block").style.display = "none"; }
+      })();
 
       if (state.scrollAfterRoute) {
         const target = document.getElementById(state.scrollAfterRoute);
