@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AFJ Cardiff — Movement as Memory · Gallery</title>
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+<style>
+  body { font-family: "Inter Tight", system-ui, sans-serif; background: #080808; color: #F8F8F8; margin: 0; padding: 24px; }
+  h1 { color: #FF8560; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 24px; max-width: 1400px; margin: 0 auto; }
+  .card { background: #171717; border: 1px solid #272727; padding: 12px; }
+  .card h3 { margin: 0 0 8px; font-size: 14px; color: #F7F40F; }
+  .card img { width: 100%; height: auto; display: block; margin-bottom: 8px; }
+  .plyr { margin-top: 8px; }
+</style>
+</head>
+<body>
+<h1>AFJ Cardiff — Movement as Memory · Gallery</h1>
+<p>Interaction patterns (WebM with TTS narration) and screenshots (with voice-over audio). Powered by <a href="https://github.com/sampotts/plyr" style="color:#FF8560">Plyr</a> (29.8k ⭐).</p>
+<div class="gallery" id="gallery"></div>
+<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+<script>
+const base = 'https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/';
+const videos = [
+  'hero-cycle','poster-wall','capacity-grid','stats-countup','motion-toggle','tooltip-demo',
+  'schedule-filters','schedule-agenda','speaker-hover','talks-search-sort-filter','talks-expand-agenda',
+  'venue-plan','tickets-stepper','tickets-eventbrite-dialog','qr-scanner-tabs','qr-scanner-manual',
+  'qr-scanner-settings','reminder-panel','top-button','badge-draw','mobile-menu-touch','mobile-tickets-touch','mobile-schedule-touch'
+];
+const images = [
+  'home','schedule','speakers','speaker-detail','talks','venue','tickets','qr-scanner','badge'
+];
+const gallery = document.getElementById('gallery');
+function makeVideo(name) {
+  const card = document.createElement('div'); card.className = 'card';
+  const h = document.createElement('h3'); h.textContent = name; card.appendChild(h);
+  const v = document.createElement('video'); v.setAttribute('playsinline',''); v.setAttribute('controls',''); v.setAttribute('preload','none');
+  const s = document.createElement('source'); s.src = base + 'docs/videos/' + name + '.webm'; s.type = 'video/webm';
+  v.appendChild(s); card.appendChild(v);
+  gallery.appendChild(card);
+  new Plyr(v);
+}
+function makeImage(name) {
+  const card = document.createElement('div'); card.className = 'card';
+  const h = document.createElement('h3'); h.textContent = name; card.appendChild(h);
+  const img = document.createElement('img'); img.src = base + 'docs/screenshots/' + name + '.png'; img.alt = name; card.appendChild(img);
+  const a = document.createElement('audio'); a.setAttribute('controls',''); a.setAttribute('preload','none');
+  const s = document.createElement('source'); s.src = base + 'docs/audio/' + name + '.mp3'; s.type = 'audio/mp3';
+  a.appendChild(s); card.appendChild(a);
+  gallery.appendChild(card);
+  new Plyr(a);
+}
+videos.forEach(makeVideo);
+images.forEach(makeImage);
+</script>
+</body>
+</html>

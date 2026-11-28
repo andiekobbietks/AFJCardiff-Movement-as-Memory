@@ -77,8 +77,9 @@ npm run lint         # tsc --noEmit
 │   └── favicon.ico         # Favicon
 └── docs/
     ├── screenshots/       # User-journey screenshots (this README)
-    ├── videos/            # Interaction-pattern WebMs (this README)
-    └── audio/             # TTS narration MP3s (edge-tts, en-GB Sonia)
+    ├── videos/            # Interaction-pattern WebMs with TTS audio (this README)
+    ├── audio/             # TTS narration MP3s (edge-tts, en-GB Sonia)
+    └── gallery.html       # Playable gallery (Plyr, GitHub Pages)
 ```
 
 ## Routes
@@ -106,6 +107,8 @@ Each journey is collapsible. Screenshots are viewport captures (1440×900) of th
 
 ![Home](docs/screenshots/home.png)
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/home.mp3" controls></audio>
+
 The hero particle canvas cycles through three glyphs (AFJ05 / 05/12 / 17:30). Below: about, in-numbers countdown to doors, four programme pillars, three-act programme, evening highlights, official poster with Eventbrite QR, and the 220-cell capacity grid with "Book tickets" CTA.
 
 </details>
@@ -114,6 +117,8 @@ The hero particle canvas cycles through three glyphs (AFJ05 / 05/12 / 17:30). Be
 <summary><strong>2. Schedule — full programme timeline</strong></summary>
 
 ![Schedule](docs/screenshots/schedule.png)
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/schedule.mp3" controls></audio>
 
 Filterable by day (three acts) and track; toggle sessions into a personal agenda with clash detection. Agenda persists in localStorage and feeds the reminder engine.
 
@@ -124,6 +129,8 @@ Filterable by day (three acts) and track; toggle sessions into a personal agenda
 
 ![Collective](docs/screenshots/speakers.png)
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/speakers.mp3" controls></audio>
+
 Five speaker cards (AFJ Cardiff, documentary, panel, live performances, fashion & hospitality) with procedurally rendered 32×32 portrait canvases that assemble on scroll and invert on hover.
 
 </details>
@@ -132,6 +139,8 @@ Five speaker cards (AFJ Cardiff, documentary, panel, live performances, fashion 
 <summary><strong>4. Speaker detail</strong></summary>
 
 ![Speaker detail](docs/screenshots/speaker-detail.png)
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/speaker-detail.mp3" controls></audio>
 
 Deep-linked speaker view with bio, track, and full portrait.
 
@@ -142,6 +151,8 @@ Deep-linked speaker view with bio, track, and full portrait.
 
 ![Programme](docs/screenshots/talks.png)
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/talks.mp3" controls></audio>
+
 Search by title/pillar/keyword, filter by type and track, sort by column, expand any row for the full abstract and "add to agenda" action.
 
 </details>
@@ -150,6 +161,8 @@ Search by title/pillar/keyword, filter by type and track, sort by column, expand
 <summary><strong>6. Venue — interactive floor plan</strong></summary>
 
 ![Venue](docs/screenshots/venue.png)
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/venue.mp3" controls></audio>
 
 SVG floor plan of Dance House | Tŷ Dawns (Dance House, Runway Prep, Quiet lounge, Check-In, WMC Foyer). Hover/focus/click a space to inspect seating, level and access features. Getting-there and access lists below.
 
@@ -160,6 +173,8 @@ SVG floor plan of Dance House | Tŷ Dawns (Dance House, Runway Prep, Quiet loung
 
 ![Tickets](docs/screenshots/tickets.png)
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/tickets.mp3" controls></audio>
+
 Early Bird £15 and General Admission £20 steppers (max 4 each), live estimated total, 220-cell capacity grid that fills as places are reserved, "How to book (Eventbrite)" dialog, and the FAQ accordion.
 
 </details>
@@ -169,6 +184,8 @@ Early Bird £15 and General Admission £20 steppers (max 4 each), live estimated
 
 ![QR scanner](docs/screenshots/qr-scanner.png)
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/qr-scanner.mp3" controls></audio>
+
 Camera (BarcodeDetector + jsQR fallback), image upload, and manual/test-code tabs. Result box shows valid / already-checked-in / invalid with tier, holder, source. Includes volume slider, haptics toggle, scan history, CSV export, and daily scan summary by tier.
 
 </details>
@@ -177,6 +194,8 @@ Camera (BarcodeDetector + jsQR fallback), image upload, and manual/test-code tab
 <summary><strong>9. Badge maker</strong></summary>
 
 ![Badge](docs/screenshots/badge.png)
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/badge.mp3" controls></audio>
 
 Draw a 16×16 movement emblem in the poster palette, add a name, download as SVG keepsake.
 
@@ -195,6 +214,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 **Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/hero-cycle.mp3" controls></audio>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/hero-cycle.mp3" controls></audio>
+
 **Goal:** Cycle the hero particle canvas through its three glyphs.
 **Preconditions:** Home route loaded, motion on.
 **Steps:** Click the hero canvas. Repeat. Each click advances AFJ05 → 05/12 → 17:30.
@@ -207,6 +228,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 <summary><strong>Poster wall — press a tile to cycle colours</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/poster-wall.webm" controls width="100%"></video>
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/poster-wall.mp3" controls></audio>
 
 **Goal:** Recolour a poster-wall tile.
 **Preconditions:** Home route, poster section visible.
@@ -221,6 +244,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/capacity-grid.webm" controls width="100%"></video>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/capacity-grid.mp3" controls></audio>
+
 **Goal:** Watch the 220-cell grid fill and navigate it by keyboard.
 **Preconditions:** Home or Tickets route, grid in viewport.
 **Steps:** Scroll so the grid is 30% visible; the reserved cells fill in batches of 6. Then focus the grid and press ArrowRight/ArrowDown.
@@ -233,6 +258,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 <summary><strong>Stats — count-up on scroll</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/stats-countup.webm" controls width="100%"></video>
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/stats-countup.mp3" controls></audio>
 
 **Goal:** Trigger the animated count-up of the five stat glyphs.
 **Preconditions:** Home route, stats row 50% visible, motion on.
@@ -247,6 +274,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/motion-toggle.webm" controls width="100%"></video>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/motion-toggle.mp3" controls></audio>
+
 **Goal:** Toggle site-wide motion and persist the choice.
 **Preconditions:** Any route.
 **Steps:** Click the desktop motion button (or mobile). Click again to restore.
@@ -259,6 +288,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 <summary><strong>Tooltip — hover hint</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/tooltip-demo.webm" controls width="100%"></video>
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/tooltip-demo.mp3" controls></audio>
 
 **Goal:** Show the floating tooltip on hover.
 **Preconditions:** Desktop pointer (fine pointer media query).
@@ -275,6 +306,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/schedule-filters.webm" controls width="100%"></video>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/schedule-filters.mp3" controls></audio>
+
 **Goal:** Filter the programme by day and track and switch views.
 **Preconditions:** Schedule route.
 **Steps:** Click day tabs (Act 01/02/03), toggle track chips, click (Table) then (Timeline).
@@ -287,6 +320,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 <summary><strong>Schedule — add to agenda + reminders panel</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/schedule-agenda.webm" controls width="100%"></video>
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/schedule-agenda.mp3" controls></audio>
 
 **Goal:** Toggle a session into the personal agenda and open the reminders panel.
 **Preconditions:** Schedule route.
@@ -303,6 +338,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/speaker-hover.webm" controls width="100%"></video>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/speaker-hover.mp3" controls></audio>
+
 **Goal:** Invert a speaker portrait palette on hover.
 **Preconditions:** Speakers route, motion on, hover-capable pointer.
 **Steps:** Hover a speaker card; move away.
@@ -318,6 +355,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/talks-search-sort-filter.webm" controls width="100%"></video>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/talks-search-sort-filter.mp3" controls></audio>
+
 **Goal:** Search, filter and sort the programme table.
 **Preconditions:** Talks route.
 **Steps:** Type "panel" in search; clear; toggle a type chip; toggle a track chip; click a column header to sort; click again to reverse.
@@ -330,6 +369,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 <summary><strong>Talks — expand row + add to agenda</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/talks-expand-agenda.webm" controls width="100%"></video>
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/talks-expand-agenda.mp3" controls></audio>
 
 **Goal:** Expand a talk row and add it to the agenda.
 **Preconditions:** Talks route.
@@ -346,6 +387,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/venue-plan.webm" controls width="100%"></video>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/venue-plan.mp3" controls></audio>
+
 **Goal:** Inspect a space on the floor plan.
 **Preconditions:** Venue route.
 **Steps:** Hover or click a space (or its room button); press Enter/Space on a focused space.
@@ -361,6 +404,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/tickets-stepper.webm" controls width="100%"></video>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/tickets-stepper.mp3" controls></audio>
+
 **Goal:** Adjust ticket quantities and navigate the capacity grid.
 **Preconditions:** Tickets route.
 **Steps:** Click +/− steppers (max 4 per tier); watch estimated total and grid selection update; focus the grid and use arrow keys.
@@ -374,6 +419,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/tickets-eventbrite-dialog.webm" controls width="100%"></video>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/tickets-eventbrite-dialog.mp3" controls></audio>
+
 **Goal:** Open the booking hand-off dialog.
 **Preconditions:** At least one ticket selected.
 **Steps:** Click (How to book (Eventbrite)).
@@ -386,6 +433,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 <summary><strong>QR scanner — camera/upload/manual tabs</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/qr-scanner-tabs.webm" controls width="100%"></video>
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/qr-scanner-tabs.mp3" controls></audio>
 
 **Goal:** Switch QR input methods.
 **Preconditions:** Tickets route, scanner dialog open.
@@ -402,6 +451,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 **Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/qr-scanner-manual.mp3" controls></audio>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/qr-scanner-manual.mp3" controls></audio>
+
 **Goal:** Verify a ticket code manually.
 **Preconditions:** Scanner dialog open, Manual tab active.
 **Steps:** Enter `AFJ-EB-2026-001` → submit (valid). Then enter `AFJ-USED-2026-004` → submit (already checked in).
@@ -414,6 +465,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 <summary><strong>QR scanner — volume and haptics settings</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/qr-scanner-settings.webm" controls width="100%"></video>
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/qr-scanner-settings.mp3" controls></audio>
 
 **Goal:** Adjust scan audio volume and haptics.
 **Preconditions:** Scanner dialog open.
@@ -430,6 +483,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/reminder-panel.webm" controls width="100%"></video>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/reminder-panel.mp3" controls></audio>
+
 **Goal:** Configure agenda reminder lead time and note.
 **Preconditions:** Schedule route.
 **Steps:** Open reminders panel; set minutes (1–180); type a note; close.
@@ -442,6 +497,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 <summary><strong>Top button — scroll to top</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/top-button.webm" controls width="100%"></video>
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/top-button.mp3" controls></audio>
 
 **Goal:** Scroll back to the top.
 **Preconditions:** Any long page, scrolled down.
@@ -458,6 +515,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/badge-draw.webm" controls width="100%"></video>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/badge-draw.mp3" controls></audio>
+
 **Goal:** Draw an emblem and set a name.
 **Preconditions:** Badge route.
 **Steps:** Pick a palette colour; click cells on the 16×16 grid; type a name in the input.
@@ -473,6 +532,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/mobile-menu-touch.webm" controls width="100%"></video>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/mobile-menu-touch.mp3" controls></audio>
+
 **Goal:** Open and close the mobile menu by touch.
 **Preconditions:** Mobile viewport (≤767 px).
 **Steps:** Tap the hamburger; tap close (or a link).
@@ -486,6 +547,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/mobile-tickets-touch.webm" controls width="100%"></video>
 
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/mobile-tickets-touch.mp3" controls></audio>
+
 **Goal:** Adjust quantities and open the scanner on touch.
 **Preconditions:** Mobile viewport, Tickets route.
 **Steps:** Tap + twice; tap (Scan ticket QR).
@@ -498,6 +561,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 <summary><strong>Mobile schedule — touch day switch and scroll</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/mobile-schedule-touch.webm" controls width="100%"></video>
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/mobile-schedule-touch.mp3" controls></audio>
 
 **Goal:** Switch days and scroll the programme on touch.
 **Preconditions:** Mobile viewport, Schedule route.
@@ -607,7 +672,13 @@ Modern evergreen browsers. Camera scanning requires a secure context (HTTPS or l
 - **Lighthouse 13.6.0** (Google) — performance, accessibility, best-practices, SEO audit via CLI (`npx lighthouse`).
 - **PageSpeed Insights** (web.dev) — recommended for production URL testing.
 
-## License
+## Gallery (GitHub Pages)
+
+A playable gallery of all 23 interaction videos (with TTS narration) and 9 screenshot explainers, powered by [Plyr](https://github.com/sampotts/plyr) (29.8k ⭐, MIT, CDN — no build step).
+
+- **Live:** https://andiekobbietks.github.io/AFJCardiff-Movement-as-Memory/gallery.html
+- **Source:** `docs/gallery.html`
+- Uses Plyr via CDN for audio/video playback. Works locally (open the file) or on GitHub Pages.
 
 No license file present in the repository; all rights reserved by AFJ Cardiff unless stated otherwise. Contact `afjcardiff@gmail.com` for press, partnerships, or accessibility requests.
 
