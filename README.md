@@ -186,7 +186,7 @@ Short WebM captures of key interactions, recorded from the dev build. Each is co
 <details>
 <summary><strong>Hero canvas — cycling glyphs on click</strong></summary>
 
-<video src="docs/videos/hero-cycle.webm" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/hero-cycle.webm" controls width="100%"></video>
 
 The hero particle canvas cycles through three glyphs (AFJ05 → 05/12 → 17:30) on click, with particle morph animation.
 
@@ -195,7 +195,7 @@ The hero particle canvas cycles through three glyphs (AFJ05 → 05/12 → 17:30)
 <details>
 <summary><strong>Mobile menu — pixel-wipe transition</strong></summary>
 
-<video src="docs/videos/menu-wipe.webm" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/menu-wipe.webm" controls width="100%"></video>
 
 Opening/closing the mobile menu plays the diagonal pixel-wipe overlay (motion on).
 
@@ -204,7 +204,7 @@ Opening/closing the mobile menu plays the diagonal pixel-wipe overlay (motion on
 <details>
 <summary><strong>Speaker portrait — hover palette swap</strong></summary>
 
-<video src="docs/videos/speaker-hover.webm" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/speaker-hover.webm" controls width="100%"></video>
 
 Hovering a speaker card inverts the portrait palette via a wave sweep.
 
@@ -213,7 +213,7 @@ Hovering a speaker card inverts the portrait palette via a wave sweep.
 <details>
 <summary><strong>Agenda — toggle a session into your plan</strong></summary>
 
-<video src="docs/videos/agenda-toggle.webm" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/agenda-toggle.webm" controls width="100%"></video>
 
 Expanding a programme row and adding it to the agenda; clash detection highlights conflicts.
 
@@ -222,7 +222,7 @@ Expanding a programme row and adding it to the agenda; clash detection highlight
 <details>
 <summary><strong>QR scanner — manual code verification</strong></summary>
 
-<video src="docs/videos/qr-scan.webm" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/qr-scan.webm" controls width="100%"></video>
 
 Manual tab: enter `AFJ-EB-2026-001`, submit, see the valid-ticket result with tier, holder and source.
 
@@ -231,7 +231,7 @@ Manual tab: enter `AFJ-EB-2026-001`, submit, see the valid-ticket result with ti
 <details>
 <summary><strong>Badge maker — drawing an emblem</strong></summary>
 
-<video src="docs/videos/badge-draw.webm" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/badge-draw.webm" controls width="100%"></video>
 
 Badge view load and grid interaction.
 
