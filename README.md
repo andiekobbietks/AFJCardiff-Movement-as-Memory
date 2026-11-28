@@ -75,7 +75,9 @@ npm run lint         # tsc --noEmit
 │   ├── assets/aistudio/    # Banner/poster images
 │   └── data/
 │       └── cms-config.json # Runtime-hydrated tickets + scanner pass registry
-└── docs/screenshots/       # User-journey screenshots (this README)
+└── docs/
+    ├── screenshots/       # User-journey screenshots (this README)
+    └── videos/            # Interaction-pattern WebMs (this README)
 ```
 
 ## Routes
@@ -181,59 +183,322 @@ Draw a 16×16 movement emblem in the poster palette, add a name, download as SVG
 
 ## Interaction patterns (video)
 
-Short WebM captures of key interactions, recorded from the dev build. Each is collapsible.
+Short WebM captures of every key interaction, recorded from the dev build with a visible cursor (desktop) or touch ripples (mobile). Each is collapsible, with a step-by-step operating procedure.
+
+### Home
 
 <details>
-<summary><strong>Hero canvas — cycling glyphs on click</strong></summary>
+<summary><strong>Hero canvas — cycle glyphs on click</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/hero-cycle.webm" controls width="100%"></video>
 
-The hero particle canvas cycles through three glyphs (AFJ05 → 05/12 → 17:30) on click, with particle morph animation.
+**Goal:** Cycle the hero particle canvas through its three glyphs.
+**Preconditions:** Home route loaded, motion on.
+**Steps:** Click the hero canvas. Repeat. Each click advances AFJ05 → 05/12 → 17:30.
+**Expected:** Particles morph to the next glyph with a 900 ms ease; caption updates.
+**Notes:** With motion off, the canvas is static (no morph).
 
 </details>
 
 <details>
-<summary><strong>Mobile menu — pixel-wipe transition</strong></summary>
+<summary><strong>Poster wall — press a tile to cycle colours</strong></summary>
 
-<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/menu-wipe.webm" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/poster-wall.webm" controls width="100%"></video>
 
-Opening/closing the mobile menu plays the diagonal pixel-wipe overlay (motion on).
+**Goal:** Recolour a poster-wall tile.
+**Preconditions:** Home route, poster section visible.
+**Steps:** Click any tile in the interactive weave beside the official poster.
+**Expected:** Tile colour cycles through the poster ramp; neighbours are unaffected.
+**Notes:** Purely cosmetic; no state persisted.
 
 </details>
+
+<details>
+<summary><strong>Capacity grid — fill animation + keyboard navigation</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/capacity-grid.webm" controls width="100%"></video>
+
+**Goal:** Watch the 220-cell grid fill and navigate it by keyboard.
+**Preconditions:** Home or Tickets route, grid in viewport.
+**Steps:** Scroll so the grid is 30% visible; the reserved cells fill in batches of 6. Then focus the grid and press ArrowRight/ArrowDown.
+**Expected:** Sold cells paint in their tier colour; focus ring moves; tooltip shows seat info.
+**Notes:** With motion off, the grid paints instantly.
+
+</details>
+
+<details>
+<summary><strong>Stats — count-up on scroll</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/stats-countup.webm" controls width="100%"></video>
+
+**Goal:** Trigger the animated count-up of the five stat glyphs.
+**Preconditions:** Home route, stats row 50% visible, motion on.
+**Steps:** Scroll to the in-numbers section.
+**Expected:** Each stat counts from 0 to its value over ~1.2 s, staggered by index.
+**Notes:** Does not re-run once shown.
+
+</details>
+
+<details>
+<summary><strong>Motion toggle — on/off</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/motion-toggle.webm" controls width="100%"></video>
+
+**Goal:** Toggle site-wide motion and persist the choice.
+**Preconditions:** Any route.
+**Steps:** Click the desktop motion button (or mobile). Click again to restore.
+**Expected:** All animations pause/resume; preference saved to localStorage (`afj5.motion`); button label flips (Motion: on/off).
+**Notes:** Respects `prefers-reduced-motion` on first load.
+
+</details>
+
+<details>
+<summary><strong>Tooltip — hover hint</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/tooltip-demo.webm" controls width="100%"></video>
+
+**Goal:** Show the floating tooltip on hover.
+**Preconditions:** Desktop pointer (fine pointer media query).
+**Steps:** Hover a nav link or capacity cell.
+**Expected:** Tooltip appears after 120 ms, positioned to avoid viewport edges.
+**Notes:** Esc hides it.
+
+</details>
+
+### Schedule
+
+<details>
+<summary><strong>Schedule — day/track filters + view toggle</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/schedule-filters.webm" controls width="100%"></video>
+
+**Goal:** Filter the programme by day and track and switch views.
+**Preconditions:** Schedule route.
+**Steps:** Click day tabs (Act 01/02/03), toggle track chips, click (Table) then (Timeline).
+**Expected:** Session list re-filters instantly; view persists to localStorage (`afj5.filters`).
+**Notes:** Agenda-only filter available via the agenda button.
+
+</details>
+
+<details>
+<summary><strong>Schedule — add to agenda + reminders panel</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/schedule-agenda.webm" controls width="100%"></video>
+
+**Goal:** Toggle a session into the personal agenda and open the reminders panel.
+**Preconditions:** Schedule route.
+**Steps:** Click (Add to agenda) on a session; open the reminders panel; set lead time and note; close.
+**Expected:** Agenda persists (`afj5.agenda`); clash detection flags overlapping sessions; reminders panel saves to `afj5.reminders`.
+**Notes:** Reminders need browser notification permission.
+
+</details>
+
+### Collective (speakers)
 
 <details>
 <summary><strong>Speaker portrait — hover palette swap</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/speaker-hover.webm" controls width="100%"></video>
 
-Hovering a speaker card inverts the portrait palette via a wave sweep.
+**Goal:** Invert a speaker portrait palette on hover.
+**Preconditions:** Speakers route, motion on, hover-capable pointer.
+**Steps:** Hover a speaker card; move away.
+**Expected:** Portrait colours swap via a diagonal wave sweep (~360 ms); reverts on leave.
+**Notes:** With motion off, swap is instant.
+
+</details>
+
+### Programme (talks)
+
+<details>
+<summary><strong>Talks — search, sort, type/track filters</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/talks-search-sort-filter.webm" controls width="100%"></video>
+
+**Goal:** Search, filter and sort the programme table.
+**Preconditions:** Talks route.
+**Steps:** Type "panel" in search; clear; toggle a type chip; toggle a track chip; click a column header to sort; click again to reverse.
+**Expected:** Rows filter live; sort indicator flips; count updates.
+**Notes:** Search normalises diacritics.
 
 </details>
 
 <details>
-<summary><strong>Agenda — toggle a session into your plan</strong></summary>
+<summary><strong>Talks — expand row + add to agenda</strong></summary>
 
-<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/agenda-toggle.webm" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/talks-expand-agenda.webm" controls width="100%"></video>
 
-Expanding a programme row and adding it to the agenda; clash detection highlights conflicts.
+**Goal:** Expand a talk row and add it to the agenda.
+**Preconditions:** Talks route.
+**Steps:** Click a talk title to expand; click (Add to agenda); click the title again to collapse.
+**Expected:** Abstract + speakers shown; agenda state toggles and persists.
+**Notes:** Deep-link via `#/talks/:id` scrolls to the row.
+
+</details>
+
+### Venue
+
+<details>
+<summary><strong>Venue plan — hover/click spaces</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/venue-plan.webm" controls width="100%"></video>
+
+**Goal:** Inspect a space on the floor plan.
+**Preconditions:** Venue route.
+**Steps:** Hover or click a space (or its room button); press Enter/Space on a focused space.
+**Expected:** Selected space fills with its tier colour; details panel updates (name, level, seats, features).
+**Notes:** Keyboard-accessible (Tab + Enter/Space).
+
+</details>
+
+### Tickets
+
+<details>
+<summary><strong>Tickets — quantity steppers + total + capacity keyboard</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/tickets-stepper.webm" controls width="100%"></video>
+
+**Goal:** Adjust ticket quantities and navigate the capacity grid.
+**Preconditions:** Tickets route.
+**Steps:** Click +/− steppers (max 4 per tier); watch estimated total and grid selection update; focus the grid and use arrow keys.
+**Expected:** Total recomputes; selected overlay animates; capacity grid focus ring moves with tooltip.
+**Notes:** Steppers disable at 0 or max.
+
+</details>
+
+<details>
+<summary><strong>Tickets — "How to book" Eventbrite dialog</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/tickets-eventbrite-dialog.webm" controls width="100%"></video>
+
+**Goal:** Open the booking hand-off dialog.
+**Preconditions:** At least one ticket selected.
+**Steps:** Click (How to book (Eventbrite)).
+**Expected:** Modal shows selected tiers/total and directs to Eventbrite (organiser: AFJ Cardiff) or email.
+**Notes:** Button is disabled when quantity is 0.
+
+</details>
+
+<details>
+<summary><strong>QR scanner — camera/upload/manual tabs</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/qr-scanner-tabs.webm" controls width="100%"></video>
+
+**Goal:** Switch QR input methods.
+**Preconditions:** Tickets route, scanner dialog open.
+**Steps:** Click (Camera scan), (Upload QR image), (Manual / Test codes) tabs.
+**Expected:** Corresponding panel shows; camera initialises (secure context required).
+**Notes:** Camera needs HTTPS/localhost + permission.
 
 </details>
 
 <details>
 <summary><strong>QR scanner — manual code verification</strong></summary>
 
-<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/qr-scan.webm" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/qr-scanner-manual.webm" controls width="100%"></video>
 
-Manual tab: enter `AFJ-EB-2026-001`, submit, see the valid-ticket result with tier, holder and source.
+**Goal:** Verify a ticket code manually.
+**Preconditions:** Scanner dialog open, Manual tab active.
+**Steps:** Enter `AFJ-EB-2026-001` → submit (valid). Then enter `AFJ-USED-2026-004` → submit (already checked in).
+**Expected:** Result box shows tier, holder, source and status; audio cue + haptic (valid); daily summary increments.
+**Notes:** Also accepts Eventbrite URLs, barcodes, JSON payloads.
 
 </details>
 
 <details>
-<summary><strong>Badge maker — drawing an emblem</strong></summary>
+<summary><strong>QR scanner — volume and haptics settings</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/qr-scanner-settings.webm" controls width="100%"></video>
+
+**Goal:** Adjust scan audio volume and haptics.
+**Preconditions:** Scanner dialog open.
+**Steps:** Drag/arrow the volume slider; toggle (Haptics: on/off).
+**Expected:** Volume label updates; haptic note reflects state; settings persist to localStorage.
+**Notes:** Haptics require `navigator.vibrate` support.
+
+</details>
+
+### Reminders & navigation
+
+<details>
+<summary><strong>Reminder panel — configure lead time and note</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/reminder-panel.webm" controls width="100%"></video>
+
+**Goal:** Configure agenda reminder lead time and note.
+**Preconditions:** Schedule route.
+**Steps:** Open reminders panel; set minutes (1–180); type a note; close.
+**Expected:** Settings persist (`afj5.reminders`); armed sessions list updates.
+**Notes:** Requires notification permission for OS-level alerts.
+
+</details>
+
+<details>
+<summary><strong>Top button — scroll to top</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/top-button.webm" controls width="100%"></video>
+
+**Goal:** Scroll back to the top.
+**Preconditions:** Any long page, scrolled down.
+**Steps:** Click the (Top) button (appears after one viewport of scroll).
+**Expected:** Smooth scroll to top (or instant if motion off).
+**Notes:** Button surface colour adapts to the section in view.
+
+</details>
+
+### Badge maker
+
+<details>
+<summary><strong>Badge — draw, name, preview</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/badge-draw.webm" controls width="100%"></video>
 
-Badge view load and grid interaction.
+**Goal:** Draw an emblem and set a name.
+**Preconditions:** Badge route.
+**Steps:** Pick a palette colour; click cells on the 16×16 grid; type a name in the input.
+**Expected:** Grid updates; preview reflects changes; downloadable as SVG.
+**Notes:** Grid persists to localStorage (`afj5.badge`).
+
+</details>
+
+### Mobile (touch)
+
+<details>
+<summary><strong>Mobile menu — touch open/close</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/mobile-menu-touch.webm" controls width="100%"></video>
+
+**Goal:** Open and close the mobile menu by touch.
+**Preconditions:** Mobile viewport (≤767 px).
+**Steps:** Tap the hamburger; tap close (or a link).
+**Expected:** Pixel-wipe plays; menu opens/closes; focus moves to close button.
+**Notes:** Body scroll locked while open.
+
+</details>
+
+<details>
+<summary><strong>Mobile tickets — touch steppers and QR scanner</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/mobile-tickets-touch.webm" controls width="100%"></video>
+
+**Goal:** Adjust quantities and open the scanner on touch.
+**Preconditions:** Mobile viewport, Tickets route.
+**Steps:** Tap + twice; tap (Scan ticket QR).
+**Expected:** Quantity and total update; scanner dialog opens with touch-friendly tabs.
+**Notes:** Steppers are 44 px minimum touch targets.
+
+</details>
+
+<details>
+<summary><strong>Mobile schedule — touch day switch and scroll</strong></summary>
+
+<video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/mobile-schedule-touch.webm" controls width="100%"></video>
+
+**Goal:** Switch days and scroll the programme on touch.
+**Preconditions:** Mobile viewport, Schedule route.
+**Steps:** Tap Act 02 tab; scroll down and back up.
+**Expected:** Session list updates; scroll is smooth (motion on).
+**Notes:** Agenda toggle available per session.
 
 </details>
 
