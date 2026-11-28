@@ -4331,21 +4331,70 @@ const APP = (() => {
       const res = await fetch("./data/cms-config.json", { cache: "no-store" });
       if (!res.ok) return;
       const cms = await res.json();
-      if (cms && Array.isArray(cms.tickets) && cms.tickets.length > 0) {
+      if (!cms || typeof cms !== "object") return;
+
+      if (Array.isArray(cms.tickets) && cms.tickets.length > 0) {
         DATA.tickets = cms.tickets;
       }
-      if (cms && cms.scanner && typeof cms.scanner === "object") {
+
+      if (cms.scanner && typeof cms.scanner === "object") {
         if (typeof cms.scanner.verifyEndpoint === "string") DATA.cms.verifyEndpoint = cms.scanner.verifyEndpoint;
         if (typeof cms.scanner.eventbriteOrg === "string") DATA.cms.eventbriteOrg = cms.scanner.eventbriteOrg;
         if (Array.isArray(cms.scanner.acceptedPrefixes)) DATA.cms.acceptedPrefixes = cms.scanner.acceptedPrefixes;
         if (Array.isArray(cms.scanner.passes)) DATA.cms.passes = cms.scanner.passes;
       }
-      if (currentRouteKey === "tickets" || currentRouteKey === "home") {
-        const main = document.getElementById("main");
-        if (currentRouteKey === "tickets") renderTickets(main);
-        else if (currentRouteKey === "home") renderHome(main);
-        setupObservers();
+
+      if (cms.event && typeof cms.event === "object") {
+        if (typeof cms.event.name === "string") DATA.meta.name = cms.event.name;
+        if (typeof cms.event.date === "string") { DATA.meta.dates.start = cms.event.date; DATA.meta.dates.end = cms.event.date; }
+        if (typeof cms.event.venue === "string") DATA.meta.venue.name = cms.event.venue;
       }
+
+      if (Array.isArray(cms.sessions) && cms.sessions.length > 0) {
+        DATA.sessions = cms.sessions;
+      }
+
+      if (Array.isArray(cms.speakers) && cms.speakers.length > 0) {
+        const byId = {};
+        DATA.speakers.forEach(s => { byId[s.id] = s; });
+        DATA.speakers = cms.speakers.map(s => {
+          const orig = byId[s.id];
+          return Object.assign({}, s, { portrait: (orig && orig.portrait) ? orig.portrait : { pal: ["#BE110E","#FF8560","#080808","#FFFFFF"], rows: [] } });
+        });
+      }
+
+      if (Array.isArray(cms.faq) && cms.faq.length > 0) {
+        DATA.faq = cms.faq;
+      }
+
+      if (cms.copy && typeof cms.copy === "object") {
+        Object.keys(cms.copy).forEach(k => {
+          if (typeof cms.copy[k] === "string") DATA.copy[k] = cms.copy[k];
+        });
+      }
+
+      if (Array.isArray(cms.tracks) && cms.tracks.length > 0) {
+        const byId = {};
+        DATA.tracks.forEach(t => { byId[t.id] = t; });
+        DATA.tracks = cms.tracks.map(t => Object.assign({}, byId[t.id] || {}, t));
+      }
+
+      if (Array.isArray(cms.days) && cms.days.length > 0) {
+        DATA.days = cms.days;
+      }
+
+      if (Array.isArray(cms.rooms) && cms.rooms.length > 0) {
+        DATA.rooms = cms.rooms;
+      }
+
+      const main = document.getElementById("main");
+      if (currentRouteKey === "tickets") renderTickets(main);
+      else if (currentRouteKey === "home") renderHome(main);
+      else if (currentRouteKey === "schedule") renderSchedule(main);
+      else if (currentRouteKey === "speakers") renderSpeakers(main);
+      else if (currentRouteKey === "talks") renderTalks(main);
+      else if (currentRouteKey === "venue") renderVenue(main);
+      setupObservers();
     } catch (e) {
       // Offline or local fallback uses built-in DATA
     }

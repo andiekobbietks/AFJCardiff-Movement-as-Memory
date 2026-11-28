@@ -12,7 +12,7 @@
 
 ## What this repo is
 
-A single-page, zero-backend event site plus an on-the-door **QR ticket scanner** and a **Netlify CMS** for editing event/ticket data. It is a Vite MPA (multi-page app) built from the Google AI Studio template, shipped as one self-contained `index.html` (all CSS and JS inlined) with a Vite dev server and a static build output.
+A single-page, zero-backend event site plus an on-the-door **QR ticket scanner** and a **Sveltia CMS** (Decap-compatible) for editing event, programme, speakers, tickets and scanner data. It is a Vite MPA (multi-page app) built from the Google AI Studio template, shipped as one self-contained `index.html` (all CSS and JS inlined) with a Vite dev server and a static build output.
 
 ## Features
 
@@ -35,7 +35,7 @@ A single-page, zero-backend event site plus an on-the-door **QR ticket scanner**
 | Language | TypeScript (type-check only, `tsc --noEmit`) |
 | Runtime | Vanilla JS (no framework) in a single `index.html` |
 | QR decode | `jsqr` + native `BarcodeDetector` |
-| CMS | Netlify Decap CMS (`decap-cms@^3`), git-gateway backend |
+| CMS | Sveltia CMS (Decap-compatible, `@sveltia/cms`, GitHub backend) |
 | Fonts | Inter Tight (Google Fonts) |
 | Package manager | npm (bun.lock also present) |
 
@@ -518,19 +518,26 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 
 Scan results record to a per-device daily summary (unique tickets, by tier) and can be exported as CSV.
 
-## Content management (Netlify CMS)
+## Content management (Sveltia CMS, Decap-compatible)
 
-Admin UI at `/admin/` (Decap CMS, git-gateway backend on `main`).
+Admin UI at `/admin/` (Sveltia CMS — drop-in Decap replacement, GitHub backend, no Netlify Identity required).
 
 Editable via `public/admin/config.yml` → collection `afj_config` → file `public/data/cms-config.json`:
 
 - Event details (organiser, subtitle, date, doors, venue).
 - Ticket tiers (id, name, price, allocation, sold, left, includes, colour).
 - QR scanner (verify endpoint, Eventbrite organiser, accepted prefixes, registered passes with status).
+- Programme sessions (id, day, start, end, room, type, track, speakers, title, abstract).
+- Collective (speakers: id, name, role, org, city, track, bio). Portraits are matched by id from built-in pixel data.
+- FAQ (question/answer).
+- Copy (hero, about, schedule, speakers, talks, venue, badge, colophon, honesty, countdown).
+- Programme pillars (tracks), acts (days), venue rooms.
 
 Media uploads go to `public/assets/uploads`.
 
-> Note: `index.html` hardcodes the full event copy, schedule, speakers, FAQ, venue plan and capacity in its `DATA` object. The CMS hydrates only **tickets** and **scanner passes** at runtime (`loadCmsConfig`). Editing other content requires editing `index.html`.
+At runtime, `loadCmsConfig()` fetches `./data/cms-config.json` and hydrates DATA (tickets, scanner, sessions, speakers, faq, copy, tracks, days, rooms, event). If the fetch fails, built-in DATA is used. Re-renders the active route.
+
+> Sveltia auth: uses the configured backend. With `git-gateway` (default), needs Netlify Identity + Git Gateway on a Netlify deploy. With `github` backend, needs an OAuth proxy (or use `local_backend: true` for local editing via the Sveltia proxy server). See `public/admin/config.yml` for the commented `local_backend` line.
 
 ## Configuration
 

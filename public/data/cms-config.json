@@ -4,7 +4,7 @@
     "subtitle": "Movement as Memory — 5th Anniversary Premiere",
     "date": "2026-12-05",
     "doors": "16:45",
-    "venue": "Dance House | Tŷ Dawns, Wales Millennium Centre"
+    "venue": "Dance House | Tŷ Dawns | Wales Millennium Centre, Pierhead St"
   },
   "tickets": [
     {
@@ -63,5 +63,330 @@
         "status": "checked_in"
       }
     ]
-  }
+  },
+  "sessions": [
+    {
+      "id": "s01",
+      "day": "d1",
+      "start": "16:45",
+      "end": "17:30",
+      "room": "foyer",
+      "type": "Social",
+      "track": "fashion",
+      "speakers": [
+        "afj-cardiff",
+        "fashion-food"
+      ],
+      "title": "Doors Open · Food, Drinks & Arrivals",
+      "abstract": "Doors open at 16:45 inside Wales Millennium Centre's Dance House | Tŷ Dawns. Check in with your Eventbrite QR ticket, enjoy food & drinks, explore the 5th Anniversary visual wall, and settle in before the screening."
+    },
+    {
+      "id": "s02",
+      "day": "d1",
+      "start": "17:30",
+      "end": "17:45",
+      "room": "hall-a",
+      "type": "Opening",
+      "track": "live",
+      "speakers": [
+        "afj-cardiff"
+      ],
+      "title": "5th Anniversary Welcome: Impact Through Dance & Culture",
+      "abstract": "AFJ Cardiff opens the evening, reflecting on five years of community classes, showcases, and cultural work in Cardiff leading up to the documentary project."
+    },
+    {
+      "id": "s03",
+      "day": "d1",
+      "start": "17:45",
+      "end": "18:30",
+      "room": "hall-a",
+      "type": "Premiere",
+      "track": "film",
+      "speakers": [
+        "movement-film",
+        "afj-cardiff"
+      ],
+      "title": "'Movement as Memory' — Exclusive Documentary Premiere",
+      "abstract": "First public screening of AFJ Cardiff's original documentary on Afro dance beyond the trends—tracing roots, history, and cultural transmission across generations and communities."
+    },
+    {
+      "id": "s04",
+      "day": "d2",
+      "start": "18:30",
+      "end": "19:05",
+      "room": "hall-a",
+      "type": "Panel",
+      "track": "panel",
+      "speakers": [
+        "panel-voices",
+        "afj-cardiff"
+      ],
+      "title": "Panel Talk: Afro Dance Beyond the Trends",
+      "abstract": "A live conversation unpacking the film's central questions: how movement carries memory, why lineage and naming matter in viral dance culture, and what it takes to pass traditions forward."
+    },
+    {
+      "id": "s05",
+      "day": "d2",
+      "start": "19:05",
+      "end": "19:30",
+      "room": "foyer",
+      "type": "Social",
+      "track": "fashion",
+      "speakers": [
+        "fashion-food"
+      ],
+      "title": "Intermission · Food, Drinks & Community Exchange",
+      "abstract": "Step back into the foyer for refreshments, food & drinks, and conversation with fellow guests, dancers, filmmakers, and community partners."
+    },
+    {
+      "id": "s06",
+      "day": "d3",
+      "start": "19:30",
+      "end": "20:00",
+      "room": "hall-a",
+      "type": "Performance",
+      "track": "live",
+      "speakers": [
+        "live-showcase",
+        "afj-cardiff"
+      ],
+      "title": "Live Performances · 5th Anniversary Showcase",
+      "abstract": "Live Afro dance performances bringing the documentary's themes to life on the Dance House | Tŷ Dawns stage with rhythm, ensemble choreography, and celebration."
+    },
+    {
+      "id": "s07",
+      "day": "d3",
+      "start": "20:00",
+      "end": "20:20",
+      "room": "hall-a",
+      "type": "Fashion",
+      "track": "fashion",
+      "speakers": [
+        "fashion-food"
+      ],
+      "title": "Fashion Show · Heritage & Contemporary Silhouette",
+      "abstract": "A curated fashion show celebrating African and diaspora design, bold textile craft, and cultural expression on the runway."
+    },
+    {
+      "id": "s08",
+      "day": "d3",
+      "start": "20:20",
+      "end": "20:30",
+      "room": "hall-a",
+      "type": "Closing",
+      "track": "live",
+      "speakers": [
+        "afj-cardiff",
+        "live-showcase"
+      ],
+      "title": "Closing Circle & 5th Anniversary Finale",
+      "abstract": "Final reflections, acknowledgements to community partners, and an open celebratory close at 20:30."
+    }
+  ],
+  "speakers": [
+    {
+      "id": "afj-cardiff",
+      "name": "AFJ Cardiff",
+      "role": "5th Anniversary Host",
+      "org": "Impact Through Dance and Culture",
+      "city": "Cardiff",
+      "track": "live",
+      "bio": "Celebrating five years in Cardiff, AFJ Cardiff builds community through Afro dance workshops, storytelling, cultural exchange, and youth empowerment across Wales. 'Movement as Memory' marks a milestone archive of the movement and the people carrying it forward."
+    },
+    {
+      "id": "movement-film",
+      "name": "'Movement as Memory'",
+      "role": "Original Documentary",
+      "org": "Exclusive Premiere Screening",
+      "city": "Dance House",
+      "track": "film",
+      "bio": "An original documentary on Afro dance beyond the trends: examining roots, history, and cultural transmission across generations, studios, and diaspora communities. Premiering exclusively for AFJ Cardiff's 5th Anniversary."
+    },
+    {
+      "id": "panel-voices",
+      "name": "Panel Talk",
+      "role": "Roots, History & Transmission",
+      "org": "Community & Cultural Voices",
+      "city": "Wales Millennium Centre",
+      "track": "panel",
+      "bio": "Following the screening, a live panel talk unpacks the origins behind trending choreography, the responsibility of credit and lineage, and how Afro dance preserves living memory in Cardiff and beyond."
+    },
+    {
+      "id": "live-showcase",
+      "name": "Live Performances",
+      "role": "Afro Dance & Rhythm",
+      "org": "Tŷ Dawns Stage",
+      "city": "Cardiff",
+      "track": "live",
+      "bio": "High-energy live performances celebrating the breadth of Afro dance styles—connecting traditional rhythms, contemporary choreography, and the Cardiff dance community on the Dance House stage."
+    },
+    {
+      "id": "fashion-food",
+      "name": "Fashion & Hospitality",
+      "role": "Fashion Show · Food & Drinks",
+      "org": "Runway & Foyer Social",
+      "city": "Cardiff Bay",
+      "track": "fashion",
+      "bio": "An anniversary evening bringing textile heritage, bold contemporary runway silhouettes, and warm food & drinks together—turning the Dance House foyer and stage into a shared space of celebration."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How do I book official tickets?",
+      "a": "Tickets are hosted via Eventbrite (Organiser: AFJ Cardiff). Scan the QR code in the official poster section on this site, or use the interactive planner on this page to preview ticket tiers and reach the Eventbrite organiser listing."
+    },
+    {
+      "q": "What are the door and programme times?",
+      "a": "Doors open at 16:45 on Saturday 5th December. The main programme runs from 17:30 to 20:30 at Dance House | Tŷ Dawns, Wales Millennium Centre."
+    },
+    {
+      "q": "What does a ticket include?",
+      "a": "Both Early Bird (£15) and General Admission (£20) cover the exclusive premiere of 'Movement as Memory', the live panel talk, live performances, fashion show, and access to food & drinks."
+    },
+    {
+      "q": "Where is the venue located?",
+      "a": "Dance House | Tŷ Dawns is inside the Wales Millennium Centre, Pierhead St, Cardiff CF10 4PH (Cardiff Bay), easily reached via Cardiff Bay rail station or Cardiff Central."
+    },
+    {
+      "q": "Is the venue accessible?",
+      "a": "Yes. Wales Millennium Centre and Dance House | Tŷ Dawns offer step-free access, lifts to all levels, accessible seating, and a hearing loop."
+    },
+    {
+      "q": "Who do I contact for enquiries or group bookings?",
+      "a": "Email afjcardiff@gmail.com for press, community partnerships, accessibility requests, or general enquiries."
+    }
+  ],
+  "copy": {
+    "heroH1": "In celebration of its 5th Anniversary, AFJ Cardiff presents the exclusive premiere of 'Movement as Memory', an original documentary on Afro dance beyond the trends, Saturday 5 December from 17:30 to 20:30 at Dance House | Tŷ Dawns, Wales Millennium Centre, Cardiff.",
+    "aboutLead": "Five years of impact through dance and culture. 'Movement as Memory' is an original documentary on Afro dance beyond the trends: roots, history, and cultural transmission.",
+    "aboutP1": "Created in celebration of AFJ Cardiff's 5th Anniversary, the evening gathers dancers, storytellers, and community in the heart of Cardiff Bay for a premiere screening followed by an open panel talk on lineage and lived history.",
+    "aboutP2": "From 16:45 doors at Dance House | Tŷ Dawns inside Wales Millennium Centre, enjoy food & drinks, live dance performances, and a fashion show before closing at 20:30. Early Bird tickets are £15 and General Admission £20 via Eventbrite (AFJ Cardiff).",
+    "tracksLead": "Four pillars across one evening. Screening, dialogue, live stage, and runway.",
+    "daysLead": "One evening in three chapters: 16:45 arrivals & premiere, 18:30 panel & reception, 19:30 live stage & fashion show.",
+    "speakersLead": "The collective, documentary, panel, performers, and designers shaping the 5th anniversary night.",
+    "scheduleTitle": "Saturday 5 December · 16:45–20:30.",
+    "scheduleLead": "All times GMT at Dance House | Tŷ Dawns, Wales Millennium Centre. Build your evening plan or download the .ics calendar file.",
+    "speakersTitle": "Five pillars, one community.",
+    "talksTitle": "Evening programme, 16:45 to 20:30.",
+    "venueTitle": "Dance House | Tŷ Dawns",
+    "venueLead": "Wales Millennium Centre, Pierhead St, Cardiff CF10 4PH. Doors open 16:45 for the 17:30–20:30 anniversary programme.",
+    "venueGettingThere": "Located in Cardiff Bay directly opposite Cardiff Bay train station (4 minutes from Cardiff Queen Street) and served by Baycar buses from Cardiff Central. Nearby paid parking is available at Mermaid Quay and Pierhead Street.",
+    "badgeTitle": "Make an anniversary badge",
+    "badgeLead": "Draw a 16 × 16 movement emblem in the poster palette, add your name, and download your printable keepsake SVG.",
+    "colophon": "AFJ Cardiff — Impact Through Dance and Culture. 5th Anniversary Premiere of 'Movement as Memory' at Dance House | Tŷ Dawns, Wales Millennium Centre. Enquiries: afjcardiff@gmail.com.",
+    "honesty": "Eventbrite Organiser: AFJ Cardiff. Early Bird £15 · General Admission £20 · Sat 5th December · Doors Open 16:45 · Programme 17:30–20:30.",
+    "countdownOver": "Doors are open at Dance House | Tŷ Dawns — celebrate 5 years of AFJ Cardiff."
+  },
+  "tracks": [
+    {
+      "id": "film",
+      "label": "Documentary",
+      "desc": "Exclusive premiere of 'Movement as Memory': Afro dance roots, history & cultural transmission."
+    },
+    {
+      "id": "panel",
+      "label": "Panel Talk",
+      "desc": "Afro dance beyond the trends — conversation on heritage, community memory & transmission."
+    },
+    {
+      "id": "live",
+      "label": "Live Performances",
+      "desc": "Five years of impact through dance and culture — live choreography and rhythm on stage."
+    },
+    {
+      "id": "fashion",
+      "label": "Fashion & Food",
+      "desc": "Runway fashion show paired with food, drinks, and community gathering in the foyer."
+    }
+  ],
+  "days": [
+    {
+      "id": "d1",
+      "label": "Act 01 · Roots",
+      "shortLabel": "Act 01 · Film",
+      "fullLabel": "Saturday 5 December 2026 · Act 01: Arrivals & Screening",
+      "num": "01",
+      "theme": "Arrivals & Premiere",
+      "doors": "16:45"
+    },
+    {
+      "id": "d2",
+      "label": "Act 02 · History",
+      "shortLabel": "Act 02 · Panel",
+      "fullLabel": "Saturday 5 December 2026 · Act 02: Panel & Reception",
+      "num": "02",
+      "theme": "Panel & Gathering",
+      "doors": "18:30"
+    },
+    {
+      "id": "d3",
+      "label": "Act 03 · Transmission",
+      "shortLabel": "Act 03 · Stage",
+      "fullLabel": "Saturday 5 December 2026 · Act 03: Live Stage & Runway",
+      "num": "03",
+      "theme": "Stage & Runway",
+      "doors": "19:30"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "hall-a",
+      "name": "Dance House | Tŷ Dawns",
+      "nickname": "Main Studio",
+      "seats": "220",
+      "level": 0,
+      "features": [
+        "step-free entrance via WMC concourse",
+        "cinema screening & live stage",
+        "hearing loop & accessible seating"
+      ]
+    },
+    {
+      "id": "foyer",
+      "name": "WMC Foyer & Reception",
+      "nickname": "Food & Drinks",
+      "seats": "Standing",
+      "level": 0,
+      "features": [
+        "doors open 16:45",
+        "food & drinks service",
+        "programme & poster showcase"
+      ]
+    },
+    {
+      "id": "studio-b",
+      "name": "Runway & Green Room",
+      "nickname": "Fashion & Cast",
+      "seats": "Backstage",
+      "level": 0,
+      "features": [
+        "live performers prep",
+        "fashion show staging",
+        "step-free"
+      ]
+    },
+    {
+      "id": "quiet",
+      "name": "Quiet Lounge",
+      "nickname": "Rest Space",
+      "seats": "12",
+      "level": 1,
+      "features": [
+        "low sensory lighting",
+        "no loud audio",
+        "lift access"
+      ]
+    },
+    {
+      "id": "cloak",
+      "name": "Eventbrite Check-In",
+      "nickname": "Box Office & Cloakroom",
+      "seats": "—",
+      "level": 0,
+      "features": [
+        "QR ticket scan from 16:45",
+        "free cloakroom"
+      ]
+    }
+  ]
 }

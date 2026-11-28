@@ -1,3 +1,5 @@
+# local_backend: true   # Enable for local editing via: npx @sveltia/cms-proxy-server (Sveltia) or decap-server (Decap)
+
 backend:
   name: git-gateway
   branch: main
@@ -12,10 +14,10 @@ public_folder: "/assets/uploads"
 
 collections:
   - name: "afj_config"
-    label: "AFJ Cardiff Event & Tickets"
+    label: "AFJ Cardiff Event, Content & Tickets"
     files:
       - name: "cms_config"
-        label: "Tickets, QR Scanner & Pass Registry"
+        label: "Event, Programme, Speakers, Tickets & QR Scanner"
         file: "public/data/cms-config.json"
         fields:
           - label: "Event Details"
@@ -27,6 +29,7 @@ collections:
               - { label: "Event Date (YYYY-MM-DD)", name: "date", widget: "string", default: "2026-12-05" }
               - { label: "Doors Open (HH:MM)", name: "doors", widget: "string", default: "16:45" }
               - { label: "Venue", name: "venue", widget: "string", default: "Dance House | Tŷ Dawns, Wales Millennium Centre" }
+
           - label: "Ticket Tiers"
             name: "tickets"
             widget: "list"
@@ -39,6 +42,7 @@ collections:
               - { label: "Remaining Count", name: "left", widget: "number", value_type: "int" }
               - { label: "Includes Description", name: "includes", widget: "text" }
               - { label: "Swatch Hex", name: "color", widget: "string", default: "#F6E01E" }
+
           - label: "QR Scanner & Verification"
             name: "scanner"
             widget: "object"
@@ -57,3 +61,98 @@ collections:
                   - { label: "Guest Name", name: "holder", widget: "string" }
                   - { label: "Ticket Tier", name: "tier", widget: "string" }
                   - { label: "Initial Status", name: "status", widget: "select", options: ["valid", "checked_in", "revoked"], default: "valid" }
+
+          - label: "Programme (Sessions)"
+            name: "sessions"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Day/Act", name: "day", widget: "select", options: ["d1", "d2", "d3"] }
+              - { label: "Start (HH:MM)", name: "start", widget: "string" }
+              - { label: "End (HH:MM)", name: "end", widget: "string" }
+              - { label: "Room", name: "room", widget: "string" }
+              - { label: "Type", name: "type", widget: "string" }
+              - { label: "Track", name: "track", widget: "string" }
+              - label: "Speakers (IDs)"
+                name: "speakers"
+                widget: "list"
+                field: { label: "Speaker ID", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Abstract", name: "abstract", widget: "text" }
+
+          - label: "Collective (Speakers)"
+            name: "speakers"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Organisation", name: "org", widget: "string" }
+              - { label: "City", name: "city", widget: "string" }
+              - { label: "Track", name: "track", widget: "string" }
+              - { label: "Bio", name: "bio", widget: "text" }
+
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "q", widget: "string" }
+              - { label: "Answer", name: "a", widget: "text" }
+
+          - label: "Copy (Key Text)"
+            name: "copy"
+            widget: "object"
+            fields:
+              - { label: "Hero H1", name: "heroH1", widget: "text" }
+              - { label: "About Lead", name: "aboutLead", widget: "text" }
+              - { label: "About Paragraph 1", name: "aboutP1", widget: "text" }
+              - { label: "About Paragraph 2", name: "aboutP2", widget: "text" }
+              - { label: "Tracks Lead", name: "tracksLead", widget: "text" }
+              - { label: "Days Lead", name: "daysLead", widget: "text" }
+              - { label: "Speakers Lead", name: "speakersLead", widget: "text" }
+              - { label: "Schedule Title", name: "scheduleTitle", widget: "string" }
+              - { label: "Schedule Lead", name: "scheduleLead", widget: "text" }
+              - { label: "Speakers Title", name: "speakersTitle", widget: "string" }
+              - { label: "Talks Title", name: "talksTitle", widget: "string" }
+              - { label: "Venue Title", name: "venueTitle", widget: "string" }
+              - { label: "Venue Lead", name: "venueLead", widget: "text" }
+              - { label: "Venue Getting There", name: "venueGettingThere", widget: "text" }
+              - { label: "Badge Title", name: "badgeTitle", widget: "string" }
+              - { label: "Badge Lead", name: "badgeLead", widget: "text" }
+              - { label: "Colophon", name: "colophon", widget: "text" }
+              - { label: "Honesty Line", name: "honesty", widget: "text" }
+              - { label: "Countdown Over", name: "countdownOver", widget: "text" }
+
+          - label: "Programme Pillars (Tracks)"
+            name: "tracks"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+
+          - label: "Acts (Days)"
+            name: "days"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Short Label", name: "shortLabel", widget: "string" }
+              - { label: "Full Label", name: "fullLabel", widget: "string" }
+              - { label: "Number", name: "num", widget: "string" }
+              - { label: "Theme", name: "theme", widget: "string" }
+              - { label: "Doors", name: "doors", widget: "string" }
+
+          - label: "Venue Rooms"
+            name: "rooms"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Nickname", name: "nickname", widget: "string" }
+              - { label: "Seats", name: "seats", widget: "string" }
+              - { label: "Level", name: "level", widget: "number", value_type: "int" }
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                field: { label: "Feature", name: "feature", widget: "string" }
