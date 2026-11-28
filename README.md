@@ -531,7 +531,7 @@ Editable via `public/admin/config.yml` → collection `afj_config` → file `pub
 - Collective (speakers: id, name, role, org, city, track, bio). Portraits are matched by id from built-in pixel data.
 - FAQ (question/answer).
 - Copy (hero, about, schedule, speakers, talks, venue, badge, colophon, honesty, countdown).
-- Programme pillars (tracks), acts (days), venue rooms.
+- Navigation links (reorder / hide) and Home section order (reorder / hide) and feature toggles (badge maker, QR scanner, reminders, agenda, capacity grid, poster wall, countdown).
 
 Media uploads go to `public/assets/uploads`.
 

@@ -3155,6 +3155,16 @@ const DATA = {
     { label: "Tickets", href: "#/tickets" },
     { label: "Badge", href: "#/badge" }
   ],
+  homeSections: ["hero", "about", "numbers", "tracks", "days", "speakers-preview", "poster", "passes"],
+  features: {
+    showBadgeMaker: true,
+    showQrScanner: true,
+    showReminders: true,
+    showAgenda: true,
+    showCapacityGrid: true,
+    showPosterWall: true,
+    showCountdown: true
+  },
   glyphs: {
     "0": [".#####.","#.....#","#....##","#...#.#","#..#..#","#.#...#","##....#","#.....#",".#####."],
     "1": ["...#...","..##...",".#.#...","...#...","...#...","...#...","...#...","...#...",".#####."],
@@ -4340,7 +4350,9 @@ const APP = (() => {
       if (cms.scanner && typeof cms.scanner === "object") {
         if (typeof cms.scanner.verifyEndpoint === "string") DATA.cms.verifyEndpoint = cms.scanner.verifyEndpoint;
         if (typeof cms.scanner.eventbriteOrg === "string") DATA.cms.eventbriteOrg = cms.scanner.eventbriteOrg;
-        if (Array.isArray(cms.scanner.acceptedPrefixes)) DATA.cms.acceptedPrefixes = cms.scanner.acceptedPrefixes;
+        if (Array.isArray(cms.scanner.acceptedPrefixes)) {
+          DATA.cms.acceptedPrefixes = cms.scanner.acceptedPrefixes.map(x => (typeof x === "string" ? x : (x && (x.prefix || x.value || "")))).filter(Boolean);
+        }
         if (Array.isArray(cms.scanner.passes)) DATA.cms.passes = cms.scanner.passes;
       }
 
@@ -4385,6 +4397,18 @@ const APP = (() => {
 
       if (Array.isArray(cms.rooms) && cms.rooms.length > 0) {
         DATA.rooms = cms.rooms;
+      }
+
+      if (Array.isArray(cms.nav) && cms.nav.length > 0) {
+        DATA.nav = cms.nav;
+      }
+
+      if (Array.isArray(cms.homeSections) && cms.homeSections.length > 0) {
+        DATA.homeSections = cms.homeSections.map(x => (typeof x === "string" ? x : (x && (x.section || x.id || "")))).filter(Boolean);
+      }
+
+      if (cms.features && typeof cms.features === "object") {
+        DATA.features = Object.assign({}, DATA.features || {}, cms.features);
       }
 
       const main = document.getElementById("main");
@@ -5258,6 +5282,34 @@ const APP = (() => {
     initSpeakersPreview();
     initPosterWall();
     buildCapacityGrid(document.getElementById("home-capacity-wrap"), {});
+
+    // Apply CMS-driven layout: reorder / hide home sections + feature toggles.
+    (function applyHomeLayout() {
+      const f = DATA.features || {};
+      const featureMap = {
+        "numbers": f.showCountdown !== false,
+        "poster": f.showPosterWall !== false,
+        "passes": f.showCapacityGrid !== false
+      };
+      const order = (DATA.homeSections && DATA.homeSections.length) ? DATA.homeSections : ["hero","about","numbers","tracks","days","speakers-preview","poster","passes"];
+      const allSections = Array.from(main.querySelectorAll(":scope > section"));
+      // Hide sections not in order or disabled by feature toggle.
+      allSections.forEach(sec => {
+        const id = sec.id;
+        const enabled = order.indexOf(id) !== -1 && (featureMap[id] !== false);
+        sec.style.display = enabled ? "" : "none";
+      });
+      // Reorder: move enabled sections to the end in the configured order.
+      order.forEach(id => {
+        const sec = main.querySelector(":scope > section#" + id);
+        if (sec && sec.style.display !== "none") {
+          main.appendChild(sec);
+        }
+      });
+      // Also toggle feature-gated non-section blocks.
+      const badgeLink = document.querySelector('a[href="#/badge"]');
+      if (badgeLink && f.showBadgeMaker === false) badgeLink.style.display = "none";
+    })();
 
     const splitWrap = main.querySelector(".hero-split-wrap");
     const fitHeroSplitLines = () => {
@@ -9198,6 +9250,30 @@ const APP = (() => {
     });
   }
 
+  function applyFeatureToggles() {
+    const f = (DATA.features) || {};
+    const hide = (sel) => { document.querySelectorAll(sel).forEach(el => { el.style.display = "none"; }); };
+    const show = (sel) => { document.querySelectorAll(sel).forEach(el => { el.style.display = ""; }); };
+    if (f.showQrScanner === false) hide("#open-qr-scanner-btn");
+    else show("#open-qr-scanner-btn");
+    if (f.showAgenda === false) { hide("#sched-agenda-btn"); hide("[data-ag]"); }
+    else { show("#sched-agenda-btn"); show("[data-ag]"); }
+    if (f.showReminders === false) hide("#sched-reminders-toggle");
+    else show("#sched-reminders-toggle");
+    if (f.showBadgeMaker === false) hide('a[href="#/badge"]');
+    else show('a[href="#/badge"]');
+    if (f.showCapacityGrid === false) { hide("#home-capacity-wrap"); hide("#tickets-capacity-wrap"); }
+    else { show("#home-capacity-wrap"); show("#tickets-capacity-wrap"); }
+    if (f.showPosterWall === false) {
+      const pw = document.getElementById("poster-wall");
+      if (pw && pw.closest("figure")) pw.closest("figure").style.display = "none";
+    }
+    if (f.showCountdown === false) {
+      const cw = document.getElementById("countdown-wrap");
+      if (cw && cw.closest(".countdown-block")) cw.closest(".countdown-block").style.display = "none";
+    }
+  }
+
   function mountRoute(route, skipWipe) {
     const main = document.getElementById("main");
     const doSwap = () => {
@@ -9219,6 +9295,7 @@ const APP = (() => {
 
       updateActiveNav(route);
       setupObservers();
+      applyFeatureToggles();
 
       if (state.scrollAfterRoute) {
         const target = document.getElementById(state.scrollAfterRoute);
@@ -9238,11 +9315,11 @@ const APP = (() => {
     else playWipe(doSwap);
   }
 
-  function init() {
+  async function init() {
+    await loadCmsConfig();
     initChrome();
     initTrail();
     initReminderEngine();
-    loadCmsConfig();
     const initial = parseRoute(window.location.hash);
     currentRouteKey = initial.key;
     mountRoute(initial, true);

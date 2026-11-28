@@ -388,5 +388,50 @@
         "free cloakroom"
       ]
     }
-  ]
+  ],
+  "nav": [
+    {
+      "label": "Schedule",
+      "href": "#/schedule"
+    },
+    {
+      "label": "Collective",
+      "href": "#/speakers"
+    },
+    {
+      "label": "Programme",
+      "href": "#/talks"
+    },
+    {
+      "label": "Venue",
+      "href": "#/venue"
+    },
+    {
+      "label": "Tickets",
+      "href": "#/tickets"
+    },
+    {
+      "label": "Badge",
+      "href": "#/badge"
+    }
+  ],
+  "homeSections": [
+    "hero",
+    "about",
+    "numbers",
+    "tracks",
+    "days",
+    "speakers-preview",
+    "poster",
+    "passes"
+  ],
+  "features": {
+    "showBadgeMaker": true,
+    "showQrScanner": true,
+    "showReminders": true,
+    "showAgenda": true,
+    "showCapacityGrid": true,
+    "showPosterWall": true,
+    "showCountdown": true
+  }
 }

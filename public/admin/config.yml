@@ -156,3 +156,27 @@ collections:
                 name: "features"
                 widget: "list"
                 field: { label: "Feature", name: "feature", widget: "string" }
+
+          - label: "Navigation (reorder / hide links)"
+            name: "nav"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+
+          - label: "Home Sections (reorder / hide)"
+            name: "homeSections"
+            widget: "list"
+            field: { label: "Section ID", name: "section", widget: "string", hint: "hero, about, numbers, tracks, days, speakers-preview, poster, passes" }
+
+          - label: "Feature Toggles (show / hide)"
+            name: "features"
+            widget: "object"
+            fields:
+              - { label: "Show Badge Maker", name: "showBadgeMaker", widget: "boolean", default: true }
+              - { label: "Show QR Scanner", name: "showQrScanner", widget: "boolean", default: true }
+              - { label: "Show Reminders", name: "showReminders", widget: "boolean", default: true }
+              - { label: "Show Agenda", name: "showAgenda", widget: "boolean", default: true }
+              - { label: "Show Capacity Grid", name: "showCapacityGrid", widget: "boolean", default: true }
+              - { label: "Show Poster Wall", name: "showPosterWall", widget: "boolean", default: true }
+              - { label: "Show Countdown", name: "showCountdown", widget: "boolean", default: true }
