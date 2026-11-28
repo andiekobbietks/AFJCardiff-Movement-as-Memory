@@ -77,7 +77,8 @@ npm run lint         # tsc --noEmit
 │       └── cms-config.json # Runtime-hydrated tickets + scanner pass registry
 └── docs/
     ├── screenshots/       # User-journey screenshots (this README)
-    └── videos/            # Interaction-pattern WebMs (this README)
+    ├── videos/            # Interaction-pattern WebMs (this README)
+    └── audio/             # TTS narration MP3s (edge-tts, en-GB Sonia)
 ```
 
 ## Routes
@@ -191,6 +192,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 <summary><strong>Hero canvas — cycle glyphs on click</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/hero-cycle.webm" controls width="100%"></video>
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/hero-cycle.mp3" controls></audio>
 
 **Goal:** Cycle the hero particle canvas through its three glyphs.
 **Preconditions:** Home route loaded, motion on.
@@ -396,6 +399,8 @@ Short WebM captures of every key interaction, recorded from the dev build with a
 <summary><strong>QR scanner — manual code verification</strong></summary>
 
 <video src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/videos/qr-scanner-manual.webm" controls width="100%"></video>
+
+**Narration (TTS, en-GB Sonia):** <audio src="https://raw.githubusercontent.com/andiekobbietks/AFJCardiff-Movement-as-Memory/main/docs/audio/qr-scanner-manual.mp3" controls></audio>
 
 **Goal:** Verify a ticket code manually.
 **Preconditions:** Scanner dialog open, Manual tab active.
