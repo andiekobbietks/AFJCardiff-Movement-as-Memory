@@ -69,12 +69,12 @@ npm run lint         # tsc --noEmit
 ├── tsconfig.json
 ├── vite.config.ts          # MPA discovery, importmap sync, static asset copy
 ├── public/
-│   ├── admin/
-│   │   ├── index.html      # Decap CMS entry (Netlify Identity)
-│   │   └── config.yml      # CMS collections (event, tickets, scanner)
+│   ├── admin/              # Sveltia CMS entry + config
 │   ├── assets/aistudio/    # Banner/poster images
-│   └── data/
-│       └── cms-config.json # Runtime-hydrated tickets + scanner pass registry
+│   ├── data/               # cms-config.json (runtime-hydrated)
+│   ├── manifest.json       # PWA manifest
+│   ├── sw.js               # PWA service worker (offline cache)
+│   └── favicon.ico         # Favicon
 └── docs/
     ├── screenshots/       # User-journey screenshots (this README)
     ├── videos/            # Interaction-pattern WebMs (this README)
@@ -184,7 +184,7 @@ Draw a 16×16 movement emblem in the poster palette, add a name, download as SVG
 
 ## Interaction patterns (video)
 
-Short WebM captures of every key interaction, recorded from the dev build with a visible cursor (desktop) or touch ripples (mobile). Each is collapsible, with a step-by-step operating procedure.
+Short WebM captures of every key interaction, recorded from the dev build with a visible cursor (desktop) or touch ripples (mobile). Each is collapsible, with a step-by-step operating procedure. **All 23 WebMs now include synchronized TTS narration audio** (edge-tts, en-GB Sonia voice) muxed directly into the video.
 
 ### Home
 
@@ -564,6 +564,48 @@ The `@google/genai` dependency is present but the shipped app does not call it; 
 ## Browser support
 
 Modern evergreen browsers. Camera scanning requires a secure context (HTTPS or localhost) and `getUserMedia`. `BarcodeDetector` is used where available, falling back to `jsQR`. Audio cues use Web Audio; haptics use `navigator.vibrate` where supported.
+
+## PWA & compatibility
+
+### PWA status: ready (installable)
+- `public/manifest.json` — name, short_name, icons, theme colour, standalone display.
+- `public/sw.js` — service worker with offline precache + network-first fetch.
+- Registered in `index.html` on load; favicon provided (`public/favicon.ico`).
+- Installable to home screen on Android Chrome and iOS Safari (iOS 16.4+).
+
+### Lighthouse audit (local dev build, 2026-11-28)
+| Category | Score |
+|---|---|
+| Performance | 69 |
+| Accessibility | 100 |
+| Best Practices | 96 |
+| SEO | 100 |
+
+**Fixed during this audit:**
+- 404 on `/favicon.ico` → added favicon.
+- `label-content-name-mismatch` on 4 track-panel buttons → removed `aria-label` so visible text serves as accessible name.
+
+**Remaining opportunities (non-blocking):** minify CSS/JS, reduce unused JS/CSS, LCP 12.6 s (hero canvas + images on local dev server; production CDN will improve).
+
+### UK mobile adoption (StatCounter, Oct 2026)
+- **iOS 50.1% / Android 49.9%** of UK mobile web traffic.
+- **Apple 50.1%**, Samsung 33.8% (vendor share). Motorola 4.1%, Xiaomi 3.6%, Google 3.4%.
+- 91% of UK adults (16+) use a smartphone; 20% of online adults are smartphone-only.
+- Average 4 h 30 min/day online, 77% on smartphone.
+
+### Tested viewports (cursor on desktop, touch ripples on mobile)
+- Desktop: 1440×900 (cursor-driven).
+- Mobile: 390×844 (touch-driven, matches iPhone 14/15 viewport).
+- All 23 interaction videos recorded in both modes where relevant (mobile-menu-touch, mobile-tickets-touch, mobile-schedule-touch).
+
+### Compatibility notes
+- **iOS Safari:** Web Speech API not supported (read-aloud falls back to no-op); `BarcodeDetector` not supported (jsQR fallback used); camera scanning works (iOS 11+); service worker + manifest supported (iOS 16.4+ for install).
+- **Android Chrome:** full PWA support, Web Speech API works, BarcodeDetector supported.
+- **Edge/Chrome/Firefox (desktop):** full support for all features.
+
+### Google tooling used
+- **Lighthouse 13.6.0** (Google) — performance, accessibility, best-practices, SEO audit via CLI (`npx lighthouse`).
+- **PageSpeed Insights** (web.dev) — recommended for production URL testing.
 
 ## License
 

@@ -8,6 +8,11 @@
 <meta property="og:title" content="AFJ Cardiff — 'Movement as Memory' · 5th Anniversary Premiere">
 <meta property="og:description" content="Saturday 5 December, 17:30–20:30 (Doors 16:45) at Dance House | Tŷ Dawns, Wales Millennium Centre, Cardiff. Early Bird £15, General Admission £20.">
 <meta name="theme-color" content="#080808">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" type="image/png" href="/assets/aistudio/image_ac566be1.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AFJ Cardiff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -5868,7 +5873,7 @@ const APP = (() => {
       const style = PANEL_STYLES[t.id];
       return `
         <div class="track-fig">
-          <button type="button" class="track-panel-btn" data-track="${esc(t.id)}" style="--track-band:${style.band};--track-fg:${style.fg}" aria-label="${esc(aria)}">
+          <button type="button" class="track-panel-btn" data-track="${esc(t.id)}" style="--track-band:${style.band};--track-fg:${style.fg}">
             <svg class="track-panel-svg" viewBox="0 0 80 72" shape-rendering="crispEdges" aria-hidden="true"></svg>
             <div class="track-card-body">
               <div>
@@ -9318,6 +9323,13 @@ const APP = (() => {
       currentRouteKey = next.key;
       mountRoute(next, false);
     });
+
+    // Register PWA service worker.
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js").catch(() => {});
+      });
+    }
   }
 
   return { init };

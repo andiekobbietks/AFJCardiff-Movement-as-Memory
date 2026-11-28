@@ -1,0 +1,16 @@
+{
+  "name": "AFJ Cardiff — Movement as Memory",
+  "short_name": "AFJ Cardiff",
+  "description": "5th Anniversary premiere of 'Movement as Memory', an original documentary on Afro dance beyond the trends.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/assets/aistudio/image_ac566be1.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/assets/aistudio/image_ac566be1.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["events", "education", "lifestyle"],
+  "lang": "en-GB"
+}
